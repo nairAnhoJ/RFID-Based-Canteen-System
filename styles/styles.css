@@ -7,6 +7,7 @@
 body {
   background-color: #192037;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -40,7 +41,7 @@ body form span .dte {
 
 body form #inputSubmit {
   position: absolute;
-  left: 300px;
+  left: -300px;
 }
 
 body .grid-container {
@@ -86,7 +87,6 @@ body .grid-container .item1 h2 {
   color: #e63232;
   padding-top: 5%;
   font-size: 2em;
-  visibility: hidden;
 }
 
 body .grid-container .item1 .anim {
@@ -108,18 +108,18 @@ body .grid-container .item2 #rTrans {
   font-size: 1.5em;
   padding-top: 30px;
   padding-bottom: 25px;
-  color: #e6e8f2;
+  color: #0c1224;
 }
 
 body .grid-container .item2 table {
   width: 100%;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: #e6e8f2;
 }
 
 body .grid-container .item2 table tr td {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 body .grid-container .item3 {
@@ -203,6 +203,39 @@ body .grid-container .item3 .chart .data {
   font-size: 1.3vw;
   font-weight: bold;
   margin-top: 1vh;
+}
+
+body .exportTitle {
+  color: white;
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+
+body .export-container form {
+  height: 35px;
+  margin-top: 20px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #e6e8f2;
+}
+
+body .export-container form span {
+  display: inline;
+  margin: 0 20px;
+}
+
+body .export-container form input {
+  width: 180px;
+}
+
+body .export-container form #btnExport {
+  width: 500px;
+  height: 35px;
+  display: block;
+  margin: 10px auto;
 }
 
 @-webkit-keyframes fcolor {
