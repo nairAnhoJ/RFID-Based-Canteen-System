@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Verdana';
+}
+
+body {
+  background-color: #192037;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body #head {
+  color: #e6e8f2;
+  text-align: center;
+  font-size: 10vh;
+  padding: 0.5%;
+}
+
+body form span {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+}
+
+body form span #tapInput {
+  width: 15%;
+  font-size: 3vh;
+  margin-left: 2.5vw;
+  margin-bottom: 1.5vh;
+}
+
+body form span .dte {
+  display: inline;
+  float: right;
+  margin-right: 2vw;
+  font-size: 3.5vh;
+  color: #e6e8f2;
+}
+
+body form #inputSubmit {
+  position: absolute;
+  left: 300px;
+}
+
+body .grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 34% 34% 30%;
+      grid-template-columns: 34% 34% 30%;
+  -ms-grid-rows: 15% 15% 18% 20% 20%;
+      grid-template-rows: 15% 15% 18% 20% 20%;
+  min-height: 78.5vh;
+  max-height: 90vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  gap: 15px;
+  padding: 0 1% 1% 1%;
+}
+
+body .grid-container .grid-item {
+  background-color: #344272;
+  border-radius: 20px;
+  height: 100%;
+}
+
+body .grid-container .item1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1 / span 3;
+  text-align: center;
+}
+
+body .grid-container .item1 h1 {
+  color: #e6e8f2;
+  padding-top: 6%;
+  font-size: 2.5em;
+}
+
+body .grid-container .item1 h2 {
+  color: #e63232;
+  padding-top: 5%;
+  font-size: 2em;
+  visibility: hidden;
+}
+
+body .grid-container .item1 .anim {
+  -webkit-animation: fcolor infinite 1300ms;
+          animation: fcolor infinite 1300ms;
+}
+
+body .grid-container .item2 {
+  -ms-grid-column: 3;
+  grid-column: 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  grid-row: 1 / span 5;
+  text-align: center;
+  overflow: hidden;
+}
+
+body .grid-container .item2 #rTrans {
+  font-size: 1.5em;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  color: #e6e8f2;
+}
+
+body .grid-container .item2 table {
+  width: 100%;
+  font-size: 1.3em;
+  color: #e6e8f2;
+}
+
+body .grid-container .item2 table tr td {
+  text-align: center;
+  padding: 20px;
+}
+
+body .grid-container .item3 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  grid-row: 4 / span 2;
+}
+
+body .grid-container .item3 .empTable {
+  width: 90%;
+  margin: 1% auto 0 auto;
+}
+
+body .grid-container .item3 .empTable th {
+  width: 25%;
+  color: white;
+  font-weight: 500;
+}
+
+body .grid-container .item3 .chart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 90%;
+}
+
+body .grid-container .item3 .chart #effect-example-2 {
+  height: 60%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+body .grid-container .item3 .chart #effect-example-2 tbody td {
+  -webkit-margin-start: 10px;
+          margin-inline-start: 10px;
+  -webkit-margin-end: 20px;
+          margin-inline-end: 20px;
+}
+
+body .grid-container .item3 .chart #effect-example-2 tbody td:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 100%;
+  height: 10px;
+  -webkit-transform: skewX(-45deg);
+          transform: skewX(-45deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background-color: lightgrey;
+}
+
+body .grid-container .item3 .chart #effect-example-2 tbody td:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+  -webkit-transform: skewY(-45deg);
+          transform: skewY(-45deg);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background-color: lightgrey;
+}
+
+body .grid-container .item3 .chart .data {
+  color: black;
+  font-size: 1.3vw;
+  font-weight: bold;
+  margin-top: 1vh;
+}
+
+@-webkit-keyframes fcolor {
+  0% {
+    color: #e23131;
+  }
+  50% {
+    color: #ff0000;
+  }
+  100% {
+    color: #e23131;
+  }
+}
+
+@keyframes fcolor {
+  0% {
+    color: #e23131;
+  }
+  50% {
+    color: #ff0000;
+  }
+  100% {
+    color: #e23131;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
