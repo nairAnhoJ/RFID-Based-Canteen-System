@@ -18,10 +18,10 @@
     <div class="export-container">
         <form method="POST">
             <span>
-                From: <input type="date" name="dateFrom" id="dateFrom" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClick()" value="<?php echo date('Y-m-d'); ?>"/> 
+                From: <input type="date" name="dateFrom" id="dateFrom" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClickF()" value="<?php echo date('Y-m-d'); ?>"/> 
             </span>
             <span>
-                To: <input type="date" name="dateTo" id="dateTo" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClick()" value="<?php echo date('Y-m-d'); ?>"/>
+                To: <input type="date" name="dateTo" id="dateTo" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClickT()" value="<?php echo date('Y-m-d'); ?>"/>
             </span>
             <div id="btnEx" class="buttonBox">
                 <input type="submit" value="EXPORT" id="btnExport">
@@ -35,33 +35,44 @@
 
         <?php
             if(isset($_POST['searchDate'])){
-                
+                $queryTable = ""
             }
         ?>
 
         <div class="exportTable">
-            <h1 id="test"></h1>
+            <h1 id="fdate"></h1>
+            <h1 id="tdate"></h1>
         </div>
     </div>
 
     <script>
-        function btnClick() {
+        function btnClickF() {
 
             var fdate = document.getElementById("dateFrom").value;
             var tdate = document.getElementById("dateTo").value;
-            
-            var sfdate = fdate.split("-");
-            var stdate = tdate.split("-");
 
-            var nfdate
+            var ftime = new Date(fdate).getTime();
+            var ttime = new Date(tdate).getTime();
 
-            // var ftime = fdate.getTime();
-            // var ttime = tdate.getMilliseconds();
+            if(ftime > ttime){
+                document.getElementById("dateFrom").value = tdate;
+            }
 
-            document.getElementById("dateFrom").value = "2022-03-24";
+            // document.getElementById("searchDate").click();
+        }
 
-            
-            document.getElementById("test").innerHTML = stdate[2];
+        function btnClickT() {
+
+            var fdate = document.getElementById("dateFrom").value;
+            var tdate = document.getElementById("dateTo").value;
+
+            var ftime = new Date(fdate).getTime();
+            var ttime = new Date(tdate).getTime();
+
+            if(ttime < ftime){
+                document.getElementById("dateTo").value = fdate;
+            }
+
             // document.getElementById("searchDate").click();
         }
     </script>
