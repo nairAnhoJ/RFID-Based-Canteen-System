@@ -35,7 +35,7 @@
 
         <?php
             if(isset($_POST['searchDate'])){
-                $queryTable = ""
+                $queryTable = "SELECT * "
             }
         ?>
 
