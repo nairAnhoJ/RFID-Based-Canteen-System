@@ -197,7 +197,7 @@ body{
             margin-top: 20px;
             text-align: center;
             align-items: center;
-            color: #e6e8f2;
+            color: black;
 
             span{
                 display: inline;
@@ -207,18 +207,100 @@ body{
             input{
                 width: 180px;
             }
+            
 
-            #btnExport{
-                width: 500px;
-                height: 35px;
-                display: block;
-                margin: 10px auto;
+            .buttonBox{
+                margin: auto;
+                position:relative;
+                max-width: 500px;
+                min-width: 150px;
+                flex: 20%;
+                box-sizing: border-box;
+
+                #btnExport{
+                    width:500px;
+                    height:35px;
+                    position:relative;
+                    background: rgba(255, 255, 255, .27);
+                    text-transform:uppercase;
+                    color:white;
+                    font-weight:700;
+                    letter-spacing:5px;
+                    border:none;
+                    font-size:15px;
+                    outline:none;
+                    margin-top: 10px;
+                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                    cursor: pointer;
+                }
+
+                .border{
+                    position:absolute;
+                    background:none;
+                    transition:all .5s ease-in-out;
+                }
+
+                .border:nth-of-type(1){
+                    top: 10px;;
+                    left:0;
+                    width:0;
+                    height:0;
+                    border-top:2px solid #fff;
+                }
+
+                .border:nth-of-type(2){
+                    top:10px;
+                    left:500px;
+                    width:0px;
+                    height:0;
+                    border-right:2px solid #fff;
+                }
+
+                .border:nth-of-type(3){
+                bottom:0;
+                right: 0px;
+                width:0;
+                height:0;
+                border-bottom:2px solid #fff;
+                }
+
+                .border:nth-of-type(4){
+                bottom: 0;
+                left:0px;
+                width:0;
+                height:0;
+                border-left:2px solid #fff;
+                }
+
+                &:hover{
+                    .border:nth-of-type(1){
+                        width:500px;
+                    }
+
+                    .border:nth-of-type(2){
+                        height:35px;
+                    }
+
+                    .border:nth-of-type(3){
+                    width:500px;
+                    }
+
+                    .border:nth-of-type(4){
+                    height:35px;
+                    }
+                }
+            }
+
+            #searchDate{
+                position: absolute;
+                left: -200px;
             }
         }
     }
+}
 
-
-
+#exportBody{
+    background-color: #ff4545;
 }
 
 @keyframes fcolor{
