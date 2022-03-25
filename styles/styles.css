@@ -209,7 +209,13 @@ body .exportTitle {
   color: white;
   text-align: center;
   font-size: 2.5em;
-  margin-top: 10px;
+  padding-top: 20px;
+}
+
+body .export-container {
+  padding-top: 10px;
+  background-color: #344272;
+  height: 85%;
 }
 
 body .export-container form {
@@ -315,9 +321,31 @@ body .export-container form .buttonBox:hover .border:nth-of-type(4) {
   height: 35px;
 }
 
-body .export-container form #searchDate {
+body .export-container #exportBtn {
   position: absolute;
-  left: -200px;
+  top: 91%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+body .export-container .exportTable {
+  position: relative;
+  top: 50px;
+  width: 80%;
+  height: 87%;
+  margin: auto;
+  background-color: #757c91;
+  overflow: auto;
+}
+
+body .export-container .exportTable table {
+  margin: auto;
+}
+
+body .export-container #errorMsg {
+  padding-top: 50px;
+  text-align: center;
 }
 
 #exportBody {

@@ -186,11 +186,13 @@ body{
         color: white;
         text-align: center;
         font-size: 2.5em;
-        margin-top: 10px;
+        padding-top: 20px;
     }
 
     .export-container{
-
+        padding-top: 10px;
+        background-color: #344272;
+        height: 85%;
 
         form{
             height: 35px;
@@ -290,11 +292,32 @@ body{
                     }
                 }
             }
+        }
 
-            #searchDate{
-                position: absolute;
-                left: -200px;
+        #exportBtn{
+            position: absolute;
+            top: 91%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .exportTable{
+            position: relative;
+            top: 50px;
+            width: 80%;
+            height: 87%;
+            margin: auto;
+            background-color: #757c91;
+            overflow: auto;
+
+            table{
+                margin: auto;
             }
+        }
+
+        #errorMsg{
+            padding-top: 50px;
+            text-align: center;
         }
     }
 }
