@@ -375,4 +375,170 @@ body .export-container #errorMsg {
     color: #e23131;
   }
 }
+
+#login-body {
+  background-color: #1bbc9d;
+}
+
+#login-body .line {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  height: 1px;
+  background-color: #5c5c5c;
+  -webkit-box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+#login-body .login-container {
+  background: #eceeee;
+  border-radius: 6px;
+  height: 400px;
+  margin: auto;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+#login-body .login-container .login-text {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  text-align: center;
+  letter-spacing: 20px;
+  color: #2e2e2e;
+}
+
+#login-body .login-container .userName {
+  height: 50px;
+  margin: 35px 0 0 50px;
+}
+
+#login-body .login-container .userName .imgUser {
+  margin: 7px 0 0 7px;
+  position: absolute;
+}
+
+#login-body .login-container .userName #user_name {
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px #fff;
+          box-shadow: 0 1px #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #696969;
+  height: 40px;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  width: 300px;
+  padding-left: 40px;
+}
+
+#login-body .login-container .userPass {
+  height: 50px;
+  margin: 35px 0 0 50px;
+}
+
+#login-body .login-container .userPass .imgPass {
+  margin: 7px 0 0 7px;
+  position: absolute;
+}
+
+#login-body .login-container .userPass #user_pass {
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px #fff;
+          box-shadow: 0 1px #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #696969;
+  height: 40px;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  width: 300px;
+  padding-left: 40px;
+}
+
+#login-body .login-container #user_name:focus, #login-body .login-container #user_pass:focus {
+  -webkit-box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+          box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
+  outline: 0;
+}
+
+#login-body .login-container #loginBtn_submit {
+  width: 300px;
+  height: 35px;
+  letter-spacing: 10px;
+  display: block;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  margin: 50px 0 0 50px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#login-body .shadow {
+  position: absolute;
+  bottom: 7vh;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #000;
+  border-radius: 12px 12px 4px 4px;
+  -webkit-box-shadow: 0 0 20px 8px #000;
+          box-shadow: 0 0 20px 8px #000;
+  height: 12px;
+  margin: 130px auto;
+  opacity: 0.2;
+  width: 420px;
+}
+
+#sideBar {
+  background-color: #249982;
+  width: 300px;
+  height: 100%;
+}
+
+#sideBar .topTitle {
+  position: relative;
+  height: 70px;
+  padding: 10px 0 0 10px;
+}
+
+#sideBar .topTitle .topText {
+  position: absolute;
+  top: 50%;
+  left: 57%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 1.7em;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
 /*# sourceMappingURL=styles.css.map */

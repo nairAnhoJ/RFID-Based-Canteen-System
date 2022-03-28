@@ -1,0 +1,21 @@
+#sideBar{
+    background-color: #249982;
+    width: 300px;
+    height: 100%;
+
+    .topTitle{
+        position: relative;
+        height: 70px;
+        padding: 10px 0 0 10px;
+
+        .topText{
+            position: absolute;
+            top: 50%;
+            left: 57%;
+            transform: translate(-50%, -50%);
+            font-size: 1.7em;
+            font-weight: 700;
+            letter-spacing: 8px;
+        }
+    }
+}
