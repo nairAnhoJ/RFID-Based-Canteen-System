@@ -1,21 +1,143 @@
 #sideBar{
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: #249982;
-    width: 300px;
+    width: 60px;
     height: 100%;
+    overflow: hidden;
+    padding: 10px 10px;
+    box-shadow: 3px 0px 5px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+
+    &:hover{
+        width: 300px;
+    }
+
 
     .topTitle{
-        position: relative;
+        display: flex;
         height: 70px;
-        padding: 10px 0 0 10px;
+        width: 100%;
+        align-items: center;
+
+        .imgUser{
+            margin: 0 10px 0 5px;
+            height: 50px;
+            width: 50px;
+        }
 
         .topText{
-            position: absolute;
-            top: 50%;
-            left: 57%;
-            transform: translate(-50%, -50%);
+            margin-left: 10px;
             font-size: 1.7em;
             font-weight: 700;
             letter-spacing: 8px;
+        }
+    }
+
+    .contentContainer{
+
+        ul{
+            margin-top: 70px;
+
+            li{
+                position: relative;
+                list-style: none;
+                height: 60px;
+                width: 100%;
+                line-height: 50px;
+                margin-bottom: 10px;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    transition: all 0.4s ease;
+                    border-radius: 12px;
+                    height: 60px;
+                    width: auto;
+
+                    &:hover{
+                        background-color: #32bba0;
+                    }
+
+                    img{
+                        padding: 0 10px;
+                        height: 40px;
+                        min-width: 40px;
+                        line-height: 50px;
+                        border-radius: 12px;
+                    }
+
+                    .nav-name{
+                        font-size: 20px;
+                        color: black;
+                        margin-left: 10px;
+                        min-width: 300px;
+                    }
+                }
+
+                .active{
+                    background-color: #32bba0;
+                }
+            }
+        }
+    }
+
+    .logOut{
+        position: absolute;
+        bottom: 30px;
+        left: 0px;
+        width: 300px;
+        padding: 0 10px;
+
+        .btn-logOut{
+            position: relative;
+            list-style: none;
+            height: 60px;
+            width: 100%;
+            line-height: 60px;
+
+
+            li{
+                position: relative;
+                list-style: none;
+                height: 60px;
+                width: 100%;
+                line-height: 50px;
+                margin-bottom: 10px;
+            }
+
+
+            a{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                transition: all 0.4s ease;
+                border-radius: 12px;
+                height: 60px;
+                width: auto;
+
+
+                &:hover{
+                    background-color: #32bba0;
+                }
+
+                img{
+                    padding: 0 10px;
+                    height: 40px;
+                    min-width: 40px;
+                    line-height: 50px;
+                    border-radius: 12px;
+                }
+
+                .lbl-logOut{
+                    font-size: 20px;
+                    color: black;
+                    margin-left: 10px;
+                    min-width: 300px;
+                }
+            }
         }
     }
 }

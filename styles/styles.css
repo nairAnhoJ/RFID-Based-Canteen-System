@@ -503,6 +503,22 @@ body .export-container #errorMsg {
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
+#login-body .login-container #loginBtn_submit:hover {
+  width: 310px;
+  height: 41px;
+  font-size: 19px;
+  margin: 44px 0 0 45px;
+}
+
+#login-body .login-container #loginBtn_submit:active {
+  width: 300px;
+  height: 35px;
+  font-size: 19px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+  margin: 53px 0 0 50px;
+}
+
 #login-body .shadow {
   position: absolute;
   bottom: 7vh;
@@ -520,25 +536,160 @@ body .export-container #errorMsg {
 }
 
 #sideBar {
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: #249982;
-  width: 300px;
+  width: 60px;
   height: 100%;
+  overflow: hidden;
+  padding: 10px 10px;
+  -webkit-box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+#sideBar:hover {
+  width: 300px;
 }
 
 #sideBar .topTitle {
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 70px;
-  padding: 10px 0 0 10px;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sideBar .topTitle .imgUser {
+  margin: 0 10px 0 5px;
+  height: 50px;
+  width: 50px;
 }
 
 #sideBar .topTitle .topText {
-  position: absolute;
-  top: 50%;
-  left: 57%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  margin-left: 10px;
   font-size: 1.7em;
   font-weight: 700;
   letter-spacing: 8px;
+}
+
+#sideBar .contentContainer ul {
+  margin-top: 70px;
+}
+
+#sideBar .contentContainer ul li {
+  position: relative;
+  list-style: none;
+  height: 60px;
+  width: 100%;
+  line-height: 50px;
+  margin-bottom: 10px;
+}
+
+#sideBar .contentContainer ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  height: 60px;
+  width: auto;
+}
+
+#sideBar .contentContainer ul li a:hover {
+  background-color: #32bba0;
+}
+
+#sideBar .contentContainer ul li a img {
+  padding: 0 10px;
+  height: 40px;
+  min-width: 40px;
+  line-height: 50px;
+  border-radius: 12px;
+}
+
+#sideBar .contentContainer ul li a .nav-name {
+  font-size: 20px;
+  color: black;
+  margin-left: 10px;
+  min-width: 300px;
+}
+
+#sideBar .contentContainer ul li .active {
+  background-color: #32bba0;
+}
+
+#sideBar .logOut {
+  position: absolute;
+  bottom: 30px;
+  left: 0px;
+  width: 300px;
+  padding: 0 10px;
+}
+
+#sideBar .logOut .btn-logOut {
+  position: relative;
+  list-style: none;
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+}
+
+#sideBar .logOut .btn-logOut li {
+  position: relative;
+  list-style: none;
+  height: 60px;
+  width: 100%;
+  line-height: 50px;
+  margin-bottom: 10px;
+}
+
+#sideBar .logOut .btn-logOut a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  height: 60px;
+  width: auto;
+}
+
+#sideBar .logOut .btn-logOut a:hover {
+  background-color: #32bba0;
+}
+
+#sideBar .logOut .btn-logOut a img {
+  padding: 0 10px;
+  height: 40px;
+  min-width: 40px;
+  line-height: 50px;
+  border-radius: 12px;
+}
+
+#sideBar .logOut .btn-logOut a .lbl-logOut {
+  font-size: 20px;
+  color: black;
+  margin-left: 10px;
+  min-width: 300px;
+}
+
+#db-body {
+  margin-left: 80px;
+  background-color: #e9e5e5;
 }
 /*# sourceMappingURL=styles.css.map */

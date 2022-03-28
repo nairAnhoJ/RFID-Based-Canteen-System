@@ -24,7 +24,7 @@
         .login-text{
             margin-top: 40px;
             margin-bottom: 10px;
-            padding-left: 20px;
+            padding-left: 20px; 
             text-align: center;
             letter-spacing: 20px;
             color: rgb(46, 46, 46);
@@ -110,6 +110,21 @@
             border-bottom-right-radius: 5px;
             border-bottom-left-radius:5px;
             box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+
+            &:hover{
+                width:310px;
+                height:41px;
+                font-size: 19px;
+                margin: 44px 0 0 45px;
+            }
+
+            &:active{
+                width:300px;
+                height:35px;
+                font-size: 19px;
+                box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+                margin: 53px 0 0 50px;
+            }
         }
 
     }
