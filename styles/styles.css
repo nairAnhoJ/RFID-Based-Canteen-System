@@ -677,11 +677,11 @@ body .grid-container .item3 .chart .data {
   margin: auto;
   overflow: auto;
   font-size: 20px;
-  text-align: left;
   border: 2px solid #dddddd;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-bottom: 4px solid #009879;
+  border-radius: 12px;
 }
 
 #export-body .export-container .exportTable table {
@@ -698,14 +698,13 @@ body .grid-container .item3 .chart .data {
 #export-body .export-container .exportTable table thead tr {
   background-color: #009879;
   color: #fff;
-  text-align: left;
-  font-weight: bold;
 }
 
 #export-body .export-container .exportTable table thead th {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  font-weight: bold;
   background-color: #009879;
 }
 
@@ -715,7 +714,8 @@ body .grid-container .item3 .chart .data {
 
 #export-body .export-container .exportTable table tbody tr {
   border-bottom: 2px solid #dddddd;
-  font-weight: 300;
+  font-weight: 100;
+  text-align: center;
 }
 
 #export-body .export-container .exportTable table tbody tr:nth-of-type(even) {
@@ -723,7 +723,8 @@ body .grid-container .item3 .chart .data {
 }
 
 #export-body .export-container #exportBtn {
-  margin-top: 50px;
+  margin-top: 60px;
+  width: 100%;
 }
 
 #export-body .export-container #exportBtn .btnExportBox {
@@ -813,5 +814,110 @@ body .grid-container .item3 .chart .data {
 #export-body .export-container #errorMsg {
   padding-top: 50px;
   text-align: center;
+}
+
+#emp-body {
+  margin-left: 80px;
+  background-color: aquamarine;
+  overflow: hidden;
+  height: 100vh;
+  width: calc(100% - 80px);
+}
+
+#emp-body .emp-container {
+  height: 100%;
+}
+
+#emp-body .emp-container .topPage {
+  height: 15vh;
+  background-color: bisque;
+}
+
+#emp-body .emp-container .empTable {
+  height: 85vh;
+  background-color: #FFF;
+}
+
+#emp-body .emp-container .empModal {
+  position: fixed;
+  height: 42vh;
+  width: 30vw;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #c8c8c8;
+}
+
+#emp-body .emp-container .empModal #frmTitle {
+  position: relative;
+  height: 10%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+#emp-body .emp-container .empModal #frmTitle .txtTitle {
+  position: absolute;
+  font-size: 30px;
+  letter-spacing: 10px;
+  margin-left: 10px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+#emp-body .emp-container .empModal .frmEmployees {
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .form-group label {
+  padding-left: 20px;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .form-group input {
+  position: absolute;
+  height: 40px;
+  right: 20px;
+  font-size: 17px;
+  width: 54%;
+  padding-left: 2%;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .form-group select {
+  position: absolute;
+  right: 20px;
+  font-size: 17px;
+  height: 40px;
+  width: 57%;
+  padding-left: 2%;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn {
+  width: 100%;
+  height: 60px;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn input {
+  width: 30%;
+  height: 80%;
+  margin-left: 13.3%;
+}
+
+@media only screen and (max-width: 1366px) {
+  #emp-body .emp-container .empModal {
+    height: 55vh;
+    width: 40vw;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

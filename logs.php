@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
         <title>TRANSACTION LOGS</title>
     </head>
+    <script src="./table2excel.js"></script>
     <body id="export-body" onload="navFuntion()">
 
         <!-- Include Navigation Side Bar -->
@@ -57,7 +58,7 @@
                     if(mysqli_num_rows($resultTable) > 0){
                         ?>
                             <div class="exportTable">
-                                <table>
+                                <table id="expTable">
                                     <thead>
                                         <tr>
                                             <th>Date</th>
@@ -70,9 +71,9 @@
                             while($exp_row = mysqli_fetch_assoc($resultTable)){
                                 ?>
                                     <tr>
-                                        <th><?php echo $exp_row['tran_date']; ?></th>
-                                        <th><?php echo $exp_row['emp_name']; ?></th>
-                                        <th><?php echo $exp_row['employer']; ?></th>
+                                        <td><?php echo $exp_row['tran_date']; ?></td>
+                                        <td><?php echo $exp_row['emp_name']; ?></td>
+                                        <td><?php echo $exp_row['employer']; ?></td>
                                     </tr>
                                 <?php
                             }
@@ -81,25 +82,21 @@
                                 </table>
                             </div>
 
-                            <form method="POST" id="exportBtn">
+                            <div id="exportBtn">
                                 <div id="btnExportContainer" class="btnExportBox">
-                                    <input type="submit" value="EXPORT" id="btnExport" name="exportBtn">
+                                    <input type="submit" value="EXPORT" id="btnExport" name="exportBtn" onclick="downloadExcel()">
                                     <div class="border"></div>
                                     <div class="border"></div>
                                     <div class="border"></div>
                                     <div class="border"></div>
                                 </div>
-                            </form>
+                            </div>
                         <?php
                     }else{
                         ?>
                             <H1 id="errorMsg">NO RECORD FOUND!</H1>
                         <?php
                     }
-
-                    // if(isset($_POST['expBtn'])){
-                        
-                    // }
                 }
             ?>
         </div>
@@ -140,6 +137,18 @@
             tran.classList.add("active");
             group.classList.remove("active");
         }
+
+        function downloadExcel(){
+            myWindow = window.open("./DownloadExcel.html");
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelectorAll("#expTable"));
+            setTimeout(close, 300);
+        }
+
+        function close(){
+            myWindow.close();
+        }
+
         </script>
     </body>
 </html>

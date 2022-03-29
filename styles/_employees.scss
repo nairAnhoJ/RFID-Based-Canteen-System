@@ -1,0 +1,119 @@
+#emp-body{
+    margin-left: 80px;
+    background-color: aquamarine;
+    overflow: hidden;
+    height: 100vh;
+    width: calc(100% - 80px);
+
+    .emp-container{
+        height: 100%;
+
+        .topPage{
+            height: 15vh;
+            background-color: bisque;
+
+
+        }
+
+        .empTable{
+            height: 85vh;
+            background-color: #FFF;
+        }
+
+        .empModal{
+            position: fixed;
+            height: 42vh;
+            width: 30vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(200, 200, 200);
+
+            #frmTitle{
+                position: relative;
+                height: 10%;
+                text-align: center;
+                margin: 10px 0;
+
+                .txtTitle{
+                    position: absolute;
+                    font-size: 30px;
+                    letter-spacing: 10px;
+                    margin-left: 10px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-weight: bold;
+                }
+            }
+
+            .frmEmployees{
+                height: 90%;
+                width: 90%;
+                margin: 0 auto;
+
+                .form-group{
+                    position: relative;
+                    margin-bottom: 30px;
+
+
+                    label{
+                        padding-left: 20px;
+                        font-size: 20px;
+                        line-height: 40px;
+                    }
+
+                    input{
+                        position: absolute;
+                        height: 40px;
+                        right: 20px;
+                        font-size: 17px;
+                        width: 54%;
+                        padding-left: 2%;
+                    }
+
+                    select{
+                        position: absolute;
+                        right: 20px;
+                        font-size: 17px;
+                        height: 40px;
+                        width: 57%;
+                        padding-left: 2%;
+                    }
+                }
+
+                .modal-btn{
+                    width: 100%;
+                    height: 60px;
+
+                    input{
+                        width: 30%;
+                        height: 80%;
+                        margin-left: 13.3%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    #emp-body{
+
+        .emp-container{
+
+            .topPage{
+    
+            }
+    
+            .empTable{
+
+            }
+    
+            .empModal{
+                height: 55vh;
+                width: 40vw;
+            }
+        }
+    }
+}
