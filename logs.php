@@ -10,21 +10,25 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles/styles.css">
-        <title>EXPORT TO EXCEL</title>
+        <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
+        <title>TRANSACTION LOGS</title>
     </head>
-    <body id="exportBody">
+    <body id="export-body" onload="navFuntion()">
+
+        <!-- Include Navigation Side Bar -->
+        <?php require_once 'nav.php';?>
+
         <h2 class="exportTitle">TRANSACTION LOGS</h2>
         <div class="export-container">
-            <form method="POST">
+            <form id="search-container" method="POST">
                 <span>
                     From: <input type="date" name="dateFrom" id="dateFrom" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClickF()" value="<?php if(isset($_REQUEST['dateFrom'])){ echo $_REQUEST['dateFrom'];}else{ echo date("Y-m-d");} ?>"/> 
                 </span>
                 <span>
                     To: <input type="date" name="dateTo" id="dateTo" data-date="" data-date-format="DD-MM-YYYY"  onchange="btnClickT()" value="<?php if(isset($_REQUEST['dateTo'])){ echo $_REQUEST['dateTo']; }else{ echo date("Y-m-d");} ?>"/>
                 </span>
-                <div id="btnEx" class="buttonBox">
-                    <input type="submit" value="Search" id="btnExport" name="searchDate">
+                <div id="btnSearchContainer" class="btnSearchBox">
+                    <input type="submit" value="Search" id="btnSearch" name="searchDate">
                     <div class="border"></div>
                     <div class="border"></div>
                     <div class="border"></div>
@@ -54,11 +58,14 @@
                         ?>
                             <div class="exportTable">
                                 <table>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Name</th>
-                                        <th>Employer</th>
-                                    </tr>    
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th>Employer</th>
+                                        </tr>   
+                                    </thead>
+                                    <tbody>
                         <?php
                             while($exp_row = mysqli_fetch_assoc($resultTable)){
                                 ?>
@@ -70,12 +77,13 @@
                                 <?php
                             }
                         ?>
+                                    </tbody> 
                                 </table>
                             </div>
 
                             <form method="POST" id="exportBtn">
-                                <div id="btnEx" class="buttonBox">
-                                    <input type="submit" value="EXPORT" id="btnExport" name="expBtn">
+                                <div id="btnExportContainer" class="btnExportBox">
+                                    <input type="submit" value="EXPORT" id="btnExport" name="exportBtn">
                                     <div class="border"></div>
                                     <div class="border"></div>
                                     <div class="border"></div>
@@ -122,6 +130,16 @@
                     document.getElementById("dateTo").value = fdate;
                 }
             }
+
+            function navFuntion(){
+            var db = document.getElementById("db");
+            var group = document.getElementById("group");
+            var tran = document.getElementById("tran");
+
+            db.classList.remove("active");
+            tran.classList.add("active");
+            group.classList.remove("active");
+        }
         </script>
     </body>
 </html>

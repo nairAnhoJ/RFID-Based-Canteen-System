@@ -9,6 +9,7 @@ body{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    margin-left: 40px;
 
     #head{
         color: #e6e8f2;
@@ -182,148 +183,7 @@ body{
         }
     }
 
-    .exportTitle{
-        color: white;
-        text-align: center;
-        font-size: 2.5em;
-        padding-top: 20px;
-    }
 
-    .export-container{
-        padding-top: 10px;
-        background-color: #344272;
-        height: 85%;
-
-        form{
-            height: 35px;
-            margin-top: 20px;
-            text-align: center;
-            align-items: center;
-            color: black;
-
-            span{
-                display: inline;
-                margin: 0 20px;
-            }
-
-            input{
-                width: 180px;
-            }
-            
-
-            .buttonBox{
-                margin: auto;
-                position:relative;
-                max-width: 500px;
-                min-width: 150px;
-                flex: 20%;
-                box-sizing: border-box;
-
-                #btnExport{
-                    width:500px;
-                    height:35px;
-                    position:relative;
-                    background: rgba(255, 255, 255, .27);
-                    text-transform:uppercase;
-                    color:white;
-                    font-weight:700;
-                    letter-spacing:5px;
-                    border:none;
-                    font-size:15px;
-                    outline:none;
-                    margin-top: 10px;
-                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-                    cursor: pointer;
-                }
-
-                .border{
-                    position:absolute;
-                    background:none;
-                    transition:all .5s ease-in-out;
-                }
-
-                .border:nth-of-type(1){
-                    top: 10px;;
-                    left:0;
-                    width:0;
-                    height:0;
-                    border-top:2px solid #fff;
-                }
-
-                .border:nth-of-type(2){
-                    top:10px;
-                    left:500px;
-                    width:0px;
-                    height:0;
-                    border-right:2px solid #fff;
-                }
-
-                .border:nth-of-type(3){
-                bottom:0;
-                right: 0px;
-                width:0;
-                height:0;
-                border-bottom:2px solid #fff;
-                }
-
-                .border:nth-of-type(4){
-                bottom: 0;
-                left:0px;
-                width:0;
-                height:0;
-                border-left:2px solid #fff;
-                }
-
-                &:hover{
-                    .border:nth-of-type(1){
-                        width:500px;
-                    }
-
-                    .border:nth-of-type(2){
-                        height:35px;
-                    }
-
-                    .border:nth-of-type(3){
-                    width:500px;
-                    }
-
-                    .border:nth-of-type(4){
-                    height:35px;
-                    }
-                }
-            }
-        }
-
-        #exportBtn{
-            position: absolute;
-            top: 91%;
-            left: 50%;
-            transform: translate(-50%, 0);
-        }
-
-        .exportTable{
-            position: relative;
-            top: 50px;
-            width: 80%;
-            height: 87%;
-            margin: auto;
-            background-color: #757c91;
-            overflow: auto;
-
-            table{
-                margin: auto;
-            }
-        }
-
-        #errorMsg{
-            padding-top: 50px;
-            text-align: center;
-        }
-    }
-}
-
-#exportBody{
-    background-color: #ff4545;
 }
 
 @keyframes fcolor{
@@ -341,3 +201,4 @@ body{
 @import "login";
 @import "nav";
 @import "dashboard";
+@import "logs";

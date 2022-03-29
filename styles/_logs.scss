@@ -1,0 +1,266 @@
+#export-body{
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    background-color: rgb(233, 229, 229);
+    
+    .exportTitle{
+        color: rgb(36, 36, 36);
+        text-align: center;
+        font-size: 2.5em;
+        padding-top: 20px;
+    }
+
+
+
+    // ==================================== DATE INPUT & SEARCH BUTTON ====================================
+    .export-container{
+        padding-top: 10px;
+        height: 100%%;
+
+        #search-container{
+            height: 35px;
+            margin-top: 20px;
+            text-align: center;
+            align-items: center;
+            color: black;
+
+            span{
+                display: inline;
+                margin: 0 20px;
+            }
+
+            input{
+                width: 180px;
+            }
+
+            .btnSearchBox{
+                margin: auto;
+                position:relative;
+                max-width: 500px;
+                min-width: 150px;
+                flex: 20%;
+                box-sizing: border-box;
+
+                #btnSearch{
+                    width:500px;
+                    height:35px;
+                    position:relative;
+                    background: rgba(85, 85, 85, 0.27);
+                    text-transform:uppercase;
+                    color:rgb(36, 36, 36);
+                    font-weight:700;
+                    letter-spacing:5px;
+                    border:none;
+                    font-size:20px;
+                    outline:none;
+                    margin-top: 10px;
+                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                    cursor: pointer;
+                }
+
+                .border{
+                    position:absolute;
+                    background:none;
+                    transition:all .5s ease-in-out;
+                }
+
+                .border:nth-of-type(1){
+                    top: 10px;;
+                    left:0;
+                    width:0;
+                    height:0;
+                    border-top:2px solid #000;
+                }
+
+                .border:nth-of-type(2){
+                    top:10px;
+                    left:500px;
+                    width:0px;
+                    height:0;
+                    border-right:2px solid #000;
+                }
+
+                .border:nth-of-type(3){
+                bottom:0;
+                right: 0px;
+                width:0;
+                height:0;
+                border-bottom:2px solid #000;
+                }
+
+                .border:nth-of-type(4){
+                bottom: 0;
+                left:0px;
+                width:0;
+                height:0;
+                border-left:2px solid #000;
+                }
+
+                &:hover{
+                    .border:nth-of-type(1){
+                        width:500px;
+                    }
+
+                    .border:nth-of-type(2){
+                        height:35px;
+                    }
+
+                    .border:nth-of-type(3){
+                    width:500px;
+                    }
+
+                    .border:nth-of-type(4){
+                    height:35px;
+                    }
+                }
+            }
+        }
+
+        // ==================================== TABLE ====================================
+        .exportTable{
+            position: relative;
+            top: 50px;
+            width: 70%;
+            height: 87%;
+            margin: auto;
+            overflow: auto;
+            font-size: 20px;
+            text-align: left;
+            border: 2px solid #dddddd;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border-bottom: 4px solid #009879;
+
+            table{
+                margin: auto;
+                border-collapse: collapse;
+                width: 100%;
+                max-height: 100%;
+                
+                thead{
+                    width: 100%;
+                    tr{
+                        background-color: #009879;
+                        color: #fff;
+                        text-align: left;
+                        font-weight: bold;
+                    }
+
+                    th{
+                        position: sticky;
+                        top: 0;
+                        
+                        background-color: #009879;
+                    }
+                }
+
+                th,td{
+                    padding: 12px 15px;
+                }
+
+                tbody{
+
+                    tr{
+                        border-bottom: 2px solid #dddddd;
+                        font-weight: 300;
+
+                        &:nth-of-type(even){
+                            background-color: #f3f3f3;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        // ==================================== EXPORT BUTTON ====================================
+        #exportBtn{
+            margin-top: 50px;
+            .btnExportBox{
+                margin: auto;
+                position:relative;
+                max-width: 500px;
+                min-width: 150px;
+                flex: 20%;
+                box-sizing: border-box;
+
+                #btnExport{
+                    width:500px;
+                    height:35px;
+                    position:relative;
+                    background: rgba(85, 85, 85, 0.27);
+                    text-transform:uppercase;
+                    color:rgb(36, 36, 36);
+                    font-weight:700;
+                    letter-spacing:5px;
+                    border:none;
+                    font-size:20px;
+                    outline:none;
+                    margin-top: 10px;
+                    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                    cursor: pointer;
+                }
+
+                .border{
+                    position:absolute;
+                    background:none;
+                    transition:all .5s ease-in-out;
+                }
+
+                .border:nth-of-type(1){
+                    top: 10px;;
+                    left:0;
+                    width:0;
+                    height:0;
+                    border-top:2px solid #000;
+                }
+
+                .border:nth-of-type(2){
+                    top:10px;
+                    left:500px;
+                    width:0px;
+                    height:0;
+                    border-right:2px solid #000;
+                }
+
+                .border:nth-of-type(3){
+                bottom:0;
+                right: 0px;
+                width:0;
+                height:0;
+                border-bottom:2px solid #000;
+                }
+
+                .border:nth-of-type(4){
+                bottom: 0;
+                left:0px;
+                width:0;
+                height:0;
+                border-left:2px solid #000;
+                }
+
+                &:hover{
+                    .border:nth-of-type(1){
+                        width:500px;
+                    }
+
+                    .border:nth-of-type(2){
+                        height:35px;
+                    }
+
+                    .border:nth-of-type(3){
+                    width:500px;
+                    }
+
+                    .border:nth-of-type(4){
+                    height:35px;
+                    }
+                }
+            }
+        }
+
+        #errorMsg{
+            padding-top: 50px;
+            text-align: center;
+        }
+    }
+}
