@@ -682,6 +682,7 @@ body .grid-container .item3 .chart .data {
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-bottom: 4px solid #009879;
   border-radius: 12px;
+  overflow-x: hidden;
 }
 
 #export-body .export-container .exportTable table {
@@ -716,6 +717,7 @@ body .grid-container .item3 .chart .data {
   border-bottom: 2px solid #dddddd;
   font-weight: 100;
   text-align: center;
+  background-color: #e9e5e5;
 }
 
 #export-body .export-container .exportTable table tbody tr:nth-of-type(even) {
@@ -814,6 +816,22 @@ body .grid-container .item3 .chart .data {
 #export-body .export-container #errorMsg {
   padding-top: 50px;
   text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  margin-top: 50px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #009879;
 }
 
 #emp-body {

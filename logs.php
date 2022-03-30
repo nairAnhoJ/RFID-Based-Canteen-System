@@ -11,9 +11,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
+        <script src="./jquery.min.js"></script>
+        <script src="./table2csv.min.js"></script>
         <title>TRANSACTION LOGS</title>
     </head>
-    <script src="./table2excel.js"></script>
     <body id="export-body" onload="navFuntion()">
 
         <!-- Include Navigation Side Bar -->
@@ -138,10 +139,13 @@
             group.classList.remove("active");
         }
 
+        var option = {
+            "filename":"canteen-logs.csv"
+        }
+
         function downloadExcel(){
             myWindow = window.open("./DownloadExcel.html");
-            var table2excel = new Table2Excel();
-            table2excel.export(document.querySelectorAll("#expTable"));
+            $("#expTable").first().table2csv(option);
             setTimeout(close, 300);
         }
 
