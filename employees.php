@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include("./connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,28 +19,76 @@
 
     <!-- Employees Content -->
     <div class="emp-container">
-        <div class="topPage">
-            <h1 class="empTitle">Employee List</h1>
+        <div class="topPage" id="topPage">
+            <h1 class="empTitle" id="empTitle">Employee List</h1>
+            <div class="toolBar">
+                <input type="text" id="searchBox" class="searchBox" placeholder="Search Employee...">
+                <input type="button" id="createUser" class="createUser" value="CREATE" onclick="createUser()">
+            </div>
         </div>
 
-        <div class="empTable">
-            qq
+        <div class="empTable-container">
+
+            <?php
+                $queryEmp = "SELECT * FROM `emp_list` WHERE 1";
+                $resultEmp = mysqli_query($con, $queryEmp);
+                if(mysqli_num_rows($resultEmp) > 0){
+                    ?>
+                        <div class="table-container" id="emp-container>">
+                            <table id="empTable">
+                                <thead>
+                                    <tr>
+                                        <th>Employee ID</th>
+                                        <th>Name</th>
+                                        <th>Employer</th>
+                                        <th>Action</th>
+                                    </tr>   
+                                </thead>
+                                <tbody>
+                    <?php
+                        while($emp_row = mysqli_fetch_assoc($resultEmp)){
+                            ?>
+                                <tr>
+                                    <td><?php echo $emp_row['emp_idNum']; ?></td>
+                                    <td><?php echo $emp_row['emp_name']; ?></td>
+                                    <td><?php echo $emp_row['employer']; ?></td>
+                                    <td class="actionTab">
+                                        <a href="#" class="btnEdit">Edit</a>
+                                        <a href="#" class="btnDelete">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php
+                        }
+                    ?>
+                                </tbody> 
+                            </table>
+                        </div>
+                    <?php
+                }else{
+                    ?>
+                        <H1 id="errorMsg">NO RECORD FOUND!</H1>
+                    <?php
+                }
+            ?>
+            
         </div>
 
-        <div class="empModal">
+        
+
+        <div class="empModal" id="empModal">
             <div id="frmTitle"><span class="txtTitle">CREATE</span></div>
             <form method="POST" class="frmEmployees">
+                <div class="form-group">
+                    <label>Employee ID</label>
+                    <input type="text" name="txtid" id="txtid" class="form-control">
+                </div>
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="txtName" id="txtName" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Employee ID</label>
-                    <input type="text" name="txtName" id="txtName" class="form-control">
-                </div>
-                <div class="form-group">
                     <label>Card Number</label>
-                    <input type="text" name="txtName" id="txtName" class="form-control">
+                    <input type="text" name="txtNumber" id="txtNumber" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Employer</label>
@@ -48,7 +102,7 @@
                 </div>
                 <div class="modal-btn">
                     <input type="submit" name="btnSave" id="btnSave" value="Save">
-                    <input type="submit" name="btnCancel" id="btnCancel" value="Cancel">
+                    <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
                 </div>
             </form>
         </div>
@@ -65,6 +119,18 @@
             db.classList.remove("active");
             tran.classList.remove("active");
             group.classList.add("active");
+        }
+
+        function createUser(){
+            document.getElementById("empModal").style.visibility = "visible";
+        }
+
+        function closeModal(){
+            document.getElementById("txtName").value = "";
+            document.getElementById("txtid").value = "";
+            document.getElementById("txtNumber").value = "";
+            document.getElementById("empOption").selectedIndex = 0;
+            document.getElementById("empModal").style.visibility = "hidden";
         }
 
     </script>

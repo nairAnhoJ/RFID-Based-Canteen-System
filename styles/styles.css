@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Verdana';
+  font-family: Arial, "Helvetica", sans-serif;
 }
 
 body {
@@ -237,6 +237,7 @@ body .grid-container .item3 .chart .data {
 #login-body .line {
   position: absolute;
   top: 65%;
+  left: 0;
   width: 100%;
   height: 1px;
   background-color: #5c5c5c;
@@ -367,7 +368,7 @@ body .grid-container .item3 .chart .data {
 #login-body .login-container #loginBtn_submit:active {
   width: 300px;
   height: 35px;
-  font-size: 19px;
+  font-size: 16px;
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
   margin: 53px 0 0 50px;
@@ -390,6 +391,7 @@ body .grid-container .item3 .chart .data {
 }
 
 #sideBar {
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -551,7 +553,7 @@ body .grid-container .item3 .chart .data {
 #export-body {
   width: calc(100% - 80px);
   margin-left: 80px;
-  background-color: #e9e5e5;
+  background-color: #F7F7F7;
 }
 
 #export-body .exportTitle {
@@ -836,7 +838,7 @@ body .grid-container .item3 .chart .data {
 
 #emp-body {
   margin-left: 80px;
-  background-color: aquamarine;
+  background-color: #f7f7f7;
   overflow: hidden;
   height: 100vh;
   width: calc(100% - 80px);
@@ -844,16 +846,251 @@ body .grid-container .item3 .chart .data {
 
 #emp-body .emp-container {
   height: 100%;
+  width: 100%;
 }
 
 #emp-body .emp-container .topPage {
+  position: relative;
   height: 15vh;
-  background-color: bisque;
+  width: 100%;
 }
 
-#emp-body .emp-container .empTable {
+#emp-body .emp-container .topPage .empTitle {
+  text-align: center;
+  padding-top: 10px;
+}
+
+#emp-body .emp-container .topPage .toolBar {
+  position: absolute;
+  height: 40px;
+  width: 80vw;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+#emp-body .emp-container .topPage .toolBar .searchBox {
+  margin-left: 100px;
+  padding-left: 36px;
+  height: 36px;
+  width: 350px;
+  border-radius: 16px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+#emp-body .emp-container .topPage .toolBar #createUser {
+  position: absolute;
+  top: -5px;
+  right: 100px;
+  width: 250px;
+  height: 40px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .topPage .toolBar #createUser:hover {
+  width: 256px;
+  height: 42px;
+  top: -7px;
+  right: 97px;
+  font-size: 19px;
+}
+
+#emp-body .emp-container .topPage .toolBar #createUser:active {
+  width: 250px;
+  height: 40px;
+  top: -3px;
+  right: 100px;
+  font-size: 19px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empTable-container {
   height: 85vh;
-  background-color: #FFF;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+
+#emp-body .emp-container .empTable-container .table-container {
+  position: relative;
+  top: 50px;
+  width: 80%;
+  height: 87%;
+  margin: auto;
+  overflow: auto;
+  font-size: 20px;
+  border: 2px solid #dddddd;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid #009879;
+  border-radius: 12px;
+  overflow-x: hidden;
+}
+
+#emp-body .emp-container .empTable-container .table-container table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-height: 100%;
+}
+
+#emp-body .emp-container .empTable-container .table-container table thead {
+  width: 100%;
+}
+
+#emp-body .emp-container .empTable-container .table-container table thead tr {
+  background-color: #009879;
+  color: #fff;
+}
+
+#emp-body .emp-container .empTable-container .table-container table thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+  background-color: #009879;
+}
+
+#emp-body .emp-container .empTable-container .table-container table th, #emp-body .emp-container .empTable-container .table-container table td {
+  padding: 12px 15px;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr {
+  border-bottom: 2px solid #dddddd;
+  font-weight: 100;
+  text-align: center;
+  background-color: #e9e5e5;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab {
+  position: relative;
+  width: 400px;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
+  position: absolute;
+  width: 110px;
+  height: 23px;
+  left: 70px;
+  top: 5px;
+  letter-spacing: 5px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #188FF7;
+  padding-top: 9px;
+  padding-left: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #188FF7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1b8ff5), to(#3111));
+  background-image: linear-gradient(top, #1b8ff5, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #1765aa, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #1765aa, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit:hover {
+  width: 112px;
+  height: 25px;
+  top: 3px;
+  left: 69px;
+  font-size: 15px;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit:active {
+  width: 110px;
+  height: 23px;
+  top: 7px;
+  left: 70px;
+  font-size: 14px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete {
+  position: absolute;
+  width: 110px;
+  height: 23px;
+  right: 70px;
+  top: 5px;
+  letter-spacing: 5px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #E15963;
+  padding-top: 9px;
+  padding-left: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #E15963;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e0565f), to(#3111));
+  background-image: linear-gradient(top, #e0565f, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete:hover {
+  width: 112px;
+  height: 25px;
+  top: 3px;
+  right: 69px;
+  font-size: 15px;
+}
+
+#emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete:active {
+  width: 110px;
+  height: 23px;
+  top: 7px;
+  right: 70px;
+  font-size: 14px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
 #emp-body .emp-container .empModal {
@@ -864,7 +1101,10 @@ body .grid-container .item3 .chart .data {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background-color: #c8c8c8;
+  background-color: #e4e4e4;
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+  visibility: hidden;
 }
 
 #emp-body .emp-container .empModal #frmTitle {
@@ -922,14 +1162,119 @@ body .grid-container .item3 .chart .data {
 }
 
 #emp-body .emp-container .empModal .frmEmployees .modal-btn {
+  position: relative;
   width: 100%;
   height: 60px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn input {
-  width: 30%;
-  height: 80%;
-  margin-left: 13.3%;
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave {
+  position: absolute;
+  left: 55px;
+  width: 150px;
+  height: 48px;
+  letter-spacing: 10px;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave:hover {
+  width: 154px;
+  height: 50px;
+  top: -2px;
+  left: 53px;
+  font-size: 18px;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave:active {
+  width: 150px;
+  height: 48px;
+  top: 0px;
+  left: 55px;
+  font-size: 16px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel {
+  position: absolute;
+  right: 55px;
+  width: 150px;
+  height: 48px;
+  letter-spacing: 10px;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #E15963;
+  padding-top: 6px;
+  padding-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #E15963;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e0565f), to(#3111));
+  background-image: linear-gradient(top, #e0565f, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel:hover {
+  width: 154px;
+  height: 50px;
+  top: -2px;
+  right: 53px;
+  font-size: 18px;
+}
+
+#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel:active {
+  width: 150px;
+  height: 48px;
+  top: 0px;
+  right: 55px;
+  font-size: 16px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  margin-top: 50px;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #009879;
 }
 
 @media only screen and (max-width: 1366px) {

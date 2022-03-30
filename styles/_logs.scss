@@ -1,7 +1,7 @@
 #export-body{
     width: calc(100% - 80px);
     margin-left: 80px;
-    background-color: rgb(233, 229, 229);
+    background-color: #F7F7F7;
     
     .exportTitle{
         color: rgb(36, 36, 36);
@@ -261,7 +261,7 @@
                 }
             }
         }
-
+        
         #errorMsg{
             padding-top: 50px;
             text-align: center;
