@@ -22,7 +22,7 @@
         <div class="topPage" id="topPage">
             <h1 class="empTitle" id="empTitle">Employee List</h1>
             <div class="toolBar">
-                <input type="text" id="searchBox" class="searchBox" placeholder="Search Employee...">
+                <input type="text" id="searchBox" class="searchBox" onkeyup="searchEmp()" placeholder="Search Employee...">
                 <input type="button" id="createUser" class="createUser" value="CREATE" onclick="createUser()">
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="empTable-container">
 
             <?php
-                $queryEmp = "SELECT * FROM `emp_list` WHERE 1";
+                $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
                 $resultEmp = mysqli_query($con, $queryEmp);
                 if(mysqli_num_rows($resultEmp) > 0){
                     ?>
@@ -41,6 +41,7 @@
                                         <th>Employee ID</th>
                                         <th>Name</th>
                                         <th>Employer</th>
+                                        <th>Card Number</th>
                                         <th>Action</th>
                                     </tr>   
                                 </thead>
@@ -52,9 +53,10 @@
                                     <td><?php echo $emp_row['emp_idNum']; ?></td>
                                     <td><?php echo $emp_row['emp_name']; ?></td>
                                     <td><?php echo $emp_row['employer']; ?></td>
+                                    <td><?php echo $emp_row['emp_cardNum']; ?></td>
                                     <td class="actionTab">
-                                        <a href="#" class="btnEdit">Edit</a>
-                                        <a href="#" class="btnDelete">Delete</a>
+                                        <a href="./empEdit.php?id=<?php echo $emp_row['emp_id'] ?>" class="btnEdit">Edit</a>
+                                        <a href="./empDelete.php?id=<?php echo $emp_row['emp_id'] ?>" class="btnDelete">Delete</a>
                                     </td>
                                 </tr>
                             <?php
@@ -131,6 +133,31 @@
             document.getElementById("txtNumber").value = "";
             document.getElementById("empOption").selectedIndex = 0;
             document.getElementById("empModal").style.visibility = "hidden";
+        }
+
+        function searchEmp(){
+            var input, filter, table, tr, td, tdName, tdCard, i, txtValue;
+            input = document.getElementById("searchBox");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("empTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                tdName = tr[i].getElementsByTagName("td")[1];
+                tdCard = tr[i].getElementsByTagName("td")[3];
+
+                if (td || tdName || tdCard) {
+                    txtValue = td.textContent || td.innerText;
+                    nameValue = tdName.textContent || tdName.innerText;
+                    cardValue = tdCard.textContent || tdCard.innerText;
+
+                    if (txtValue.toUpperCase().indexOf(filter) > -1 || nameValue.toUpperCase().indexOf(filter) > -1 || cardValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
         }
 
     </script>

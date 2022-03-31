@@ -45,7 +45,7 @@
                 if(isset($_POST['inputSubmit'])){
                     $cardNum = $_REQUEST['tapInput'];
                     $dateNow = date("d-m-Y");
-                    $query_emp = "SELECT * from employee_list WHERE emp_cardNum = '$cardNum' LIMIT 1";
+                    $query_emp = "SELECT * from emp_list WHERE emp_cardNum = '$cardNum' LIMIT 1";
                     $result_emp = mysqli_query($con, $query_emp);
                     if(mysqli_num_rows($result_emp) > 0){
 
@@ -138,7 +138,7 @@
                         $resultGlory = mysqli_query($con, $query_glory);
                         $rowGlory = mysqli_num_rows($resultGlory);
 
-                        $query_glory_total = "SELECT * FROM `employee_list` WHERE employer = 'GLORY'";
+                        $query_glory_total = "SELECT * FROM `emp_list` WHERE employer = 'GLORY'";
                         $resultGloryTotal = mysqli_query($con, $query_glory_total);
                         $rowGloryTotal = mysqli_num_rows($resultGloryTotal);
 
@@ -150,7 +150,7 @@
                         $resultMaxim = mysqli_query($con, $query_maxim);
                         $rowMaxim = mysqli_num_rows($resultMaxim);
 
-                        $query_maxim_total = "SELECT * FROM `employee_list` WHERE employer = 'MAXIM'";
+                        $query_maxim_total = "SELECT * FROM `emp_list` WHERE employer = 'MAXIM'";
                         $resultMaximTotal = mysqli_query($con, $query_maxim_total);
                         $rowMaximTotal = mysqli_num_rows($resultMaximTotal);
 
@@ -162,7 +162,7 @@
                         $resultNippi = mysqli_query($con, $query_nippi);
                         $rowNippi = mysqli_num_rows($resultNippi);
 
-                        $query_nippi_total = "SELECT * FROM `employee_list` WHERE employer = 'NIPPI'";
+                        $query_nippi_total = "SELECT * FROM `emp_list` WHERE employer = 'NIPPI'";
                         $resultNippiTotal = mysqli_query($con, $query_nippi_total);
                         $rowNippiTotal = mysqli_num_rows($resultNippiTotal);
 
@@ -174,7 +174,7 @@
                         $resultPL = mysqli_query($con, $query_pl);
                         $rowPL = mysqli_num_rows($resultPL);
 
-                        $query_pl_total = "SELECT * FROM `employee_list` WHERE employer = 'POWERLANE'";
+                        $query_pl_total = "SELECT * FROM `emp_list` WHERE employer = 'POWERLANE'";
                         $resultPLTotal = mysqli_query($con, $query_pl_total);
                         $rowPLTotal = mysqli_num_rows($resultPLTotal);
 

@@ -34,7 +34,7 @@
     <div class="logOut">
         <ul class="btn-logOut">
             <li>
-                <a href="">
+                <a href="./logout.php">
                     <img src="./obj/sign-out.png" class="imgUser" alt="user" width="40" height="40">
                     <span class="lbl-logOut">Log Out</span>
                 </a>
