@@ -2,6 +2,10 @@
     session_start();
 
     include("./connection.php");
+
+    if(!isset($_SESSION['connected'])){
+        header('location: login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +55,10 @@
                         $dateTo = date("Y-m-d");
                     }
 
-                    $newfDate = date("d-m-Y", strtotime($dateFrom));
-                    $newtDate = date("d-m-Y", strtotime($dateTo));
+                    // $newfDate = date("d-m-Y", strtotime($dateFrom));
+                    // $newtDate = date("d-m-Y", strtotime($dateTo));
 
-                    $queryTable = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$newfDate' AND '$newtDate'";
+                    $queryTable = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$dateFrom' AND '$dateTo'";
                     $resultTable = mysqli_query($con, $queryTable);
                     if(mysqli_num_rows($resultTable) > 0){
                         ?>

@@ -2,6 +2,10 @@
     session_start();
 
     include("./connection.php");
+
+    if(!isset($_SESSION['connected'])){
+        header('location: login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -75,22 +79,35 @@
             
         </div>
 
-        
+        <?php
+            if(isset($_POST['btnSave'])){
+                
+                //Get ACTION TITLE
+                ?>
+                <script>
+                    var action
+                </script>
+                <?php
+
+
+            }
+        ?>
+
 
         <div class="empModal" id="empModal">
-            <div id="frmTitle"><span class="txtTitle">CREATE</span></div>
+            <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div>
             <form method="POST" class="frmEmployees">
                 <div class="form-group">
                     <label>Employee ID</label>
-                    <input type="text" name="txtid" id="txtid" class="form-control">
+                    <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" name="txtName" id="txtName" class="form-control">
+                    <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Card Number</label>
-                    <input type="text" name="txtNumber" id="txtNumber" class="form-control">
+                    <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Employer</label>
@@ -110,6 +127,8 @@
         </div>
     </div>
 
+
+
     <script type="text/javascript">
 
         // Change Highlighted Tab on SideBar
@@ -124,6 +143,10 @@
         }
 
         function createUser(){
+            document.getElementById("txtName").value = "";
+            document.getElementById("txtid").value = "";
+            document.getElementById("txtNumber").value = "";
+            document.getElementById("empOption").selectedIndex = 0;
             document.getElementById("empModal").style.visibility = "visible";
         }
 
@@ -135,6 +158,7 @@
             document.getElementById("empModal").style.visibility = "hidden";
         }
 
+        // Search Filter
         function searchEmp(){
             var input, filter, table, tr, td, tdName, tdCard, i, txtValue;
             input = document.getElementById("searchBox");

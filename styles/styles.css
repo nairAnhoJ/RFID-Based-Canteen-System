@@ -93,6 +93,7 @@ body .grid-container .item1 h2 {
 body .grid-container .item1 .anim {
   -webkit-animation: fcolor infinite 1300ms;
           animation: fcolor infinite 1300ms;
+  font-size: 80px;
 }
 
 body .grid-container .item2 {

@@ -3,7 +3,7 @@
 
     include("./connection.php");
 
-    $dateNow1 = date("d-m-Y");
+    $dateNow1 = date("Y-m-d");
     $strDate = strval($dateNow1);
     $query_dup = "SELECT * FROM dup_status";
     $dup_res = mysqli_query($con,$query_dup);
@@ -23,7 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/dist/charts.css">
+    <link rel="stylesheet" href="./styles/dist/charts.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Canteen POS</title>
 </head>
@@ -44,7 +44,7 @@
             <?php
                 if(isset($_POST['inputSubmit'])){
                     $cardNum = $_REQUEST['tapInput'];
-                    $dateNow = date("d-m-Y");
+                    $dateNow = date("Y-m-d");
                     $query_emp = "SELECT * from emp_list WHERE emp_cardNum = '$cardNum' LIMIT 1";
                     $result_emp = mysqli_query($con, $query_emp);
                     if(mysqli_num_rows($result_emp) > 0){
@@ -63,7 +63,7 @@
                             while($tran_row = mysqli_fetch_assoc($result_tran)){
                                 ?>
                                     <h1 id="tapName"><?php echo $tran_row['emp_name'] ?></h1>
-                                    <h2 id="anim">ERROR MESSAGE PAG PANGALAWANG TAP NA!</h1>
+                                    <h2 class="anim">DUPLICATED!</h1>
                                 <?php 
                             }
                         }else{
@@ -73,12 +73,12 @@
 
                             
                             ?>
-                                <h1 id="tapName"><?php echo $empName?></h1>
+                                <h1 class="tapName"><?php echo $empName?></h1>
                             <?php
                         }
                     }else{
                         ?>
-                            <h2 id="anim">CARD NOT REGISTERED!</h1>
+                            <h2 class="anim nreg">CARD NOT REGISTERED!</h1>
                         <?php
                     }
                 }
@@ -90,7 +90,7 @@
             <h1 id="rTrans">RECENT TRANSACTION</h1>
             <table>
             <?php
-                $dateNow = date("d-m-Y");
+                $dateNow = date("Y-m-d");
                 $queryRT = "SELECT * FROM tbl_trans_logs WHERE tran_date = '$dateNow' ORDER BY transaction_id DESC LIMIT 6";
                 $resultRT = mysqli_query($con,$queryRT);
                 while ($row = mysqli_fetch_assoc($resultRT)){
@@ -130,7 +130,7 @@
 
                     <?php
 
-                        $dateNow = date("d-m-Y");
+                        $dateNow = date("Y-m-d");
 
                         // ========================== GLORY PERCENTAGE ==========================
 

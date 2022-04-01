@@ -1,5 +1,7 @@
 <?php
     session_start();
+    session_destroy();
+    session_unset();
 
     include("./connection.php");
 
@@ -29,7 +31,7 @@
         <h1 class="login-text">LOGIN</h1>
         <div class="userName">
             <img src="./obj/user.png" class="imgUser" alt="user" width="26" height="26">
-            <input type="text" placeholder="Username" id="user_name" name="user_name"> 
+            <input type="text" placeholder="Username" id="user_name" name="user_name" autofocus> 
         </div>
         <div class="userPass">
             <img src="./obj/password.png" class="imgPass" alt="password" width="26" height="26">
@@ -37,6 +39,6 @@
         </div>
         <input type="submit" value="Sign In" id="loginBtn_submit" name="loginBtn_submit">
     </form>
-        <div class="shadow"></div>
+    <div class="shadow"></div>
 </body>
 </html>

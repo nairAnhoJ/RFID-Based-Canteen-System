@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    include("./connection.php");
+
+    if(!isset($_SESSION['connected'])){
+        header('location: login.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
