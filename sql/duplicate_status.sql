@@ -1,1 +1,1 @@
-CREATE TABLE `canteen_transactions`.`dup_status` ( `stat_id` INT NOT NULL AUTO_INCREMENT , `dup_name` VARCHAR(10) NOT NULL , `dup_stat` VARCHAR(10) NOT NULL , `date_now` VARCHAR(10) NOT NULL , PRIMARY KEY (`stat_id`)) ENGINE = InnoDB;
+CREATE TABLE `canteen_transactions`.`dup_status` ( `stat_id` INT NOT NULL AUTO_INCREMENT , `dup_stat` VARCHAR(10) NOT NULL , `date_now` DATE NOT NULL , PRIMARY KEY (`stat_id`)) ENGINE = InnoDB;

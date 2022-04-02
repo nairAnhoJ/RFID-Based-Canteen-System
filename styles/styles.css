@@ -9,7 +9,6 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  margin-left: 40px;
 }
 
 body #head {
@@ -48,10 +47,10 @@ body form #inputSubmit {
 body .grid-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 34% 34% 30%;
-      grid-template-columns: 34% 34% 30%;
-  -ms-grid-rows: 15% 15% 18% 20% 20%;
-      grid-template-rows: 15% 15% 18% 20% 20%;
+  -ms-grid-columns: 34% 34% 30.5%;
+      grid-template-columns: 34% 34% 30.5%;
+  -ms-grid-rows: 20% 20% 18% 18% 18%;
+      grid-template-rows: 20% 20% 18% 18% 18%;
   min-height: 78.5vh;
   max-height: 90vh;
   -webkit-box-align: center;
@@ -66,6 +65,7 @@ body .grid-container .grid-item {
   background-color: #344272;
   border-radius: 20px;
   height: 100%;
+  overflow: hidden;
 }
 
 body .grid-container .item1 {
@@ -73,27 +73,28 @@ body .grid-container .item1 {
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  grid-row: 1 / span 3;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
   text-align: center;
+  overflow: hidden;
 }
 
 body .grid-container .item1 h1 {
   color: #e6e8f2;
   padding-top: 6%;
-  font-size: 2.5em;
+  font-size: 55px;
 }
 
 body .grid-container .item1 h2 {
   color: #e63232;
   padding-top: 5%;
-  font-size: 2em;
+  font-size: 80px;
+  padding-top: 30px;
 }
 
 body .grid-container .item1 .anim {
   -webkit-animation: fcolor infinite 1300ms;
           animation: fcolor infinite 1300ms;
-  font-size: 80px;
 }
 
 body .grid-container .item2 {
@@ -107,7 +108,7 @@ body .grid-container .item2 {
 }
 
 body .grid-container .item2 #rTrans {
-  font-size: 1.5em;
+  font-size: 40px;
   padding-top: 30px;
   padding-bottom: 25px;
   color: #0c1224;
@@ -115,22 +116,22 @@ body .grid-container .item2 #rTrans {
 
 body .grid-container .item2 table {
   width: 100%;
-  font-size: 1.5em;
+  font-size: 30px;
   color: #e6e8f2;
 }
 
 body .grid-container .item2 table tr td {
   text-align: center;
-  padding: 15px;
+  padding: 23px 0;
 }
 
 body .grid-container .item3 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 2;
-  grid-row: 4 / span 2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  grid-row: 3 / span 3;
 }
 
 body .grid-container .item3 .empTable {
@@ -392,7 +393,7 @@ body .grid-container .item3 .chart .data {
 }
 
 #sideBar {
-  z-index: 99;
+  z-index: 95;
   position: fixed;
   top: 0;
   left: 0;
@@ -1094,28 +1095,44 @@ body .grid-container .item3 .chart .data {
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
-#emp-body .emp-container .empModal {
+#emp-body .emp-container #dark-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  z-index: 98;
+}
+
+#emp-body .emp-container #dark-bg .empModal {
   position: fixed;
   height: 42vh;
   width: 30vw;
   top: 50%;
-  left: 50%;
+  left: calc(50% + 40px);
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background-color: #e4e4e4;
   -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
-  visibility: hidden;
 }
 
-#emp-body .emp-container .empModal #frmTitle {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees {
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#emp-body .emp-container #dark-bg .empModal .frmEmployees #frmTitle {
   position: relative;
   height: 10%;
   text-align: center;
   margin: 10px 0;
 }
 
-#emp-body .emp-container .empModal #frmTitle .txtTitle {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees #frmTitle .txtTitle {
   position: absolute;
   font-size: 30px;
   letter-spacing: 10px;
@@ -1127,24 +1144,18 @@ body .grid-container .item3 .chart .data {
   font-weight: bold;
 }
 
-#emp-body .emp-container .empModal .frmEmployees {
-  height: 90%;
-  width: 90%;
-  margin: 0 auto;
-}
-
-#emp-body .emp-container .empModal .frmEmployees .form-group {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .form-group {
   position: relative;
   margin-bottom: 30px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .form-group label {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .form-group label {
   padding-left: 20px;
   font-size: 20px;
   line-height: 40px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .form-group input {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .form-group input {
   position: absolute;
   height: 40px;
   right: 20px;
@@ -1153,7 +1164,7 @@ body .grid-container .item3 .chart .data {
   padding-left: 2%;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .form-group select {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .form-group select {
   position: absolute;
   right: 20px;
   font-size: 17px;
@@ -1162,13 +1173,13 @@ body .grid-container .item3 .chart .data {
   padding-left: 2%;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn {
   position: relative;
   width: 100%;
   height: 60px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnSave {
   position: absolute;
   left: 55px;
   width: 150px;
@@ -1197,7 +1208,7 @@ body .grid-container .item3 .chart .data {
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave:hover {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnSave:hover {
   width: 154px;
   height: 50px;
   top: -2px;
@@ -1205,7 +1216,7 @@ body .grid-container .item3 .chart .data {
   font-size: 18px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnSave:active {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnSave:active {
   width: 150px;
   height: 48px;
   top: 0px;
@@ -1215,7 +1226,7 @@ body .grid-container .item3 .chart .data {
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnCancel {
   position: absolute;
   right: 55px;
   width: 150px;
@@ -1244,7 +1255,7 @@ body .grid-container .item3 .chart .data {
           box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel:hover {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnCancel:hover {
   width: 154px;
   height: 50px;
   top: -2px;
@@ -1252,7 +1263,7 @@ body .grid-container .item3 .chart .data {
   font-size: 18px;
 }
 
-#emp-body .emp-container .empModal .frmEmployees .modal-btn #btnCancel:active {
+#emp-body .emp-container #dark-bg .empModal .frmEmployees .modal-btn #btnCancel:active {
   width: 150px;
   height: 48px;
   top: 0px;
@@ -1260,6 +1271,68 @@ body .grid-container .item3 .chart .data {
   font-size: 16px;
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#S-Notif, #E-Notif {
+  position: absolute;
+  height: 60px;
+  width: 500px;
+  left: calc(50% + 40px);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  background-color: #36d3b3;
+  text-align: center;
+  border-radius: 20px;
+  z-index: 99;
+  -webkit-animation: notif ease-out 3000ms;
+          animation: notif ease-out 3000ms;
+}
+
+#S-Notif p, #E-Notif p {
+  font-size: 25px;
+  line-height: 60px;
+}
+
+#E-Notif {
+  background-color: #db555e;
+}
+
+@-webkit-keyframes notif {
+  0% {
+    top: 50px;
+    opacity: 0%;
+  }
+  30% {
+    top: 90px;
+    opacity: 99%;
+  }
+  80% {
+    top: 90px;
+    opacity: 99%;
+  }
+  100% {
+    top: 70px;
+    opacity: 0;
+  }
+}
+
+@keyframes notif {
+  0% {
+    top: 50px;
+    opacity: 0%;
+  }
+  30% {
+    top: 90px;
+    opacity: 99%;
+  }
+  80% {
+    top: 90px;
+    opacity: 99%;
+  }
+  100% {
+    top: 70px;
+    opacity: 0;
+  }
 }
 
 ::-webkit-scrollbar {

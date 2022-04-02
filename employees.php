@@ -76,58 +76,54 @@
                     <?php
                 }
             ?>
-            
         </div>
 
-        <?php
-            if(isset($_POST['btnSave'])){
-                
-                //Get ACTION TITLE
-                ?>
-                <script>
-                    var action
-                </script>
-                <?php
+        
 
 
-            }
-        ?>
-
-
-        <div class="empModal" id="empModal">
-            <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div>
-            <form method="POST" class="frmEmployees">
-                <div class="form-group">
-                    <label>Employee ID</label>
-                    <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label>Card Number</label>
-                    <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label>Employer</label>
-                    <select id="empOption" name="empOption" change>
-                        <option value="" disabled selected>Select your option</option>
-                        <option value="glory">GLORY</option>
-                        <option value="maxim">MAXIM</option>
-                        <option value="nippi">NIPPI</option>
-                        <option value="powerlane">POWERLANE</option>
-                    </select>
-                </div>
-                <div class="modal-btn">
-                    <input type="submit" name="btnSave" id="btnSave" value="Save">
-                    <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
-                </div>
-            </form>
+        <div id="E-Notif">
+            <p>Card Number is Already Registered!</p>
         </div>
+
+
+        <div id="dark-bg">   
+            <div class="empModal" id="empModal">
+                <!-- <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div> -->
+                <form method="POST" class="frmEmployees">
+                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div>
+                    <div class="form-group">
+                        <label>Employee ID</label>
+                        <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Employer</label>
+                        <select id="empOption" name="empOption" change>
+                            <option value="" disabled selected>Select your option</option>
+                            <option value="glory">GLORY</option>
+                            <option value="maxim">MAXIM</option>
+                            <option value="nippi">NIPPI</option>
+                            <option value="powerlane">POWERLANE</option>
+                        </select>
+                    </div>
+                    <div class="modal-btn">
+
+
+
+                        <input type="button" name="btnSave" id="btnSave" value="Save" onclick="saveBtn()">
+                        <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
+                    </div>
+                </form>
+            </div>
+        </div>             
     </div>
-
-
 
     <script type="text/javascript">
 
@@ -147,7 +143,7 @@
             document.getElementById("txtid").value = "";
             document.getElementById("txtNumber").value = "";
             document.getElementById("empOption").selectedIndex = 0;
-            document.getElementById("empModal").style.visibility = "visible";
+            document.getElementById("dark-bg").style.visibility = "visible";
         }
 
         function closeModal(){
@@ -155,7 +151,7 @@
             document.getElementById("txtid").value = "";
             document.getElementById("txtNumber").value = "";
             document.getElementById("empOption").selectedIndex = 0;
-            document.getElementById("empModal").style.visibility = "hidden";
+            document.getElementById("dark-bg").style.visibility = "hidden";
         }
 
         // Search Filter
@@ -184,6 +180,31 @@
             }
         }
 
+        function saveBtn(){
+            if(document.getElementById("txtName").value == "" || document.getElementById("txtid").value == "" || document.getElementById("txtNumber").value == "" || document.getElementById("empOption").selectedIndex == 0){
+                alert('error');
+            }else{
+                if(document.getElementById("txtTitle").innerHTML == "CREATE"){
+                    var cn = "<?php cnotif(); ?>";
+                    alert(cn);
+                    return false;
+                }
+
+            }
+        }
     </script>
+
+        <?php
+            function cnotif(){
+                ?>
+                    <div id="S-Notif">
+                        <p>Account Created Successfully!</p>
+                    </div>
+                <?php
+            }
+        ?>
+
+    
+    
 </body>
 </html>

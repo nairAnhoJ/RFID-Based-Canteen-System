@@ -12,7 +12,7 @@
 
     $row = mysqli_fetch_assoc($dup_res);
     if($row['date_now'] != $strDate){
-        $dupStat = "UPDATE dup_status SET dup_stat='NO', dup_name = '', date_now = '$strDate'";
+        $dupStat = "UPDATE dup_status SET dup_stat='NO', date_now = '$strDate'";
         mysqli_query($con, $dupStat);
     }
 ?>
@@ -68,7 +68,7 @@
                             }
                         }else{
 
-                            $tran_insert = "INSERT INTO `tbl_trans_logs`(`transaction_id`, `emp_id`, `emp_name`, `emp_cardNum`, `employer`, `tran_date`, `tran_time`) VALUES ('','$empID','$empName','$empCardNum','$empEmployer','$dateNow','$timeNow')";
+                            $tran_insert = "INSERT INTO `tbl_trans_logs`(`transaction_id`, `emp_id`, `emp_name`, `emp_cardNum`, `employer`, `tran_date`, `tran_time`) VALUES (null ,'$empID','$empName','$empCardNum','$empEmployer','$dateNow','$timeNow')";
                             mysqli_query($con, $tran_insert);
 
                             
@@ -91,7 +91,7 @@
             <table>
             <?php
                 $dateNow = date("Y-m-d");
-                $queryRT = "SELECT * FROM tbl_trans_logs WHERE tran_date = '$dateNow' ORDER BY transaction_id DESC LIMIT 6";
+                $queryRT = "SELECT * FROM tbl_trans_logs WHERE tran_date = '$dateNow' ORDER BY transaction_id DESC LIMIT 8";
                 $resultRT = mysqli_query($con,$queryRT);
                 while ($row = mysqli_fetch_assoc($resultRT)){
             ?>  
