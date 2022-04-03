@@ -6,7 +6,23 @@
     if(!isset($_SESSION['connected'])){
         header('location: login.php');
     }
+
+    if($_SESSION['sUpdate'] == true){
+        ?>
+            <div class="S-Notif">User details was sucessfully updated!</div>
+        <?php
+        $_SESSION['sUpdate'] = false;
+    }
+
+    if($_SESSION['sDelete'] == true){
+        ?>
+            <div class="E-Notif">User details was sucessfully Deleted!</div>
+        <?php
+        $_SESSION['sDelete'] = false;
+    }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +33,9 @@
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
     <title>Employees</title>
 </head>
+
+
+
 <body id="emp-body" onload="navFuntion()">
     <!-- Include Navigation Side Bar -->
     <?php require_once 'nav.php';?>
@@ -31,7 +50,184 @@
             </div>
         </div>
 
-        <div class="empTable-container">
+
+
+        <?php
+            // CREATE USER
+            if(isset($_POST['sbmtCreate'])){
+
+                $crudId = "";
+                $crudIdNum = $_POST['txtid'];
+                $crudName = strtoupper($_POST['txtName']);
+                $crudCard = $_POST['txtNumber'];
+                $crudEmp = strtoupper($_POST['empOption']);
+
+                $query_Emp = "SELECT * from emp_list WHERE emp_cardNum = '$crudCard' LIMIT 1";
+                $result_Emp = mysqli_query($con, $query_Emp);
+                if(mysqli_num_rows($result_Emp) > 0){
+                    ?>
+                        <div class="E-Notif">Card Number is Already Registered!</div>
+                    <?php
+
+                    if($crudEmp == "GLORY"){
+                        $_SESSION['modalStat'] = "1";
+                    }else if($crudEmp == "MAXIM"){
+                        $_SESSION['modalStat'] = "2";
+                    }else if($crudEmp == "NIPPI"){
+                        $_SESSION['modalStat'] = "3";
+                    }else if($crudEmp == "POWERLANE"){
+                        $_SESSION['modalStat'] = "4";
+                    }else{
+                        $_SESSION['modalStat'] = "0";
+                    }
+
+                }else{
+
+                    $ins_Emp = "INSERT INTO `emp_list`(`emp_id`, `emp_idNum`, `emp_name`, `emp_cardNum`, `employer`) VALUES (null ,'$crudIdNum','$crudName','$crudCard','$crudEmp')";
+                    mysqli_query($con, $ins_Emp);
+
+                    ?>
+                        <div class="S-Notif">User Sucessfully Added!</div>
+                    <?php
+
+                    if($crudEmp == "GLORY"){
+                        $_SESSION['modalStat'] = "1";
+                    }else if($crudEmp == "MAXIM"){
+                        $_SESSION['modalStat'] = "2";
+                    }else if($crudEmp == "NIPPI"){
+                        $_SESSION['modalStat'] = "3";
+                    }else if($crudEmp == "POWERLANE"){
+                        $_SESSION['modalStat'] = "4";
+                    }
+
+                    $crudIdNum = "";
+                    $crudName = "";
+                    $crudCard = "";
+
+                    header("location: employees.php");
+
+                }
+            }
+
+            // EDIT USER
+            if(isset($_POST['sbmtEdit'])){
+                $crudId = $_SESSION['EditID'];
+                $crudIdNum = $_POST['txtid'];
+                $crudName = strtoupper($_POST['txtName']);
+                $crudCard = $_POST['txtNumber'];
+                $crudEmp = strtoupper($_POST['empOption']);
+
+                $query_Emp_Edit = "SELECT * from emp_list WHERE emp_cardNum = '$crudCard' LIMIT 1";
+                $result_Emp_Edit = mysqli_query($con, $query_Emp_Edit);
+
+                if(mysqli_num_rows($result_Emp_Edit) > 0){
+                    while($roweEdit = mysqli_fetch_assoc($result_Emp_Edit)){
+
+                        if($crudIdNum == $roweEdit['emp_idNum'] && $crudName == $roweEdit['emp_name'] && $crudCard == $roweEdit['emp_cardNum'] && $crudEmp == $roweEdit['employer']){
+                            ?>
+                                <div class="E-Notif">Card Number is Already Registered!</div>
+                            <?php
+
+                            if($crudEmp == "GLORY"){
+                                $_SESSION['modalStat'] = "1";
+                            }else if($crudEmp == "MAXIM"){
+                                $_SESSION['modalStat'] = "2";
+                            }else if($crudEmp == "NIPPI"){
+                                $_SESSION['modalStat'] = "3";
+                            }else if($crudEmp == "POWERLANE"){
+                                $_SESSION['modalStat'] = "4";
+                            }
+
+                            $_SESSION['sUpdate'] = false;
+                        }else{
+                            $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
+                            mysqli_query($con, $ins_Emp);
+
+                            $_SESSION['sUpdate'] = true;
+
+                            header("location: employees.php");
+                        }
+                    }
+
+                }else{
+
+                    $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
+                    mysqli_query($con, $ins_Emp);
+
+                    $_SESSION['sUpdate'] = true;
+
+                    header("location: employees.php");
+                }
+            }
+
+            if(isset($_GET['edit'])){
+
+                $crudId = $_GET['edit'];
+                $_SESSION['EditID'] = $crudId;
+                $queryEdit = "SELECT * FROM `emp_list` WHERE emp_id = '$crudId' LIMIT 1";
+                $resultEdit = mysqli_query($con, $queryEdit);
+
+                while($rowEdit = mysqli_fetch_assoc($resultEdit)){
+
+                    $crudIdNum = $rowEdit['emp_idNum'];
+                    $crudName = strtoupper($rowEdit['emp_name']);
+                    $crudCard = $rowEdit['emp_cardNum'];
+                    $crudEmp = strtoupper($rowEdit['employer']);
+
+                    if($crudEmp == "GLORY"){
+                        $_SESSION['modalStat'] = "1";
+                    }else if($crudEmp == "MAXIM"){
+                        $_SESSION['modalStat'] = "2";
+                    }else if($crudEmp == "NIPPI"){
+                        $_SESSION['modalStat'] = "3";
+                    }else if($crudEmp == "POWERLANE"){
+                        $_SESSION['modalStat'] = "4";
+                    }
+
+                    $editTitle = "1";
+                }
+            }
+
+            //DELETE RECORD
+            if(isset($_POST['deleteRecord'])){
+                $crudId = $_SESSION['deleteID'];
+                mysqli_query($con, "DELETE FROM `emp_list` WHERE emp_id = '$crudId'");
+
+                $_SESSION['sDelete'] = true;
+
+                header("location: employees.php");
+            }
+
+            if(isset($_GET['delete'])){
+                $crudId = $_GET['delete'];
+                $_SESSION['deleteID'] = $crudId;
+
+                $queryEdit = "SELECT * FROM `emp_list` WHERE emp_id = '$crudId' LIMIT 1";
+                $resultEdit = mysqli_query($con, $queryEdit);
+
+                while($rowEdit = mysqli_fetch_assoc($resultEdit)){
+                    $crudIdNum = $rowEdit['emp_idNum'];
+                    $crudName = strtoupper($rowEdit['emp_name']);
+                    ?>
+                        <form action="employees.php" method="POST" id="warning">
+                            <p class="ques">Are you sure you want to delete this record?</p></br>
+                            <p class="delDetails">Employee ID: <?php echo $crudIdNum; ?></p>
+                            <p class="delDetails">Employee Name: <?php echo $crudName; ?></p>
+                            <div class="btn-cont">
+                                <input type="submit" class="deleteRec" name="deleteRecord" value="Yes">
+                                <input type="button" class="cancelDelete" value="No" onclick="closeWarning()">
+                            </div>
+                        </form>
+                    <?php
+                }
+            }
+
+            if(isset($_POST['sbmtCancel'])){
+                $_SESSION['modalStat'] = "0";
+            }
+        ?>
+
+        <div class="empTable-container" id="empTable-container">
 
             <?php
                 $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
@@ -59,8 +255,8 @@
                                     <td><?php echo $emp_row['employer']; ?></td>
                                     <td><?php echo $emp_row['emp_cardNum']; ?></td>
                                     <td class="actionTab">
-                                        <a href="./empEdit.php?id=<?php echo $emp_row['emp_id'] ?>" class="btnEdit">Edit</a>
-                                        <a href="./empDelete.php?id=<?php echo $emp_row['emp_id'] ?>" class="btnDelete">Delete</a>
+                                        <a href="./employees.php?edit=<?php echo $emp_row['emp_id'] ?>" class="btnEdit">Edit</a>
+                                        <a href="./employees.php?delete=<?php echo $emp_row['emp_id'] ?>" class="btnDelete">Delete</a>
                                     </td>
                                 </tr>
                             <?php
@@ -78,47 +274,46 @@
             ?>
         </div>
 
+        <!-- ERROR NOTIFICATION -->
+        <div id="enotif"></div>
+
+
         
 
 
-        <div id="E-Notif">
-            <p>Card Number is Already Registered!</p>
-        </div>
-
-
-        <div id="dark-bg">   
+        <div id="dark-bg" style="visibility:<?php if($_SESSION['modalStat'] == '0' || !isset($_SESSION['modalStat'])){ echo 'hidden'; }else{ echo 'visible;'; } ?>;">   
             <div class="empModal" id="empModal">
                 <!-- <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div> -->
                 <form method="POST" class="frmEmployees">
-                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div>
+                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle"><?php if($editTitle == "1"){ echo 'EDIT'; } ?></span></div>
                     <div class="form-group">
                         <label>Employee ID</label>
-                        <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off">
+                        <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off" autofocus value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudIdNum; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off">
+                        <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudName; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Card Number</label>
-                        <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off">
+                        <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudCard; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Employer</label>
                         <select id="empOption" name="empOption" change>
-                            <option value="" disabled selected>Select your option</option>
-                            <option value="glory">GLORY</option>
-                            <option value="maxim">MAXIM</option>
-                            <option value="nippi">NIPPI</option>
-                            <option value="powerlane">POWERLANE</option>
+                            <option value="" disabled hidden <?php if($_SESSION['modalStat'] == "0"){ echo 'selected'; }?>>Select your option</option>
+                            <option value="glory" <?php if($_SESSION['modalStat'] == "1"){ echo 'selected'; }?>>GLORY</option>
+                            <option value="maxim" <?php if($_SESSION['modalStat'] == "2"){ echo 'selected'; }?>>MAXIM</option>
+                            <option value="nippi" <?php if($_SESSION['modalStat'] == "3"){ echo 'selected'; }?>>NIPPI</option>
+                            <option value="powerlane" <?php if($_SESSION['modalStat'] == "4"){ echo 'selected'; }?>>POWERLANE</option>
                         </select>
                     </div>
                     <div class="modal-btn">
-
-
-
                         <input type="button" name="btnSave" id="btnSave" value="Save" onclick="saveBtn()">
                         <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
+                        <input type="submit" name="sbmtCreate" id="sbmtCreate" value="Create">
+                        <input type="submit" name="sbmtEdit" id="sbmtEdit" value="Edit">
+                        <input type="submit" name="sbmtCancel" id="sbmtCancel" value="Cancel">
                     </div>
                 </form>
             </div>
@@ -138,20 +333,39 @@
             group.classList.add("active");
         }
 
+        // CREATE BUTTON
         function createUser(){
+            document.getElementById("txtTitle").innerHTML = "CREATE"
             document.getElementById("txtName").value = "";
             document.getElementById("txtid").value = "";
             document.getElementById("txtNumber").value = "";
             document.getElementById("empOption").selectedIndex = 0;
             document.getElementById("dark-bg").style.visibility = "visible";
+            document.getElementById("txtid").focus();
+
+            // var childNodes1 = document.getElementById("sideBar").getElementsByTagName('*');
+            // for (var node1 of childNodes1) {
+            //     node1.disabled = true;
+            // }
+
+            // var childNodes2 = document.getElementById("sideBar").getElementsByTagName('*');
+            // for (var node2 of childNodes2) {
+            //     node2.disabled = true;
+            // }
+
+            // $("#empTable :input").attr("disabled", "disabled");
         }
 
         function closeModal(){
-            document.getElementById("txtName").value = "";
-            document.getElementById("txtid").value = "";
-            document.getElementById("txtNumber").value = "";
-            document.getElementById("empOption").selectedIndex = 0;
-            document.getElementById("dark-bg").style.visibility = "hidden";
+            document.getElementById("sbmtCancel").click();
+            var element = document.getElementById("enotif");
+            element.classList.remove("E-Notif");
+            // document.getElementById("txtName").value = "";
+            // document.getElementById("txtid").value = "";
+            // document.getElementById("txtNumber").value = "";
+            // document.getElementById("empOption").selectedIndex = 0;
+            // document.getElementById("dark-bg").style.visibility = "hidden";
+            // window.location.href = './employees.php';
         }
 
         // Search Filter
@@ -181,28 +395,48 @@
         }
 
         function saveBtn(){
-            if(document.getElementById("txtName").value == "" || document.getElementById("txtid").value == "" || document.getElementById("txtNumber").value == "" || document.getElementById("empOption").selectedIndex == 0){
-                alert('error');
+            if(document.getElementById("txtid").value == ""){
+                var element = document.getElementById("enotif");
+                element.classList.remove("E-Notif");
+                element.classList.add("E-Notif");
+                document.getElementById("enotif").innerHTML = "You have entered an invalid Employee ID!";
+                stopNotif = setTimeout(remClass, 3000);
+            }else if(document.getElementById("txtName").value == ""){
+                var element = document.getElementById("enotif");
+                element.classList.remove("E-Notif");
+                element.classList.add("E-Notif");
+                document.getElementById("enotif").innerHTML = "You have entered an invalid Employee Name!";
+                setTimeout(remClass, 3000);
+            }else if(document.getElementById("txtNumber").value == ""){
+                var element = document.getElementById("enotif");
+                element.classList.remove("E-Notif");
+                element.classList.add("E-Notif");
+                document.getElementById("enotif").innerHTML = "You have entered an invalid Card Number!";
+                setTimeout(remClass, 3000);
+            }else if(document.getElementById("empOption").selectedIndex == 0){
+                var element = document.getElementById("enotif");
+                element.classList.remove("E-Notif");
+                element.classList.add("E-Notif");
+                document.getElementById("enotif").innerHTML = "You have selected an invalid Employer!";
+                setTimeout(remClass, 3000);
             }else{
                 if(document.getElementById("txtTitle").innerHTML == "CREATE"){
-                    var cn = "<?php cnotif(); ?>";
-                    alert(cn);
-                    return false;
+                    document.getElementById("sbmtCreate").click();
+                }else if(document.getElementById("txtTitle").innerHTML == "EDIT"){
+                    document.getElementById("sbmtEdit").click();
                 }
-
             }
         }
-    </script>
 
-        <?php
-            function cnotif(){
-                ?>
-                    <div id="S-Notif">
-                        <p>Account Created Successfully!</p>
-                    </div>
-                <?php
-            }
-        ?>
+        function remClass(){
+            var element = document.getElementById("enotif");
+            element.classList.remove("E-Notif");
+        }
+
+        function closeWarning(){
+            window.location.href = './employees.php';
+        }
+    </script>
 
     
     

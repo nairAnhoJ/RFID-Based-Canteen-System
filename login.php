@@ -31,7 +31,7 @@
         <h1 class="login-text">LOGIN</h1>
         <div class="userName">
             <img src="./obj/user.png" class="imgUser" alt="user" width="26" height="26">
-            <input type="text" placeholder="Username" id="user_name" name="user_name" autofocus> 
+            <input type="text" placeholder="Username" id="user_name" name="user_name" autofocus  autocomplete="off"> 
         </div>
         <div class="userPass">
             <img src="./obj/password.png" class="imgPass" alt="password" width="26" height="26">
