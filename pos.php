@@ -23,8 +23,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/dist/charts.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/dist/charts.css">
+    <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
     <title>Canteen POS</title>
 </head>
 <body onload="onloadFunction()">
@@ -32,7 +32,7 @@
 
     <form method="POST">
         <span>
-            <input type="textbox" id="tapInput" name="tapInput" autocomplete="off" onkeyup="EnableDisable(this)" onkeypress="myFunction(event)" autofocus>
+            <input type="textbox" id="tapInput" name="tapInput" autocomplete="off" onkeypress="myFunction(event)" autofocus>
             <p class="dte" id="dateNow" name="dateNow"></p>
         </span>
         <input type="submit" name="inputSubmit" id="inputSubmit" onclick="btnClicked()">
@@ -142,7 +142,15 @@
                         $resultGloryTotal = mysqli_query($con, $query_glory_total);
                         $rowGloryTotal = mysqli_num_rows($resultGloryTotal);
 
-                        $gloryPer = $rowGlory / $rowGloryTotal;
+                        $query_sp = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'SERVICE PROVIDER' AND tran_date = '$dateNow'";
+                        $resultSP = mysqli_query($con, $query_sp);
+                        $rowSP = mysqli_num_rows($resultSP);
+
+                        $query_sp_total = "SELECT * FROM `emp_list` WHERE employer = 'SERVICE PROVIDER'";
+                        $resultSPTotal = mysqli_query($con, $query_sp_total);
+                        $rowSPTotal = mysqli_num_rows($resultSPTotal);
+
+                        $gloryPer = ($rowGlory + $rowSP) / ($rowGloryTotal + $rowSPTotal);
 
                         // ========================== MAXIM PERCENTAGE ==========================
 
@@ -185,28 +193,28 @@
                         <tr>
                             <th scope="row"> Graph1 </th>
                             <td style="--size:<?php echo $gloryPer;?>;">
-                                <span class="data" style="color:white;"><?php echo $gloryPer*100; ?>%</span>
+                                <span class="data" style="color:white;"><?php echo substr(($gloryPer*100), 0, 3); ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph2 </th>
                             <td style="--size:<?php echo $maximPer;?>;">
-                                <span class="data"><?php echo $maximPer*100; ?>%</span>
+                                <span class="data"><?php echo substr(($maximPer*100), 0, 3); ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph3 </th>
                             <td style="--size:<?php echo $nippiPer;?>;">
-                                <span class="data" style="color:white;"><?php echo $nippiPer*100; ?>%</span>
+                                <span class="data" style="color:white;"><?php echo substr(($nippiPer*100), 0, 3); ?>%</span>
                             </td>
                         </tr> 
                         
                         <tr>
                             <th scope="row"> Graph4 </th>
                             <td style="--size:<?php echo $plPer;?>;">
-                                <span class="data"><?php echo $plPer*100; ?>%</span>
+                                <span class="data"><?php echo substr(($plPer*100), 0, 3); ?>%</span>
                             </td>
                         </tr>
                     </tbody>

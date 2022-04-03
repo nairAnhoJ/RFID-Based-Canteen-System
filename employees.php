@@ -8,6 +8,7 @@
     }
 
     if($_SESSION['sUpdate'] == true){
+        $_SESSION['modalStat'] = "0";
         ?>
             <div class="S-Notif">User details was sucessfully updated!</div>
         <?php
@@ -15,6 +16,7 @@
     }
 
     if($_SESSION['sDelete'] == true){
+        $_SESSION['modalStat'] = "0";
         ?>
             <div class="E-Notif">User details was sucessfully Deleted!</div>
         <?php
@@ -77,6 +79,8 @@
                         $_SESSION['modalStat'] = "3";
                     }else if($crudEmp == "POWERLANE"){
                         $_SESSION['modalStat'] = "4";
+                    }else if($crudEmp == "SERVICE PROVIDER"){
+                        $_SESSION['modalStat'] = "5";
                     }else{
                         $_SESSION['modalStat'] = "0";
                     }
@@ -98,8 +102,11 @@
                         $_SESSION['modalStat'] = "3";
                     }else if($crudEmp == "POWERLANE"){
                         $_SESSION['modalStat'] = "4";
+                    }else if($crudEmp == "SERVICE PROVIDER"){
+                        $_SESSION['modalStat'] = "5";
+                    }else{
+                        $_SESSION['modalStat'] = "0";
                     }
-
                     $crudIdNum = "";
                     $crudName = "";
                     $crudCard = "";
@@ -136,10 +143,17 @@
                                 $_SESSION['modalStat'] = "3";
                             }else if($crudEmp == "POWERLANE"){
                                 $_SESSION['modalStat'] = "4";
+                            }else if($crudEmp == "SERVICE PROVIDER"){
+                                $_SESSION['modalStat'] = "5";
+                            }else{
+                                $_SESSION['modalStat'] = "0";
                             }
 
                             $_SESSION['sUpdate'] = false;
                         }else{
+
+                            $_SESSION['modalStat'] = null;
+
                             $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
                             mysqli_query($con, $ins_Emp);
 
@@ -150,6 +164,8 @@
                     }
 
                 }else{
+
+                    $_SESSION['modalStat'] = null;
 
                     $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
                     mysqli_query($con, $ins_Emp);
@@ -182,6 +198,10 @@
                         $_SESSION['modalStat'] = "3";
                     }else if($crudEmp == "POWERLANE"){
                         $_SESSION['modalStat'] = "4";
+                    }else if($crudEmp == "SERVICE PROVIDER"){
+                        $_SESSION['modalStat'] = "5";
+                    }else{
+                        $_SESSION['modalStat'] = "0";
                     }
 
                     $editTitle = "1";
@@ -283,9 +303,8 @@
 
         <div id="dark-bg" style="visibility:<?php if($_SESSION['modalStat'] == '0' || !isset($_SESSION['modalStat'])){ echo 'hidden'; }else{ echo 'visible;'; } ?>;">   
             <div class="empModal" id="empModal">
-                <!-- <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle">CREATE</span></div> -->
                 <form method="POST" class="frmEmployees">
-                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle"><?php if($editTitle == "1"){ echo 'EDIT'; } ?></span></div>
+                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle"><?php if($editTitle == "1"){ echo 'EDIT'; }else{ echo 'CREATE'; } ?></span></div>
                     <div class="form-group">
                         <label>Employee ID</label>
                         <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off" autofocus value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudIdNum; } ?>">
@@ -306,6 +325,7 @@
                             <option value="maxim" <?php if($_SESSION['modalStat'] == "2"){ echo 'selected'; }?>>MAXIM</option>
                             <option value="nippi" <?php if($_SESSION['modalStat'] == "3"){ echo 'selected'; }?>>NIPPI</option>
                             <option value="powerlane" <?php if($_SESSION['modalStat'] == "4"){ echo 'selected'; }?>>POWERLANE</option>
+                            <option value="service provider" <?php if($_SESSION['modalStat'] == "5"){ echo 'selected'; }?>>SERVICE PROVIDER</option>
                         </select>
                     </div>
                     <div class="modal-btn">

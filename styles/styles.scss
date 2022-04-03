@@ -120,28 +120,28 @@ body{
             grid-row: 3 / span 3;
 
             .empTable{
-                width: 90%;
-                margin: 1% auto 0 auto;
+                width: 95%;
+                margin: 20px auto 0 auto;
 
                 th{
                     width: 25%;
                     color: white;
-                    font-weight: 500;
+                    font-weight: 700;
+                    font-size: 25px;
                 }
             }
 
             .chart{
-                
                 display: flex;
                 justify-content: center;
-                align-items: center;
                 margin: 0;
+                margin-top: 60px;
                 padding: 0;
-                height: 90%;
+                height: 100%;
 
                 #effect-example-2 {
-                    height: 60%;
-                    max-width: 90%;
+                    height: 65%;
+                    max-width: 95%;
                     margin: 0 auto;
                 }
 
