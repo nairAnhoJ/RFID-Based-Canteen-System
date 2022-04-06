@@ -23,8 +23,17 @@
 
     <!-- Dashboard Content -->
     <div class="db-container">
-        <h1>DASHBOARD</h1>
-        
+        <div class="pageTitle">DASHBOARD</div>
+        <div class="monthly">
+            <div class="mInside">
+                monthly
+            </div>
+        </div>
+        <div class="daily">
+            <div class="dInside">
+                daily
+            </div>
+        </div>
     </div>
 
 
