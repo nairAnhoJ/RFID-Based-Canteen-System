@@ -193,28 +193,28 @@
                         <tr>
                             <th scope="row"> Graph1 </th>
                             <td style="--size:<?php echo $gloryPer;?>;">
-                                <span class="data" style="color:white;"><?php echo substr(($gloryPer*100), 0, 3); ?>%</span>
+                                <span class="data" style="color:white;"><?php echo substr(($gloryPer*100), 0, 4); ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph2 </th>
                             <td style="--size:<?php echo $maximPer;?>;">
-                                <span class="data"><?php echo substr(($maximPer*100), 0, 3); ?>%</span>
+                                <span class="data"><?php echo substr(($maximPer*100), 0, 4); ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph3 </th>
                             <td style="--size:<?php echo $nippiPer;?>;">
-                                <span class="data" style="color:white;"><?php echo substr(($nippiPer*100), 0, 3); ?>%</span>
+                                <span class="data" style="color:white;"><?php echo substr(($nippiPer*100), 0, 4); ?>%</span>
                             </td>
                         </tr> 
                         
                         <tr>
                             <th scope="row"> Graph4 </th>
                             <td style="--size:<?php echo $plPer;?>;">
-                                <span class="data"><?php echo substr(($plPer*100), 0, 3); ?>%</span>
+                                <span class="data"><?php echo substr(($plPer*100), 0, 4); ?>%</span>
                             </td>
                         </tr>
                     </tbody>
@@ -258,7 +258,6 @@
 
         function myFunction(event) {
             let unicode= event.which;
-            document.getElementById("r1").innerHTML = unicode;
     
             if(unicode == 13){
                 document.getElementById("inputSubmit").click();

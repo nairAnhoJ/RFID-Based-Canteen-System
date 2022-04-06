@@ -7,21 +7,25 @@
         header('location: login.php');
     }
 
-    if($_SESSION['sUpdate'] == true){
-        $_SESSION['modalStat'] = "0";
+    if(!isset($_SESSION['sUpdate'])){
+
+    }else if($_SESSION['sUpdate'] == true){
         ?>
             <div class="S-Notif">User details was sucessfully updated!</div>
         <?php
         $_SESSION['sUpdate'] = false;
     }
 
-    if($_SESSION['sDelete'] == true){
-        $_SESSION['modalStat'] = "0";
+    if(!isset($_SESSION['sDelete'])){
+
+    }else if($_SESSION['sDelete'] == true){
         ?>
             <div class="E-Notif">User details was sucessfully Deleted!</div>
         <?php
         $_SESSION['sDelete'] = false;
     }
+
+
 ?>
 
 
@@ -55,6 +59,12 @@
 
 
         <?php
+
+            global $crudIdNum;
+            global $crudName;
+            global $crudCard;
+            global $editTitle;
+
             // CREATE USER
             if(isset($_POST['sbmtCreate'])){
 
@@ -107,6 +117,9 @@
                     }else{
                         $_SESSION['modalStat'] = "0";
                     }
+
+                    $editTitle == "0";
+
                     $crudIdNum = "";
                     $crudName = "";
                     $crudCard = "";
@@ -244,6 +257,7 @@
 
             if(isset($_POST['sbmtCancel'])){
                 $_SESSION['modalStat'] = "0";
+                
             }
         ?>
 
@@ -303,23 +317,23 @@
 
         <div id="dark-bg" style="visibility:<?php if($_SESSION['modalStat'] == '0' || !isset($_SESSION['modalStat'])){ echo 'hidden'; }else{ echo 'visible;'; } ?>;">   
             <div class="empModal" id="empModal">
-                <form method="POST" class="frmEmployees">
-                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle"><?php if($editTitle == "1"){ echo 'EDIT'; }else{ echo 'CREATE'; } ?></span></div>
+                <form method="POST" class="frmEmployees" id="form-id">
+                    <div id="frmTitle"><span id="txtTitle" class="txtTitle" name="txtTitle"><?php if($editTitle == "1"){ echo "EDIT"; }else{ echo "CREATE"; } ?></span></div>
                     <div class="form-group">
                         <label>Employee ID</label>
-                        <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off" autofocus value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudIdNum; } ?>">
+                        <input type="text" name="txtid" id="txtid" class="form-control" autocomplete="off" onkeyup="FkeyDown()" autofocus value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudIdNum; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudName; } ?>">
+                        <input type="text" name="txtName" id="txtName" class="form-control" autocomplete="off" onkeyup="FkeyDown()" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudName; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Card Number</label>
-                        <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudCard; } ?>">
+                        <input type="text" name="txtNumber" id="txtNumber" class="form-control" autocomplete="off" onkeyup="FkeyDown()" value="<?php if($_SESSION['modalStat'] == "0"){}else{ echo $crudCard; } ?>">
                     </div>
                     <div class="form-group">
                         <label>Employer</label>
-                        <select id="empOption" name="empOption" change>
+                        <select id="empOption" name="empOption" change onchange="FkeyDown()">
                             <option value="" disabled hidden <?php if($_SESSION['modalStat'] == "0"){ echo 'selected'; }?>>Select your option</option>
                             <option value="glory" <?php if($_SESSION['modalStat'] == "1"){ echo 'selected'; }?>>GLORY</option>
                             <option value="maxim" <?php if($_SESSION['modalStat'] == "2"){ echo 'selected'; }?>>MAXIM</option>
@@ -329,11 +343,11 @@
                         </select>
                     </div>
                     <div class="modal-btn">
+                        <input type="submit" name="sbmtCreate" id="sbmtCreate" value="Create" disabled>
+                        <input type="submit" name="sbmtEdit" id="sbmtEdit" value="Edit" disabled>
+                        <input type="submit" name="sbmtCancel" id="sbmtCancel" value="Cancel">
                         <input type="button" name="btnSave" id="btnSave" value="Save" onclick="saveBtn()">
                         <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
-                        <input type="submit" name="sbmtCreate" id="sbmtCreate" value="Create">
-                        <input type="submit" name="sbmtEdit" id="sbmtEdit" value="Edit">
-                        <input type="submit" name="sbmtCancel" id="sbmtCancel" value="Cancel">
                     </div>
                 </form>
             </div>
@@ -341,7 +355,7 @@
     </div>
 
     <script type="text/javascript">
-
+        
         // Change Highlighted Tab on SideBar
         function navFuntion(){
             var db = document.getElementById("db");
@@ -456,6 +470,29 @@
         function closeWarning(){
             window.location.href = './employees.php';
         }
+
+        const sbmtCreate = document.getElementById("sbmtCreate");
+        const sbmtEdit = document.getElementById("sbmtEdit");
+
+        const txtName = document.getElementById("txtName");
+        const txtid = document.getElementById("txtid");
+        const txtNumber = document.getElementById("txtNumber");
+        const empOption = document.getElementById("empOption");
+
+        function FkeyDown(){
+            if(txtName.value === "" || txtid.value === "" || txtNumber.value ==="" || empOption.selectedIndex === 0){
+                sbmtCreate.disabled = true;
+                sbmtEdit.disabled = true;
+            }else{
+                if(document.getElementById("txtTitle").innerHTML == "CREATE"){
+                    sbmtCreate.disabled = false;
+                }else if(document.getElementById("txtTitle").innerHTML == "EDIT"){
+                    sbmtEdit.disabled = false;
+                }
+            }
+        }
+
+        
     </script>
 
     

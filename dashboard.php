@@ -24,6 +24,7 @@
     <!-- Dashboard Content -->
     <div class="db-container">
         <h1>DASHBOARD</h1>
+        
     </div>
 
 
@@ -38,6 +39,7 @@
             tran.classList.remove("active");
             group.classList.remove("active");
         }
+
     </script>
 </body>
 </html>
