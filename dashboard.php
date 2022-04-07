@@ -29,6 +29,69 @@
                 
             </div>
         </div>
+
+        <?php
+            $dateNow = date("Y-m-d");
+
+            // ========================== GLORY PERCENTAGE ==========================
+
+            $query_glory = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'GLORY' AND tran_date = '$dateNow'";
+            $resultGlory = mysqli_query($con, $query_glory);
+            $rowGlory = mysqli_num_rows($resultGlory);
+
+            $query_glory_total = "SELECT * FROM `emp_list` WHERE employer = 'GLORY'";
+            $resultGloryTotal = mysqli_query($con, $query_glory_total);
+            $rowGloryTotal = mysqli_num_rows($resultGloryTotal);
+
+            $query_sp = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'SERVICE PROVIDER' AND tran_date = '$dateNow'";
+            $resultSP = mysqli_query($con, $query_sp);
+            $rowSP = mysqli_num_rows($resultSP);
+
+            $query_sp_total = "SELECT * FROM `emp_list` WHERE employer = 'SERVICE PROVIDER'";
+            $resultSPTotal = mysqli_query($con, $query_sp_total);
+            $rowSPTotal = mysqli_num_rows($resultSPTotal);
+
+            $gloryPer = ($rowGlory + $rowSP) / ($rowGloryTotal + $rowSPTotal);
+
+            // ========================== MAXIM PERCENTAGE ==========================
+
+            $query_maxim = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'MAXIM' AND tran_date = '$dateNow'";
+            $resultMaxim = mysqli_query($con, $query_maxim);
+            $rowMaxim = mysqli_num_rows($resultMaxim);
+
+            $query_maxim_total = "SELECT * FROM `emp_list` WHERE employer = 'MAXIM'";
+            $resultMaximTotal = mysqli_query($con, $query_maxim_total);
+            $rowMaximTotal = mysqli_num_rows($resultMaximTotal);
+
+            $maximPer = $rowMaxim / $rowMaximTotal;
+
+            // ========================== NIPPI PERCENTAGE ==========================
+
+            $query_nippi = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'NIPPI' AND tran_date = '$dateNow'";
+            $resultNippi = mysqli_query($con, $query_nippi);
+            $rowNippi = mysqli_num_rows($resultNippi);
+
+            $query_nippi_total = "SELECT * FROM `emp_list` WHERE employer = 'NIPPI'";
+            $resultNippiTotal = mysqli_query($con, $query_nippi_total);
+            $rowNippiTotal = mysqli_num_rows($resultNippiTotal);
+
+            $nippiPer = $rowNippi / $rowNippiTotal;
+
+            // ========================== POWERLANE PERCENTAGE ==========================
+
+            $query_pl = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'POWERLANE' AND tran_date = '$dateNow'";
+            $resultPL = mysqli_query($con, $query_pl);
+            $rowPL = mysqli_num_rows($resultPL);
+
+            $query_pl_total = "SELECT * FROM `emp_list` WHERE employer = 'POWERLANE'";
+            $resultPLTotal = mysqli_query($con, $query_pl_total);
+            $rowPLTotal = mysqli_num_rows($resultPLTotal);
+
+            $plPer = $rowPL / $rowPLTotal;
+        ?> 
+
+
+
         <div class="daily">
             <div class="dInside">
                 <div class="diTitle">DAILY SALES SUMMARY</div>
@@ -37,10 +100,10 @@
                     <div class="totalPercent">
                         <svg>
                             <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 25) / 100); stroke: #0C4C8A;"></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $gloryPer;?>)); stroke: #0C4C8A;"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2>25<span>%</span></h2>
+                            <h2><?php echo substr(($gloryPer*100), 0, 4); ?><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -49,10 +112,10 @@
                     <div class="totalPercent">
                         <svg>
                             <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 50) / 100); stroke: #3BAFDA"></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $maximPer;?>)); stroke: #3BAFDA"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2>50<span>%</span></h2>
+                            <h2><?php echo substr(($maximPer*100), 0, 4); ?><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -61,10 +124,10 @@
                     <div class="totalPercent">
                         <svg>
                             <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 75) / 100); stroke: #1E3176"></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $nippiPer;?>)); stroke: #1E3176"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2>75<span>%</span></h2>
+                            <h2><?php echo substr(($nippiPer*100), 0, 4); ?><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -73,23 +136,28 @@
                     <div class="totalPercent">
                         <svg>
                             <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 100) / 100); stroke: #8CC152"></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $plPer;?>)); stroke: #8CC152"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2>100<span>%</span></h2>
+                            <h2><?php echo substr(($plPer*100), 0, 4); ?><span>%</span></h2>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <?php
+                $totalSales = ($rowGlory + $rowSP + $rowMaxim + $rowNippi + $rowPL) / ($rowGloryTotal + $rowSPTotal + $rowMaximTotal + $rowNippiTotal + $rowPLTotal)
+            ?>
+
             <div class="dTotal">
                 <div class="dTitle">Daily Total Sales</div>
                 <div class="totalPercent">
                     <svg>
                         <circle cx="50%" cy="50%" r=120px></circle>
-                        <circle cx="50%" cy="50%" r=120px style="stroke-dashoffset: calc(760 - (760 * 85) / 100);"></circle>
+                        <circle cx="50%" cy="50%" r=120px style="stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));"></circle>
                     </svg>
                     <div class="percentNumber">
-                        <h2>85<span>%</span></h2>
+                        <h2><?php echo substr(($totalSales*100), 0, 4); ?><span>%</span></h2>
                     </div>
                 </div>
             </div>

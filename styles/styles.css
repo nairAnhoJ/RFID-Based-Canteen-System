@@ -569,6 +569,7 @@ body .grid-container .item3 .chart .data {
   line-height: 10vh;
   font-size: 5vh;
   font-weight: 600;
+  letter-spacing: 10px;
 }
 
 #db-body .db-container .monthly {
