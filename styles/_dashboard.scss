@@ -68,7 +68,7 @@
 
                 .dEmp{
                     aspect-ratio: 1 / 1;
-                    width: calc(22vw - 101px);
+                    width: calc(22vw - 105px);
                     background-color: #ffffff;
                     margin-left: 10px;
                     line-height: calc(22vw - 101px);
@@ -114,6 +114,7 @@
                                 &:nth-child(2){
                                     // stroke-dashoffset: calc(630 - (630 * 85) / 100);
                                     stroke: #09CA78;
+                                    animation: progBar1 600ms linear forwards;
                                 }
                             }
                         }
@@ -177,6 +178,7 @@
                             &:nth-child(2){
                                 // stroke-dashoffset: calc(760 - (760 * 85) / 100);
                                 stroke: #09CA78;
+                                animation: progBar2 600ms linear forwards;
                             }
                         }
                     }
@@ -191,5 +193,17 @@
                 }
             }
         }
+    }
+}
+
+@keyframes progBar2{
+    0%{
+        stroke-dashoffset: 760;
+    }
+}
+
+@keyframes progBar1{
+    0%{
+        stroke-dashoffset: 630;
     }
 }

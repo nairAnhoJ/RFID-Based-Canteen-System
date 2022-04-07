@@ -103,7 +103,7 @@
                             <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $gloryPer;?>)); stroke: #0C4C8A;"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2><?php echo substr(($gloryPer*100), 0, 4); ?><span>%</span></h2>
+                            <h2><span class="counter" data-target="<?php echo substr(($gloryPer*100), 0, 4); ?>">0</span><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                             <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $maximPer;?>)); stroke: #3BAFDA"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2><?php echo substr(($maximPer*100), 0, 4); ?><span>%</span></h2>
+                            <h2><span class="counter" data-target="<?php echo substr(($maximPer*100), 0, 4); ?>">0</span><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                             <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $nippiPer;?>)); stroke: #1E3176"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2><?php echo substr(($nippiPer*100), 0, 4); ?><span>%</span></h2>
+                            <h2><span class="counter" data-target="<?php echo substr(($nippiPer*100), 0, 4); ?>">0</span><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                             <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $plPer;?>)); stroke: #8CC152"></circle>
                         </svg>
                         <div class="percentNumber">
-                            <h2><?php echo substr(($plPer*100), 0, 4); ?><span>%</span></h2>
+                            <h2><span class="counter" data-target="<?php echo substr(($plPer*100), 0, 4); ?>">0</span><span>%</span></h2>
                         </div>
                     </div>
                 </div>
@@ -156,8 +156,8 @@
                         <circle cx="50%" cy="50%" r=120px></circle>
                         <circle cx="50%" cy="50%" r=120px style="stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));"></circle>
                     </svg>
-                    <div class="percentNumber">
-                        <h2><?php echo substr(($totalSales*100), 0, 4); ?><span>%</span></h2>
+                    <div class="percentNumber"> 
+                        <h2><span class="counter" data-target="<?php echo substr(($totalSales*100), 0, 4); ?>">0</span><span>%</span></h2>
                     </div>
                 </div>
             </div>
@@ -176,6 +176,38 @@
             tran.classList.remove("active");
             group.classList.remove("active");
         }
+
+        const counters = document.querySelectorAll('.counter');
+        const speed = 100;
+
+        counters.forEach(counter => {
+                var nCount = 1;
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+
+                    const inc = target / speed;
+                    var str;
+                    var cStr;
+
+                    if(count < target){
+                        str = nCount + inc;
+                        nCount = str;
+                        if(nCount < 10){
+                            cStr = String(str).slice(0,1);
+                        }else if(nCount == 100){
+                            cStr = String(str).slice(0,3);
+                        }else{
+                            cStr = String(str).slice(0,2);
+                        }
+                        counter.innerText = cStr;
+                        setTimeout(updateCount, 5);
+                    }else{
+                        count.innerText = target;
+                    }
+                }
+                updateCount();
+            });
 
     </script>
 </body>

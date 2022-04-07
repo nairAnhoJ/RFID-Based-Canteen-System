@@ -576,6 +576,11 @@
     opacity: 0;
 }
 
+#sbmtCreate, #sbmtEdit{
+    opacity: 0;
+}
+
+
 @keyframes notif{
     0%{
         top: 50px;

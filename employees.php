@@ -25,6 +25,10 @@
         $_SESSION['sDelete'] = false;
     }
 
+    if($_SESSION['modalStat'] = "0"){
+        $_SESSION['modalStat'] = "0";
+    }
+
 
 ?>
 
@@ -163,12 +167,15 @@
                             }
 
                             $_SESSION['sUpdate'] = false;
-                        }else{
 
-                            $_SESSION['modalStat'] = null;
+                        }else{
 
                             $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
                             mysqli_query($con, $ins_Emp);
+
+                            $_SESSION['modalStat'] = "0";
+
+                            // unset($_SESSION["modalStat"]);
 
                             $_SESSION['sUpdate'] = true;
 
@@ -178,11 +185,13 @@
 
                 }else{
 
-                    $_SESSION['modalStat'] = null;
-
                     $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
                     mysqli_query($con, $ins_Emp);
 
+                    
+                    // unset($_SESSION["modalStat"]);
+
+                    $_SESSION['modalStat'] = "0";
                     $_SESSION['sUpdate'] = true;
 
                     header("location: employees.php");

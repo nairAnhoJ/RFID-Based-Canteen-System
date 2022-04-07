@@ -151,6 +151,7 @@
                         $rowSPTotal = mysqli_num_rows($resultSPTotal);
 
                         $gloryPer = ($rowGlory + $rowSP) / ($rowGloryTotal + $rowSPTotal);
+                        
 
                         // ========================== MAXIM PERCENTAGE ==========================
 
@@ -187,34 +188,69 @@
                         $rowPLTotal = mysqli_num_rows($resultPLTotal);
 
                         $plPer = $rowPL / $rowPLTotal;
+
+                        if(($gloryPer*100) == 100){
+                            $gloryVal = substr(($gloryPer*100), 0, 3);
+                        }else if(($gloryPer*100) < 10){
+                            $gloryVal = substr(($gloryPer*100), 0, 1);
+                        }else{
+                            $gloryVal = substr(($gloryPer*100), 0, 2);
+                        }
+
+                        if(($maximPer*100) == 100){
+                            $maximVal = substr(($maximPer*100), 0, 3);
+                        }else if(($maximPer*100) < 10){
+                            $maximVal = substr(($maximPer*100), 0, 1);
+                        }else{
+                            $maximVal = substr(($maximPer*100), 0, 2);
+                        }
+
+                        if(($nippiPer*100) == 100){
+                            $nippiVal = substr(($nippiPer*100), 0, 3);
+                        }else if(($nippiPer*100) < 10){
+                            $nippiVal = substr(($nippiPer*100), 0, 1);
+                        }else{
+                            $nippiVal = substr(($nippiPer*100), 0, 2);
+                        }
+
+                        if(($plPer*100) == 100){
+                            $plVal = substr(($plPer*100), 0, 3);
+                        }else if(($plPer*100) < 10){
+                            $plVal = substr(($plPer*100), 0, 1);
+                        }else{
+                            $plVal = substr(($plPer*100), 0, 2);
+                        }
+
+
+
                     ?>
     
                     <tbody>
                         <tr>
                             <th scope="row"> Graph1 </th>
                             <td style="--size:<?php echo $gloryPer;?>;">
-                                <span class="data" style="color:white;"><?php echo substr(($gloryPer*100), 0, 4); ?>%</span>
+                                <span class="data" style="color:white;"><?php echo $gloryVal; ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph2 </th>
                             <td style="--size:<?php echo $maximPer;?>;">
-                                <span class="data"><?php echo substr(($maximPer*100), 0, 4); ?>%</span>
+                                <span class="data"><?php echo $maximVal; ?>%</span>
                             </td>
                         </tr>
                         
                         <tr>
                             <th scope="row"> Graph3 </th>
                             <td style="--size:<?php echo $nippiPer;?>;">
-                                <span class="data" style="color:white;"><?php echo substr(($nippiPer*100), 0, 4); ?>%</span>
+                                <span class="data" style="color:white;"><?php echo $nippiVal; ?>%</span>
                             </td>
                         </tr> 
                         
                         <tr>
                             <th scope="row"> Graph4 </th>
                             <td style="--size:<?php echo $plPer;?>;">
-                                <span class="data"><?php echo substr(($plPer*100), 0, 4); ?>%</span>
+                                <span class="data"><?php echo $plVal; ?>%</span>
                             </td>
                         </tr>
                     </tbody>

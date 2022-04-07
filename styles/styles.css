@@ -620,7 +620,7 @@ body .grid-container .item3 .chart .data {
 
 #db-body .db-container .daily .dInside .dEmp {
   aspect-ratio: 1 / 1;
-  width: calc(22vw - 101px);
+  width: calc(22vw - 105px);
   background-color: #ffffff;
   margin-left: 10px;
   line-height: calc(22vw - 101px);
@@ -676,6 +676,8 @@ body .grid-container .item3 .chart .data {
 
 #db-body .db-container .daily .dInside .dEmp .totalPercent svg circle:nth-child(2) {
   stroke: #09CA78;
+  -webkit-animation: progBar1 600ms linear forwards;
+          animation: progBar1 600ms linear forwards;
 }
 
 #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
@@ -745,6 +747,8 @@ body .grid-container .item3 .chart .data {
 
 #db-body .db-container .daily .dTotal .totalPercent svg circle:nth-child(2) {
   stroke: #09CA78;
+  -webkit-animation: progBar2 600ms linear forwards;
+          animation: progBar2 600ms linear forwards;
 }
 
 #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
@@ -754,6 +758,30 @@ body .grid-container .item3 .chart .data {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-size: 35px;
+}
+
+@-webkit-keyframes progBar2 {
+  0% {
+    stroke-dashoffset: 760;
+  }
+}
+
+@keyframes progBar2 {
+  0% {
+    stroke-dashoffset: 760;
+  }
+}
+
+@-webkit-keyframes progBar1 {
+  0% {
+    stroke-dashoffset: 630;
+  }
+}
+
+@keyframes progBar1 {
+  0% {
+    stroke-dashoffset: 630;
+  }
 }
 
 #export-body {
@@ -1642,6 +1670,10 @@ body .grid-container .item3 .chart .data {
   background-color: #db555e;
   font-size: 25px;
   line-height: 60px;
+  opacity: 0;
+}
+
+#sbmtCreate, #sbmtEdit {
   opacity: 0;
 }
 
