@@ -26,12 +26,72 @@
         <div class="pageTitle">DASHBOARD</div>
         <div class="monthly">
             <div class="mInside">
-                monthly
+                
             </div>
         </div>
         <div class="daily">
             <div class="dInside">
-                daily
+                <div class="diTitle">DAILY SALES SUMMARY</div>
+                <div class="dEmp">
+                    <div class="dTitle">GLORY (PHILS.) INC.</div>
+                    <div class="totalPercent">
+                        <svg>
+                            <circle cx="50%" cy="50%" r=100px></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 25) / 100); stroke: #0C4C8A;"></circle>
+                        </svg>
+                        <div class="percentNumber">
+                            <h2>25<span>%</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="dEmp">
+                    <div class="dTitle">MAXIM</div>
+                    <div class="totalPercent">
+                        <svg>
+                            <circle cx="50%" cy="50%" r=100px></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 50) / 100); stroke: #3BAFDA"></circle>
+                        </svg>
+                        <div class="percentNumber">
+                            <h2>50<span>%</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="dEmp">
+                    <div class="dTitle">NIPPI</div>
+                    <div class="totalPercent">
+                        <svg>
+                            <circle cx="50%" cy="50%" r=100px></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 75) / 100); stroke: #1E3176"></circle>
+                        </svg>
+                        <div class="percentNumber">
+                            <h2>75<span>%</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="dEmp">
+                    <div class="dTitle">POWERLANE</div>
+                    <div class="totalPercent">
+                        <svg>
+                            <circle cx="50%" cy="50%" r=100px></circle>
+                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * 100) / 100); stroke: #8CC152"></circle>
+                        </svg>
+                        <div class="percentNumber">
+                            <h2>100<span>%</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dTotal">
+                <div class="dTitle">Daily Total Sales</div>
+                <div class="totalPercent">
+                    <svg>
+                        <circle cx="50%" cy="50%" r=120px></circle>
+                        <circle cx="50%" cy="50%" r=120px style="stroke-dashoffset: calc(760 - (760 * 85) / 100);"></circle>
+                    </svg>
+                    <div class="percentNumber">
+                        <h2>85<span>%</span></h2>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
