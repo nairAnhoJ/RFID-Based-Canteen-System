@@ -23,7 +23,7 @@
             letter-spacing: 10px;
         }
 
-        .monthly{
+        .weekly{
             width: 100%;
             height: 45vh;
             overflow: hidden;
@@ -35,6 +35,12 @@
                 margin: 0 20px;
                 border-radius: 30px;
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+                #weeklyChart{
+                    max-width: 100%;
+                    max-height: 100%;
+                    padding: 0 50px;
+                }
             }
         }
 

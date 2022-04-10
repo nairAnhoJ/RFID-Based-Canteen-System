@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Chart.min.js"></script>
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
     <title>Dashboard</title>
 </head>
@@ -24,9 +25,9 @@
     <!-- Dashboard Content -->
     <div class="db-container">
         <div class="pageTitle">DASHBOARD</div>
-        <div class="monthly">
+        <div class="weekly">
             <div class="mInside">
-                
+                <canvas id="weeklyChart"></canvas>
             </div>
         </div>
 
@@ -164,6 +165,80 @@
         </div>
     </div>
 
+    <?php
+        // Get Date of Monday this Week
+        $monDate = date("Y-m-d", strtotime("monday this week"));
+
+        // Get Date of Mondays for the last 8 Weeks
+        $lastMon = date_create($monDate)->modify("-7 days")->format("Y-m-d");
+        $last2Mon = date_create($monDate)->modify("-14 days")->format("Y-m-d");
+        $last3Mon = date_create($monDate)->modify("-21 days")->format("Y-m-d");
+        $last4Mon = date_create($monDate)->modify("-28 days")->format("Y-m-d");
+        $last5Mon = date_create($monDate)->modify("-35 days")->format("Y-m-d");
+        $last6Mon = date_create($monDate)->modify("-42 days")->format("Y-m-d");
+        $last7Mon = date_create($monDate)->modify("-49 days")->format("Y-m-d");
+        $last8Mon = date_create($monDate)->modify("-56 days")->format("Y-m-d");
+
+        // Get Date of Sundays for the last 8 Weeks
+        $lastSun = date_create($monDate)->modify("-1 days")->format("Y-m-d");
+        $last2Sun = date_create($monDate)->modify("-8 days")->format("Y-m-d");
+        $last3Sun = date_create($monDate)->modify("-15 days")->format("Y-m-d");
+        $last4Sun = date_create($monDate)->modify("-22 days")->format("Y-m-d");
+        $last5Sun = date_create($monDate)->modify("-29 days")->format("Y-m-d");
+        $last6Sun = date_create($monDate)->modify("-36 days")->format("Y-m-d");
+        $last7Sun = date_create($monDate)->modify("-43 days")->format("Y-m-d");
+        $last8Sun = date_create($monDate)->modify("-50 days")->format("Y-m-d");
+
+        $queryWeek1 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$lastMon' AND '$lastSun'";
+        $resultWeek1 = mysqli_query($con, $queryWeek1);
+        $totalWeek1 = mysqli_num_rows($resultWeek1);
+
+        $queryWeek2 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last2Mon' AND '$last2Sun'";
+        $resultWeek2 = mysqli_query($con, $queryWeek2);
+        $totalWeek2 = mysqli_num_rows($resultWeek2);
+
+        $queryWeek3 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last3Mon' AND '$last3Sun'";
+        $resultWeek3 = mysqli_query($con, $queryWeek3);
+        $totalWeek3 = mysqli_num_rows($resultWeek3);
+
+        $queryWeek4 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last4Mon' AND '$last4Sun'";
+        $resultWeek4 = mysqli_query($con, $queryWeek4);
+        $totalWeek4 = mysqli_num_rows($resultWeek4);
+
+        $queryWeek5 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last5Mon' AND '$last5Sun'";
+        $resultWeek5 = mysqli_query($con, $queryWeek5);
+        $totalWeek5 = mysqli_num_rows($resultWeek5);
+
+        $queryWeek6 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last6Mon' AND '$last6Sun'";
+        $resultWeek6 = mysqli_query($con, $queryWeek6);
+        $totalWeek6 = mysqli_num_rows($resultWeek6);
+
+        $queryWeek7 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last7Mon' AND '$last7Sun'";
+        $resultWeek7 = mysqli_query($con, $queryWeek7);
+        $totalWeek7 = mysqli_num_rows($resultWeek7);
+
+        $queryWeek8 = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$last8Mon' AND '$last8Sun'";
+        $resultWeek8 = mysqli_query($con, $queryWeek8);
+        $totalWeek8 = mysqli_num_rows($resultWeek8);
+
+        $weeklyData = array($totalWeek8, $totalWeek7, $totalWeek6, $totalWeek5, $totalWeek4, $totalWeek3, $totalWeek2, $totalWeek1);
+        $weekDates = array($last8Mon, $last7Mon, $last6Mon, $last5Mon, $last4Mon, $last3Mon, $last2Mon, $lastMon);
+
+        $lData = (min($weeklyData));
+        $hData = (max($weeklyData));
+
+        if($lData < 500){
+            $$sMin = 0;
+        }else{
+            $sMin = $lData - 100;
+        }
+
+        $sMax = $hData + 20;
+        
+
+
+    ?>
+
 
     <script type="text/javascript">
 
@@ -207,7 +282,57 @@
                     }
                 }
                 updateCount();
-            });
+        });
+
+        let wChart = document.getElementById('weeklyChart').getContext('2d');
+        let weekChart = new Chart(wChart, {
+            type:'line',
+            data:{
+                labels: <?php echo json_encode($weekDates); ?>,
+                datasets:[{
+                    label:'Sales',
+                    data: <?php echo json_encode($weeklyData); ?>,
+                    borderColor: '#3bafda',
+                    borderWidth: 4,
+                    fill: false,
+                    tension: 0.4
+                }]
+            },
+
+            options: {
+                responsive: true,
+                plugins: { 
+                    title: {
+                        display: true,
+                        text: 'Weekly Sales',
+                    },
+                    legend:{
+                        display: false,
+                    },
+                },
+                interaction: {
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Week'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Employees'
+                        },
+                        min: <?php echo json_encode($sMin); ?>,
+                        max: <?php echo json_encode($sMax); ?>
+                    }
+                }
+            },
+        });
 
     </script>
 </body>

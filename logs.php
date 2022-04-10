@@ -58,7 +58,7 @@
                     // $newfDate = date("d-m-Y", strtotime($dateFrom));
                     // $newtDate = date("d-m-Y", strtotime($dateTo));
 
-                    $queryTable = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$dateFrom' AND '$dateTo'";
+                    $queryTable = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$dateFrom' AND '$dateTo' ORDER BY employer ASC";
                     $resultTable = mysqli_query($con, $queryTable);
                     if(mysqli_num_rows($resultTable) > 0){
                         ?>
