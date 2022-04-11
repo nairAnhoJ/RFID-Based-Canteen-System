@@ -391,6 +391,12 @@ body .grid-container .item3 .chart .data {
   width: 420px;
 }
 
+@media only screen and (max-width: 1366px) {
+  #login-body .shadow {
+    bottom: -2vh;
+  }
+}
+
 #sideBar {
   z-index: 95;
   position: fixed;
@@ -606,7 +612,6 @@ body .grid-container .item3 .chart .data {
   height: calc(100% - 30px);
   background-color: #ffffff;
   margin: 0px 20px 10px 20px;
-  border-radius: 30px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: inline-block;
@@ -630,7 +635,6 @@ body .grid-container .item3 .chart .data {
   background-color: #ffffff;
   margin-left: 10px;
   line-height: calc(22vw - 101px);
-  border-radius: 30px;
   display: inline-block;
   overflow: hidden;
   margin-top: 60px;
@@ -787,6 +791,60 @@ body .grid-container .item3 .chart .data {
 @keyframes progBar1 {
   0% {
     stroke-dashoffset: 630;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  #db-body .db-container .daily .dInside .dEmp {
+    width: calc(22vw - 95px);
+  }
+  #db-body .db-container .daily .dInside .dEmp .dTitle {
+    font-size: 17px;
+    max-height: 25px;
+    line-height: 25px;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent {
+    height: calc(100% - 10px);
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
+    width: 100%;
+    height: 100%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg circle {
+    stroke-width: 25;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
+    font-size: 22px;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent svg circle {
+    stroke-width: 35;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
+    font-size: 28px;
+  }
+  @-webkit-keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 600;
+    }
+  }
+  @keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 600;
+    }
+  }
+  @-webkit-keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 440;
+    }
+  }
+  @keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 440;
+    }
   }
 }
 

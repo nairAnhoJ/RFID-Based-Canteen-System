@@ -145,3 +145,12 @@
     }
     
 }
+
+@media only screen and (max-width: 1366px) {
+    #login-body{
+
+        .shadow{
+            bottom: -2vh;
+        }
+    }
+}

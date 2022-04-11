@@ -6,6 +6,67 @@
     if(!isset($_SESSION['connected'])){
         header('location: login.php');
     }
+
+    $dateNow = date("Y-m-d");
+
+    // ========================== GLORY PERCENTAGE ==========================
+
+    $query_glory = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'GLORY' AND tran_date = '$dateNow'";
+    $resultGlory = mysqli_query($con, $query_glory);
+    $rowGlory = mysqli_num_rows($resultGlory);
+
+    $query_glory_total = "SELECT * FROM `emp_list` WHERE employer = 'GLORY'";
+    $resultGloryTotal = mysqli_query($con, $query_glory_total);
+    $rowGloryTotal = mysqli_num_rows($resultGloryTotal);
+
+    $query_sp = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'SERVICE PROVIDER' AND tran_date = '$dateNow'";
+    $resultSP = mysqli_query($con, $query_sp);
+    $rowSP = mysqli_num_rows($resultSP);
+
+    $query_sp_total = "SELECT * FROM `emp_list` WHERE employer = 'SERVICE PROVIDER'";
+    $resultSPTotal = mysqli_query($con, $query_sp_total);
+    $rowSPTotal = mysqli_num_rows($resultSPTotal);
+
+    $gloryPer = ($rowGlory + $rowSP) / ($rowGloryTotal + $rowSPTotal);
+
+    // ========================== MAXIM PERCENTAGE ==========================
+
+    $query_maxim = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'MAXIM' AND tran_date = '$dateNow'";
+    $resultMaxim = mysqli_query($con, $query_maxim);
+    $rowMaxim = mysqli_num_rows($resultMaxim);
+
+    $query_maxim_total = "SELECT * FROM `emp_list` WHERE employer = 'MAXIM'";
+    $resultMaximTotal = mysqli_query($con, $query_maxim_total);
+    $rowMaximTotal = mysqli_num_rows($resultMaximTotal);
+
+    $maximPer = $rowMaxim / $rowMaximTotal;
+
+    // ========================== NIPPI PERCENTAGE ==========================
+
+    $query_nippi = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'NIPPI' AND tran_date = '$dateNow'";
+    $resultNippi = mysqli_query($con, $query_nippi);
+    $rowNippi = mysqli_num_rows($resultNippi);
+
+    $query_nippi_total = "SELECT * FROM `emp_list` WHERE employer = 'NIPPI'";
+    $resultNippiTotal = mysqli_query($con, $query_nippi_total);
+    $rowNippiTotal = mysqli_num_rows($resultNippiTotal);
+
+    $nippiPer = $rowNippi / $rowNippiTotal;
+
+    // ========================== POWERLANE PERCENTAGE ==========================
+
+    $query_pl = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'POWERLANE' AND tran_date = '$dateNow'";
+    $resultPL = mysqli_query($con, $query_pl);
+    $rowPL = mysqli_num_rows($resultPL);
+
+    $query_pl_total = "SELECT * FROM `emp_list` WHERE employer = 'POWERLANE'";
+    $resultPLTotal = mysqli_query($con, $query_pl_total);
+    $rowPLTotal = mysqli_num_rows($resultPLTotal);
+
+    $plPer = $rowPL / $rowPLTotal;
+
+    $totalSales = ($rowGlory + $rowSP + $rowMaxim + $rowNippi + $rowPL) / ($rowGloryTotal + $rowSPTotal + $rowMaximTotal + $rowNippiTotal + $rowPLTotal);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +78,75 @@
     <script src="./Chart.min.js"></script>
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
     <title>Dashboard</title>
+
+    <script>
+        function changeRadius(){
+            const sWidth = window.screen.width;
+
+            if(sWidth <= 1366){
+                console.log(sWidth);
+                const cSumRadius1 = document.getElementById("sumCircle1");
+                const cSumRadius2 = document.getElementById("sumCircle2");
+                const cSumRadius3 = document.getElementById("sumCircle3");
+                const cSumRadius4 = document.getElementById("sumCircle4");
+                const cSumRadius5 = document.getElementById("sumCircle5");
+                const cSumRadius6 = document.getElementById("sumCircle6");
+                const cSumRadius7 = document.getElementById("sumCircle7");
+                const cSumRadius8 = document.getElementById("sumCircle8");
+
+                const cTotalRadius1 = document.getElementById("totalCircle1");
+                const cTotalRadius2 = document.getElementById("totalCircle2");
+
+                cSumRadius1.setAttribute("r", "70px");
+                cSumRadius2.setAttribute("r", "70px");
+                cSumRadius2.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo json_encode($gloryPer); ?>)); stroke: #0C4C8A;");
+                cSumRadius3.setAttribute("r", "70px");
+                cSumRadius4.setAttribute("r", "70px");
+                cSumRadius4.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo json_encode($maximPer); ?>)); stroke: #3BAFDA;");
+                cSumRadius5.setAttribute("r", "70px");
+                cSumRadius6.setAttribute("r", "70px");
+                cSumRadius6.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo json_encode($nippiPer); ?>)); stroke: #1E3176;");
+                cSumRadius7.setAttribute("r", "70px");
+                cSumRadius8.setAttribute("r", "70px");
+                cSumRadius8.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo json_encode($plPer); ?>)); stroke: #8CC152;");
+
+                cTotalRadius1.setAttribute("r", "95px");
+                cTotalRadius2.setAttribute("r", "95px");
+                cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(600 - (600 * <?php echo $totalSales;?>));");
+
+            }else if(sWidth > 1366 && sWidth <= 1920){
+                
+                const cSumRadius1 = document.getElementById("sumCircle1");
+                const cSumRadius2 = document.getElementById("sumCircle2");
+                const cSumRadius3 = document.getElementById("sumCircle3");
+                const cSumRadius4 = document.getElementById("sumCircle4");
+                const cSumRadius5 = document.getElementById("sumCircle5");
+                const cSumRadius6 = document.getElementById("sumCircle6");
+                const cSumRadius7 = document.getElementById("sumCircle7");
+                const cSumRadius8 = document.getElementById("sumCircle8");
+
+                const cTotalRadius1 = document.getElementById("totalCircle1");
+                const cTotalRadius2 = document.getElementById("totalCircle2");
+
+                cSumRadius1.setAttribute("r", "100px");
+                cSumRadius2.setAttribute("r", "100px");
+                cSumRadius2.setAttribute("style", "stroke-dashoffset: calc(630 - (630 * <?php echo json_encode($gloryPer); ?>)); stroke: #0C4C8A;");
+                cSumRadius3.setAttribute("r", "100px");
+                cSumRadius4.setAttribute("r", "100px");
+                cSumRadius4.setAttribute("style", "stroke-dashoffset: calc(630 - (630 * <?php echo json_encode($maximPer); ?>)); stroke: #3BAFDA;");
+                cSumRadius5.setAttribute("r", "100px");
+                cSumRadius6.setAttribute("r", "100px");
+                cSumRadius6.setAttribute("style", "stroke-dashoffset: calc(630 - (630 * <?php echo json_encode($nippiPer); ?>)); stroke: #1E3176;");
+                cSumRadius7.setAttribute("r", "100px");
+                cSumRadius8.setAttribute("r", "100px");
+                cSumRadius8.setAttribute("style", "stroke-dashoffset: calc(630 - (630 * <?php echo json_encode($plPer); ?>)); stroke: #8CC152;");
+
+                cTotalRadius1.setAttribute("r", "120px");
+                cTotalRadius2.setAttribute("r", "120px");
+            }
+        }
+    </script>
+
 </head>
 <body id="db-body" onload="navFuntion()">
     <!-- Include Navigation Side Bar -->
@@ -31,65 +161,7 @@
             </div>
         </div>
 
-        <?php
-            $dateNow = date("Y-m-d");
-
-            // ========================== GLORY PERCENTAGE ==========================
-
-            $query_glory = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'GLORY' AND tran_date = '$dateNow'";
-            $resultGlory = mysqli_query($con, $query_glory);
-            $rowGlory = mysqli_num_rows($resultGlory);
-
-            $query_glory_total = "SELECT * FROM `emp_list` WHERE employer = 'GLORY'";
-            $resultGloryTotal = mysqli_query($con, $query_glory_total);
-            $rowGloryTotal = mysqli_num_rows($resultGloryTotal);
-
-            $query_sp = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'SERVICE PROVIDER' AND tran_date = '$dateNow'";
-            $resultSP = mysqli_query($con, $query_sp);
-            $rowSP = mysqli_num_rows($resultSP);
-
-            $query_sp_total = "SELECT * FROM `emp_list` WHERE employer = 'SERVICE PROVIDER'";
-            $resultSPTotal = mysqli_query($con, $query_sp_total);
-            $rowSPTotal = mysqli_num_rows($resultSPTotal);
-
-            $gloryPer = ($rowGlory + $rowSP) / ($rowGloryTotal + $rowSPTotal);
-
-            // ========================== MAXIM PERCENTAGE ==========================
-
-            $query_maxim = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'MAXIM' AND tran_date = '$dateNow'";
-            $resultMaxim = mysqli_query($con, $query_maxim);
-            $rowMaxim = mysqli_num_rows($resultMaxim);
-
-            $query_maxim_total = "SELECT * FROM `emp_list` WHERE employer = 'MAXIM'";
-            $resultMaximTotal = mysqli_query($con, $query_maxim_total);
-            $rowMaximTotal = mysqli_num_rows($resultMaximTotal);
-
-            $maximPer = $rowMaxim / $rowMaximTotal;
-
-            // ========================== NIPPI PERCENTAGE ==========================
-
-            $query_nippi = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'NIPPI' AND tran_date = '$dateNow'";
-            $resultNippi = mysqli_query($con, $query_nippi);
-            $rowNippi = mysqli_num_rows($resultNippi);
-
-            $query_nippi_total = "SELECT * FROM `emp_list` WHERE employer = 'NIPPI'";
-            $resultNippiTotal = mysqli_query($con, $query_nippi_total);
-            $rowNippiTotal = mysqli_num_rows($resultNippiTotal);
-
-            $nippiPer = $rowNippi / $rowNippiTotal;
-
-            // ========================== POWERLANE PERCENTAGE ==========================
-
-            $query_pl = "SELECT * FROM `tbl_trans_logs` WHERE employer = 'POWERLANE' AND tran_date = '$dateNow'";
-            $resultPL = mysqli_query($con, $query_pl);
-            $rowPL = mysqli_num_rows($resultPL);
-
-            $query_pl_total = "SELECT * FROM `emp_list` WHERE employer = 'POWERLANE'";
-            $resultPLTotal = mysqli_query($con, $query_pl_total);
-            $rowPLTotal = mysqli_num_rows($resultPLTotal);
-
-            $plPer = $rowPL / $rowPLTotal;
-        ?> 
+         
 
 
 
@@ -100,8 +172,8 @@
                     <div class="dTitle">GLORY (PHILS.) INC.</div>
                     <div class="totalPercent">
                         <svg>
-                            <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $gloryPer;?>)); stroke: #0C4C8A;"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle1"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle2"></circle>
                         </svg>
                         <div class="percentNumber">
                             <h2><span class="counter" data-target="<?php echo substr(($gloryPer*100), 0, 4); ?>">0</span><span>%</span></h2>
@@ -112,8 +184,8 @@
                     <div class="dTitle">MAXIM</div>
                     <div class="totalPercent">
                         <svg>
-                            <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $maximPer;?>)); stroke: #3BAFDA"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle3"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle4"></circle>
                         </svg>
                         <div class="percentNumber">
                             <h2><span class="counter" data-target="<?php echo substr(($maximPer*100), 0, 4); ?>">0</span><span>%</span></h2>
@@ -124,8 +196,8 @@
                     <div class="dTitle">NIPPI</div>
                     <div class="totalPercent">
                         <svg>
-                            <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $nippiPer;?>)); stroke: #1E3176"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle5"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle6"></circle>
                         </svg>
                         <div class="percentNumber">
                             <h2><span class="counter" data-target="<?php echo substr(($nippiPer*100), 0, 4); ?>">0</span><span>%</span></h2>
@@ -136,8 +208,8 @@
                     <div class="dTitle">POWERLANE</div>
                     <div class="totalPercent">
                         <svg>
-                            <circle cx="50%" cy="50%" r=100px></circle>
-                            <circle cx="50%" cy="50%" r=100px style="stroke-dashoffset: calc(630 - (630 * <?php echo $plPer;?>)); stroke: #8CC152"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle7"></circle>
+                            <circle cx="50%" cy="48%" r=100px id="sumCircle8"></circle>
                         </svg>
                         <div class="percentNumber">
                             <h2><span class="counter" data-target="<?php echo substr(($plPer*100), 0, 4); ?>">0</span><span>%</span></h2>
@@ -147,15 +219,15 @@
             </div>
 
             <?php
-                $totalSales = ($rowGlory + $rowSP + $rowMaxim + $rowNippi + $rowPL) / ($rowGloryTotal + $rowSPTotal + $rowMaximTotal + $rowNippiTotal + $rowPLTotal)
+                
             ?>
 
             <div class="dTotal">
                 <div class="dTitle">Daily Total Sales</div>
                 <div class="totalPercent">
                     <svg>
-                        <circle cx="50%" cy="50%" r=120px></circle>
-                        <circle cx="50%" cy="50%" r=120px style="stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));"></circle>
+                        <circle cx="50%" cy="50%" r=120px id="totalCircle1"></circle>
+                        <circle cx="50%" cy="50%" r=120px id="totalCircle2" style="stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));"></circle>
                     </svg>
                     <div class="percentNumber"> 
                         <h2><span class="counter" data-target="<?php echo substr(($totalSales*100), 0, 4); ?>">0</span><span>%</span></h2>
@@ -228,13 +300,12 @@
         $hData = (max($weeklyData));
 
         if($lData < 500){
-            $$sMin = 0;
+            $sMin = 0;
         }else{
             $sMin = $lData - 100;
         }
 
         $sMax = $hData + 20;
-        
 
 
     ?>
@@ -250,6 +321,8 @@
             db.classList.add("active");
             tran.classList.remove("active");
             group.classList.remove("active");
+
+            changeRadius();
         }
 
         const counters = document.querySelectorAll('.counter');
