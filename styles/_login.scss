@@ -149,8 +149,35 @@
 @media only screen and (max-width: 1366px) {
     #login-body{
 
+        .login-container{
+            height: 370px;
+            width: 350px;
+
+            .userName{
+                margin: 35px 0 0 35px;
+                
+                #user_name{
+                    width: 280px;
+                }
+            }
+
+            .userPass{
+                margin: 35px 0 0 35px;
+
+                #user_pass{
+                    width: 280px;
+                }
+            }
+
+            #loginBtn_submit{
+                width:280px;
+                margin: 35px 0 0 35px;
+            }
+        }
+
         .shadow{
-            bottom: -2vh;
+            width: 350px;
+            bottom: -55px;
         }
     }
 }

@@ -392,8 +392,29 @@ body .grid-container .item3 .chart .data {
 }
 
 @media only screen and (max-width: 1366px) {
+  #login-body .login-container {
+    height: 370px;
+    width: 350px;
+  }
+  #login-body .login-container .userName {
+    margin: 35px 0 0 35px;
+  }
+  #login-body .login-container .userName #user_name {
+    width: 280px;
+  }
+  #login-body .login-container .userPass {
+    margin: 35px 0 0 35px;
+  }
+  #login-body .login-container .userPass #user_pass {
+    width: 280px;
+  }
+  #login-body .login-container #loginBtn_submit {
+    width: 280px;
+    margin: 35px 0 0 35px;
+  }
   #login-body .shadow {
-    bottom: -2vh;
+    width: 350px;
+    bottom: -55px;
   }
 }
 
@@ -616,6 +637,7 @@ body .grid-container .item3 .chart .data {
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: inline-block;
   overflow: hidden;
+  border-radius: 30px;
 }
 
 #db-body .db-container .daily .dInside .diTitle {
@@ -795,8 +817,19 @@ body .grid-container .item3 .chart .data {
 }
 
 @media only screen and (max-width: 1366px) {
+  #db-body .db-container .weekly {
+    height: 43vh;
+  }
+  #db-body .db-container .weekly .mInside {
+    height: 93%;
+  }
+  #db-body .db-container .daily .dInside {
+    width: calc(100% - 45vh - 95px);
+    height: 95%;
+  }
   #db-body .db-container .daily .dInside .dEmp {
     width: calc(22vw - 95px);
+    height: 75%;
   }
   #db-body .db-container .daily .dInside .dEmp .dTitle {
     font-size: 17px;
@@ -804,7 +837,7 @@ body .grid-container .item3 .chart .data {
     line-height: 25px;
   }
   #db-body .db-container .daily .dInside .dEmp .totalPercent {
-    height: calc(100% - 10px);
+    height: 100%;
   }
   #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
     width: 100%;
@@ -817,23 +850,28 @@ body .grid-container .item3 .chart .data {
   }
   #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
     font-size: 22px;
+    top: 45%;
+  }
+  #db-body .db-container .daily .dTotal {
+    height: 95%;
   }
   #db-body .db-container .daily .dTotal .totalPercent svg circle {
     stroke-width: 35;
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
   }
   #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
     font-size: 28px;
+    top: 50%;
   }
   @-webkit-keyframes progBar2 {
     0% {
-      stroke-dashoffset: 600;
+      stroke-dashoffset: 620;
     }
   }
   @keyframes progBar2 {
     0% {
-      stroke-dashoffset: 600;
+      stroke-dashoffset: 620;
     }
   }
   @-webkit-keyframes progBar1 {
@@ -1155,7 +1193,7 @@ body .grid-container .item3 .chart .data {
 
 #emp-body .emp-container .topPage .empTitle {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 #emp-body .emp-container .topPage .toolBar {
@@ -1254,7 +1292,6 @@ body .grid-container .item3 .chart .data {
   border-collapse: collapse;
   width: 100%;
   max-height: 100%;
-  font-size: 20px;
 }
 
 #emp-body .emp-container .empTable-container .table-container table thead {
@@ -1796,9 +1833,44 @@ body .grid-container .item3 .chart .data {
 }
 
 @media only screen and (max-width: 1366px) {
-  #emp-body .emp-container .empModal {
+  #emp-body .emp-container .topPage .empTitle {
+    font-size: 25px;
+    background-color: #009879;
+    margin-bottom: 20px;
+  }
+  #emp-body .emp-container .empTable-container .table-container {
+    font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
+    width: 100px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(2), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(2) {
+    width: 250px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(3), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(3) {
+    width: 175px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
+    width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
+    left: 35px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnDelete, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete {
+    right: 35px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container #dark-bg .empModal {
     height: 55vh;
     width: 40vw;
+  }
+  ::-webkit-scrollbar-track {
+    margin-top: 40px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

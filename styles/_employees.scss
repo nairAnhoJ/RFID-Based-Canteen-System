@@ -16,7 +16,7 @@
 
             .empTitle{
                 text-align: center;
-                padding-top: 10px;
+                padding-top: 20px;
             }
 
             .toolBar{
@@ -109,7 +109,6 @@
                     border-collapse: collapse;
                     width: 100%;
                     max-height: 100%;
-                    font-size: 20px;
     
                     thead{
                         width: 100%;
@@ -621,17 +620,76 @@
         .emp-container{
 
             .topPage{
-    
+                .empTitle{
+                    font-size: 25px;
+                    background-color: #009879;
+                    margin-bottom: 20px;
+                }
             }
-    
-            .empTable{
+            
+            .empTable-container{
+                .table-container{
+                    font-size: 15px;
+                    #empTable, table{
+                        thead{
+                            tr{
+                                th{
+                                    &:nth-child(1){
+                                        width: 100px;
+                                    }
+                                    &:nth-child(2){
+                                        width: 250px;
+                                    }
+                                    &:nth-child(3){
+                                        width: 175px;
+                                    }
+                                    &:nth-child(4){
+                                        width: 125px;
+                                    }
+                                }
+                            }
+                        }
+
+                        tbody{
+
+                            tr{
+
+                                td{
+                                    
+                                }
+
+                                .actionTab{
+                                    .btnEdit{
+                                        left: 35px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                    .btnDelete{
+                                        right: 35px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 
             }
-    
-            .empModal{
-                height: 55vh;
-                width: 40vw;
+
+            #dark-bg{
+                
+                .empModal{
+                    height: 55vh;
+                    width: 40vw;
+                }
             }
         }
+    }
+
+    ::-webkit-scrollbar-track{
+        margin-top: 40px;
     }
 }

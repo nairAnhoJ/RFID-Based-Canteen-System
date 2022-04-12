@@ -66,12 +66,10 @@
     <!-- Include Navigation Side Bar -->
     <?php require_once 'nav.php';?>
 
-    <div><?php echo $_SESSION['modalStat']; ?></div>
-
     <!-- Employees Content -->
     <div class="emp-container">
         <div class="topPage" id="topPage">
-            <h1 class="empTitle" id="empTitle">Employee List</h1>
+            <h1 class="empTitle" id="empTitle">EMPLOYEE LIST</h1>
             <div class="toolBar">
                 <input type="text" id="searchBox" class="searchBox" onkeyup="searchEmp()" placeholder="Search Employee...">
                 <input type="button" id="createUser" class="createUser" value="CREATE" onclick="createUser()">

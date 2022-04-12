@@ -58,6 +58,7 @@
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
                 display: inline-block;
                 overflow: hidden;
+                border-radius: 30px;
 
                 .diTitle{
                     position: absolute;
@@ -213,10 +214,22 @@
 @media only screen and (max-width: 1366px) {
     #db-body{
         .db-container{
+
+            .weekly{
+                height: 43vh;
+
+                .mInside{
+                    height: 93%;
+                }
+            }
+
             .daily{
                 .dInside{
+                    width: calc(100% - 45vh - 95px);
+                    height: 95%;
                     .dEmp{
                         width: calc(22vw - 95px);
+                        height: 75%;
                         .dTitle{
                             font-size: 17px;
                             max-height: 25px;
@@ -224,7 +237,7 @@
                         }
 
                         .totalPercent{
-                            height: calc(100% - 10px);
+                            height: 100%;
                             svg{
                                 width: 100%;
                                 height: 100%;
@@ -237,23 +250,26 @@
 
                             .percentNumber{
                                 font-size: 22px;
+                                top: 45%;
                             }
                         }
                     }
                 }
 
                 .dTotal{
+                    height: 95%;
                     .totalPercent{
                         svg{
                             circle{
                                 stroke-width: 35;
-                                stroke-dasharray: 600;
-                                stroke-dashoffset: 600;
+                                stroke-dasharray: 620;
+                                stroke-dashoffset: 620;
                             }
                         }
 
                         .percentNumber{
                             font-size: 28px;
+                            top: 50%;
                         }
                     }
                 }
@@ -263,7 +279,7 @@
 
     @keyframes progBar2{
         0%{
-            stroke-dashoffset: 600;
+            stroke-dashoffset: 620;
         }
     }
     

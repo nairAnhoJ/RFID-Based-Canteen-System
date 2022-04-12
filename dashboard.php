@@ -81,10 +81,11 @@
 
     <script>
         function changeRadius(){
+
             const sWidth = window.screen.width;
 
             if(sWidth <= 1366){
-                console.log(sWidth);
+                
                 const cSumRadius1 = document.getElementById("sumCircle1");
                 const cSumRadius2 = document.getElementById("sumCircle2");
                 const cSumRadius3 = document.getElementById("sumCircle3");
@@ -110,9 +111,18 @@
                 cSumRadius8.setAttribute("r", "70px");
                 cSumRadius8.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo json_encode($plPer); ?>)); stroke: #8CC152;");
 
-                cTotalRadius1.setAttribute("r", "95px");
-                cTotalRadius2.setAttribute("r", "95px");
-                cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(600 - (600 * <?php echo $totalSales;?>));");
+                cSumRadius1.setAttribute("cy", "44%");
+                cSumRadius2.setAttribute("cy", "44%");
+                cSumRadius3.setAttribute("cy", "44%");
+                cSumRadius4.setAttribute("cy", "44%");
+                cSumRadius5.setAttribute("cy", "44%");
+                cSumRadius6.setAttribute("cy", "44%");
+                cSumRadius7.setAttribute("cy", "44%");
+                cSumRadius8.setAttribute("cy", "44%");
+
+                cTotalRadius1.setAttribute("r", "80px");
+                cTotalRadius2.setAttribute("r", "80px");
+                cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(620 - (620 * <?php echo $totalSales;?>));");
 
             }else if(sWidth > 1366 && sWidth <= 1920){
                 
@@ -143,6 +153,7 @@
 
                 cTotalRadius1.setAttribute("r", "120px");
                 cTotalRadius2.setAttribute("r", "120px");
+                cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));");
             }
         }
     </script>
@@ -227,7 +238,7 @@
                 <div class="totalPercent">
                     <svg>
                         <circle cx="50%" cy="50%" r=120px id="totalCircle1"></circle>
-                        <circle cx="50%" cy="50%" r=120px id="totalCircle2" style="stroke-dashoffset: calc(760 - (760 * <?php echo $totalSales;?>));"></circle>
+                        <circle cx="50%" cy="50%" r=120px id="totalCircle2"></circle>
                     </svg>
                     <div class="percentNumber"> 
                         <h2><span class="counter" data-target="<?php echo substr(($totalSales*100), 0, 4); ?>">0</span><span>%</span></h2>
