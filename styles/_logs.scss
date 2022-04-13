@@ -288,8 +288,53 @@
 
     #export-body{
 
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
         .export-container{
             
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 80%;
+                font-size: 15px;
+            }
+
+            #exportBtn{
+                margin-top: 55px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+    #export-body{
+
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
+        .export-container{
+            
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 90%;
+                font-size: 15px;
+            }
+
+            #exportBtn{
+                margin-top: 55px;
+            }
         }
     }
 

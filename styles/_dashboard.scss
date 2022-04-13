@@ -211,7 +211,7 @@
     }
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1366px) {
     #db-body{
         .db-container{
 
@@ -286,6 +286,165 @@
     @keyframes progBar1{
         0%{
             stroke-dashoffset: 440;
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    #db-body{
+        .db-container{
+
+            .weekly{
+                height: 43vh;
+
+                .mInside{
+                    height: 93%;
+                }
+            }
+
+            .daily{
+                height: 35vh;
+                .dInside{
+                    width: calc(100% - 35vh - 70px);
+                    // height: 95%;
+                    .dEmp{
+                        width: calc(22vw - 95px);
+                        height: 75%;
+                        .dTitle{
+                            font-size: 17px;
+                            max-height: 25px;
+                            line-height: 25px;
+                        }
+
+                        .totalPercent{
+                            height: 100%;
+                            svg{
+                                width: 100%;
+                                height: 100%;
+                                circle{
+                                    stroke-width: 25;
+                                    stroke-dasharray: 440;
+                                    stroke-dashoffset: 440;
+                                }
+                            }
+
+                            .percentNumber{
+                                font-size: 22px;
+                                top: 45%;
+                            }
+                        }
+                    }
+                }
+
+                .dTotal{
+                    height: 95%;
+                    .totalPercent{
+                        svg{
+                            circle{
+                                stroke-width: 35;
+                                stroke-dasharray: 620;
+                                stroke-dashoffset: 620;
+                            }
+                        }
+
+                        .percentNumber{
+                            font-size: 28px;
+                            top: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes progBar2{
+        0%{
+            stroke-dashoffset: 620;
+        }
+    }
+    
+    @keyframes progBar1{
+        0%{
+            stroke-dashoffset: 440;
+        }
+    }
+}
+@media only screen and (min-width: 1440px) {
+    #db-body{
+        .db-container{
+
+            .weekly{
+                height: 43vh;
+
+                .mInside{
+                    height: 93%;
+                }
+            }
+
+            .daily{
+                height: 35vh;
+                .dInside{
+                    width: calc(100% - 45vh - 90px);
+                    // height: 95%;
+                    .dEmp{
+                        width: calc(22vw - 95px);
+                        height: 75%;
+                        .dTitle{
+                            font-size: 17px;
+                            max-height: 25px;
+                            line-height: 25px;
+                        }
+
+                        .totalPercent{
+                            height: 100%;
+                            svg{
+                                width: 100%;
+                                height: 100%;
+                                circle{
+                                    stroke-width: 25;
+                                    stroke-dasharray: 630;
+                                    stroke-dashoffset: 630;
+                                }
+                            }
+
+                            .percentNumber{
+                                font-size: 22px;
+                                top: 45%;
+                            }
+                        }
+                    }
+                }
+
+                .dTotal{
+                    height: 95%;
+                    .totalPercent{
+                        svg{
+                            circle{
+                                stroke-width: 35;
+                                stroke-dasharray: 760;
+                                stroke-dashoffset: 760;
+                            }
+                        }
+
+                        .percentNumber{
+                            font-size: 28px;
+                            top: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes progBar2{
+        0%{
+            stroke-dashoffset: 760;
+        }
+    }
+    
+    @keyframes progBar1{
+        0%{
+            stroke-dashoffset: 630;
         }
     }
 }

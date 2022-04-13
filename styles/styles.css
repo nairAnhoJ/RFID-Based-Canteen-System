@@ -816,7 +816,7 @@ body .grid-container .item3 .chart .data {
   }
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1366px) {
   #db-body .db-container .weekly {
     height: 43vh;
   }
@@ -882,6 +882,150 @@ body .grid-container .item3 .chart .data {
   @keyframes progBar1 {
     0% {
       stroke-dashoffset: 440;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  #db-body .db-container .weekly {
+    height: 43vh;
+  }
+  #db-body .db-container .weekly .mInside {
+    height: 93%;
+  }
+  #db-body .db-container .daily {
+    height: 35vh;
+  }
+  #db-body .db-container .daily .dInside {
+    width: calc(100% - 35vh - 70px);
+  }
+  #db-body .db-container .daily .dInside .dEmp {
+    width: calc(22vw - 95px);
+    height: 75%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .dTitle {
+    font-size: 17px;
+    max-height: 25px;
+    line-height: 25px;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent {
+    height: 100%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
+    width: 100%;
+    height: 100%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg circle {
+    stroke-width: 25;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
+    font-size: 22px;
+    top: 45%;
+  }
+  #db-body .db-container .daily .dTotal {
+    height: 95%;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent svg circle {
+    stroke-width: 35;
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
+    font-size: 28px;
+    top: 50%;
+  }
+  @-webkit-keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 620;
+    }
+  }
+  @keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 620;
+    }
+  }
+  @-webkit-keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 440;
+    }
+  }
+  @keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 440;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #db-body .db-container .weekly {
+    height: 43vh;
+  }
+  #db-body .db-container .weekly .mInside {
+    height: 93%;
+  }
+  #db-body .db-container .daily {
+    height: 35vh;
+  }
+  #db-body .db-container .daily .dInside {
+    width: calc(100% - 45vh - 90px);
+  }
+  #db-body .db-container .daily .dInside .dEmp {
+    width: calc(22vw - 95px);
+    height: 75%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .dTitle {
+    font-size: 17px;
+    max-height: 25px;
+    line-height: 25px;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent {
+    height: 100%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
+    width: 100%;
+    height: 100%;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent svg circle {
+    stroke-width: 25;
+    stroke-dasharray: 630;
+    stroke-dashoffset: 630;
+  }
+  #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
+    font-size: 22px;
+    top: 45%;
+  }
+  #db-body .db-container .daily .dTotal {
+    height: 95%;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent svg circle {
+    stroke-width: 35;
+    stroke-dasharray: 760;
+    stroke-dashoffset: 760;
+  }
+  #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
+    font-size: 28px;
+    top: 50%;
+  }
+  @-webkit-keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 760;
+    }
+  }
+  @keyframes progBar2 {
+    0% {
+      stroke-dashoffset: 760;
+    }
+  }
+  @-webkit-keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 630;
+    }
+  }
+  @keyframes progBar1 {
+    0% {
+      stroke-dashoffset: 630;
     }
   }
 }
@@ -1170,6 +1314,40 @@ body .grid-container .item3 .chart .data {
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: #009879;
+}
+
+@media only screen and (max-width: 1366px) {
+  #export-body .exportTitle {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  #export-body .export-container #search-container {
+    margin-top: 5px;
+  }
+  #export-body .export-container .exportTable {
+    height: 80%;
+    font-size: 15px;
+  }
+  #export-body .export-container #exportBtn {
+    margin-top: 55px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #export-body .exportTitle {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  #export-body .export-container #search-container {
+    margin-top: 5px;
+  }
+  #export-body .export-container .exportTable {
+    height: 90%;
+    font-size: 15px;
+  }
+  #export-body .export-container #exportBtn {
+    margin-top: 55px;
+  }
 }
 
 #emp-body {
@@ -1832,14 +2010,71 @@ body .grid-container .item3 .chart .data {
   background-color: #009879;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1366px) {
   #emp-body .emp-container .topPage .empTitle {
     font-size: 25px;
-    background-color: #009879;
-    margin-bottom: 20px;
+    padding-top: 10px;
+  }
+  #emp-body .emp-container .topPage .toolBar {
+    bottom: 5px;
+  }
+  #emp-body .emp-container .topPage .toolBar .searchBox {
+    width: 250px;
+    padding-left: 26px;
+    font-size: 15px;
   }
   #emp-body .emp-container .empTable-container .table-container {
     font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
+    width: 100px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(2), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(2) {
+    width: 250px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(3), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(3) {
+    width: 175px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
+    width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
+    left: 35px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnDelete, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete {
+    right: 35px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container #dark-bg .empModal {
+    height: 55vh;
+    width: 40vw;
+  }
+  ::-webkit-scrollbar-track {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #emp-body .emp-container .topPage .empTitle {
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  #emp-body .emp-container .topPage .toolBar {
+    bottom: 5px;
+  }
+  #emp-body .emp-container .topPage .toolBar .searchBox {
+    width: 250px;
+    padding-left: 26px;
+    font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container {
+    font-size: 15px;
+    width: 90%;
   }
   #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
     width: 100px;

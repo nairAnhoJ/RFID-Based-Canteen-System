@@ -614,7 +614,7 @@
     background-color: #009879;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1366px) {
     #emp-body{
 
         .emp-container{
@@ -622,14 +622,115 @@
             .topPage{
                 .empTitle{
                     font-size: 25px;
-                    background-color: #009879;
-                    margin-bottom: 20px;
+                    padding-top: 10px;
+                }
+
+                .toolBar{
+                    bottom: 5px;
+
+                    .searchBox{
+                        width: 250px;
+                        padding-left: 26px;
+                        font-size: 15px;
+                    }
                 }
             }
             
             .empTable-container{
                 .table-container{
                     font-size: 15px;
+                    #empTable, table{
+                        thead{
+                            tr{
+                                th{
+                                    &:nth-child(1){
+                                        width: 100px;
+                                    }
+                                    &:nth-child(2){
+                                        width: 250px;
+                                    }
+                                    &:nth-child(3){
+                                        width: 175px;
+                                    }
+                                    &:nth-child(4){
+                                        width: 125px;
+                                    }
+                                }
+                            }
+                        }
+
+                        tbody{
+
+                            tr{
+
+                                td{
+                                    
+                                }
+
+                                .actionTab{
+                                    .btnEdit{
+                                        left: 35px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                    .btnDelete{
+                                        right: 35px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            #dark-bg{
+                
+                .empModal{
+                    height: 55vh;
+                    width: 40vw;
+                }
+            }
+        }
+    }
+
+    ::-webkit-scrollbar-track{
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #emp-body{
+
+        .emp-container{
+
+            .topPage{
+                .empTitle{
+                    font-size: 25px;
+                    padding-top: 10px;
+                }
+
+                .toolBar{
+                    bottom: 5px;
+
+                    .searchBox{
+                        width: 250px;
+                        padding-left: 26px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            
+            .empTable-container{
+
+                .table-container{
+                    font-size: 15px;
+                    width: 90%;
+
                     #empTable, table{
                         thead{
                             tr{
