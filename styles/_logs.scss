@@ -284,8 +284,7 @@
     background-color: #009879;
 }
 
-@media only screen and (max-width: 1366px) {
-
+@media only screen and (min-width: 1536px) and (max-width: 1600px){
     #export-body{
 
         .exportTitle{
@@ -300,19 +299,70 @@
             }
 
             .exportTable{
-                height: 80%;
+                height: 85%;
                 font-size: 15px;
             }
 
             #exportBtn{
-                margin-top: 55px;
+                margin-top: 60px;
             }
         }
     }
-
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1367px) and (max-width: 1440px){
+    #export-body{
+
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
+        .export-container{
+            
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 88%;
+                font-size: 17px;
+            }
+
+            #exportBtn{
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1366px){
+    #export-body{
+
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
+        .export-container{
+            
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 85%;
+                font-size: 15px;
+            }
+
+            #exportBtn{
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1024px) {
 
     #export-body{
 

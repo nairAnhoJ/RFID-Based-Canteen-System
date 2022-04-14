@@ -5,16 +5,16 @@
 
     $dateNow1 = date("Y-m-d");
     $strDate = strval($dateNow1);
-    $query_dup = "SELECT * FROM dup_status";
-    $dup_res = mysqli_query($con,$query_dup);
+    // $query_dup = "SELECT * FROM dup_status";
+    // $dup_res = mysqli_query($con,$query_dup);
 
     date_default_timezone_set("Asia/Hong_Kong");
 
-    $row = mysqli_fetch_assoc($dup_res);
-    if($row['date_now'] != $strDate){
-        $dupStat = "UPDATE dup_status SET dup_stat='NO', date_now = '$strDate'";
-        mysqli_query($con, $dupStat);
-    }
+    // $row = mysqli_fetch_assoc($dup_res);
+    // if($row['date_now'] != $strDate){
+    //     $dupStat = "UPDATE dup_status SET dup_stat='NO', date_now = '$strDate'";
+    //     mysqli_query($con, $dupStat);
+    // }
 ?>
 
 <!DOCTYPE html>
