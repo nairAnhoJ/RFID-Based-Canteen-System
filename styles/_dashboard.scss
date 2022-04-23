@@ -540,7 +540,7 @@
         .db-container{
 
             .weekly{
-                height: 43vh;
+                height: 45vh;
 
                 .mInside{
                     height: 93%;
@@ -548,11 +548,12 @@
             }
 
             .daily{
-                height: 35vh;
+                height: 43vh;
                 .dInside{
-                    width: calc(100% - 35vh - 70px);
+                    width: calc(65vw - 0px);
+                    height: 95%;
                     .dEmp{
-                        width: calc(22vw - 95px);
+                        width: calc(22vw - 90px);
                         height: 75%;
                         .dTitle{
                             font-size: 17px;
@@ -566,9 +567,9 @@
                                 width: 100%;
                                 height: 100%;
                                 circle{
-                                    stroke-width: 25;
-                                    stroke-dasharray: 440;
-                                    stroke-dashoffset: 440;
+                                    stroke-width: 20;
+                                    stroke-dasharray: 410;
+                                    stroke-dashoffset: 410;
                                 }
                             }
 
@@ -585,9 +586,9 @@
                     .totalPercent{
                         svg{
                             circle{
-                                stroke-width: 35;
-                                stroke-dasharray: 620;
-                                stroke-dashoffset: 620;
+                                stroke-width: 25;
+                                stroke-dasharray: 440;
+                                stroke-dashoffset: 440;
                             }
                         }
 
@@ -603,13 +604,13 @@
 
     @keyframes progBar2{
         0%{
-            stroke-dashoffset: 620;
+            stroke-dashoffset: 440;
         }
     }
     
     @keyframes progBar1{
         0%{
-            stroke-dashoffset: 440;
+            stroke-dashoffset: 410;
         }
     }
 }

@@ -252,7 +252,43 @@
                 cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(530 - (520 * <?php echo $totalSales;?>));");
 
             }else if ((sWidth >= 1025) && (sWidth <= 1280)) {
-            
+                const cSumRadius1 = document.getElementById("sumCircle1");
+                const cSumRadius2 = document.getElementById("sumCircle2");
+                const cSumRadius3 = document.getElementById("sumCircle3");
+                const cSumRadius4 = document.getElementById("sumCircle4");
+                const cSumRadius5 = document.getElementById("sumCircle5");
+                const cSumRadius6 = document.getElementById("sumCircle6");
+                const cSumRadius7 = document.getElementById("sumCircle7");
+                const cSumRadius8 = document.getElementById("sumCircle8");
+
+                const cTotalRadius1 = document.getElementById("totalCircle1");
+                const cTotalRadius2 = document.getElementById("totalCircle2");
+
+                cSumRadius1.setAttribute("r", "65px");
+                cSumRadius2.setAttribute("r", "65px");
+                cSumRadius2.setAttribute("style", "stroke-dashoffset: calc(410 - (410 * <?php echo json_encode($gloryPer); ?>)); stroke: #0C4C8A;");
+                cSumRadius3.setAttribute("r", "65px");
+                cSumRadius4.setAttribute("r", "65px");
+                cSumRadius4.setAttribute("style", "stroke-dashoffset: calc(410 - (410 * <?php echo json_encode($maximPer); ?>)); stroke: #3BAFDA;");
+                cSumRadius5.setAttribute("r", "65px");
+                cSumRadius6.setAttribute("r", "65px");
+                cSumRadius6.setAttribute("style", "stroke-dashoffset: calc(410 - (410 * <?php echo json_encode($nippiPer); ?>)); stroke: #1E3176;");
+                cSumRadius7.setAttribute("r", "65px");
+                cSumRadius8.setAttribute("r", "65px");
+                cSumRadius8.setAttribute("style", "stroke-dashoffset: calc(410 - (410 * <?php echo json_encode($plPer); ?>)); stroke: #8CC152;");
+
+                cSumRadius1.setAttribute("cy", "44%");
+                cSumRadius2.setAttribute("cy", "44%");
+                cSumRadius3.setAttribute("cy", "44%");
+                cSumRadius4.setAttribute("cy", "44%");
+                cSumRadius5.setAttribute("cy", "44%");
+                cSumRadius6.setAttribute("cy", "44%");
+                cSumRadius7.setAttribute("cy", "44%");
+                cSumRadius8.setAttribute("cy", "44%");
+
+                cTotalRadius1.setAttribute("r", "70px");
+                cTotalRadius2.setAttribute("r", "70px");
+                cTotalRadius2.setAttribute("style", "stroke-dashoffset: calc(440 - (440 * <?php echo $totalSales;?>));");
             }else if (sWidth <= 1024) {
             
             }

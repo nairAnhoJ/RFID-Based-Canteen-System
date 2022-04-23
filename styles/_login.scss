@@ -181,3 +181,39 @@
         }
     }
 }
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px){
+    #login-body{
+
+        .login-container{
+            height: 370px;
+            width: 350px;
+
+            .userName{
+                margin: 35px 0 0 35px;
+                
+                #user_name{
+                    width: 280px;
+                }
+            }
+
+            .userPass{
+                margin: 35px 0 0 35px;
+
+                #user_pass{
+                    width: 280px;
+                }
+            }
+
+            #loginBtn_submit{
+                width:280px;
+                margin: 35px 0 0 35px;
+            }
+        }
+
+        .shadow{
+            width: 350px;
+            bottom: -55px;
+        }
+    }
+}
