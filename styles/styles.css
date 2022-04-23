@@ -711,6 +711,7 @@ body .grid-container .item3 .chart .data {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  stroke-linecap: round;
 }
 
 #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
@@ -781,6 +782,7 @@ body .grid-container .item3 .chart .data {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  stroke-linecap: round;
 }
 
 #db-body .db-container .daily .dTotal .totalPercent svg {
