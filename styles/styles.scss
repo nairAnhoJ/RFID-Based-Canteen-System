@@ -5,13 +5,13 @@
 }
 
 body{
-    background-color: #192037;
+    background-color: #37d6b6;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
 
     #head{
-        color: #e6e8f2;
+        color: #000000;
         text-align: center;
         font-size: 10vh;
         padding: 0.5%;
@@ -28,7 +28,8 @@ body{
                 font-size: 3vh;
                 margin-left: 2.5vw;
                 margin-bottom: 1.5vh;
-                
+                border-radius: 10px;
+                padding-left: 10px;
             }
 
             .dte{
@@ -36,7 +37,7 @@ body{
                 float: right;
                 margin-right: 2vw;
                 font-size: 3.5vh;
-                color: #e6e8f2;
+                color: #000000;
             }
         }
 
@@ -58,10 +59,11 @@ body{
         padding: 0 1% 1% 1%;
 
         .grid-item{
-            background-color: #344272;
+            background-color: #3CECC9;
             border-radius: 20px;
             height: 100%;
             overflow: hidden;
+            border: 2px solid black;
         }
 
         .item1 {
@@ -71,7 +73,7 @@ body{
             overflow: hidden;
 
             h1{
-                color: #e6e8f2;
+                color: #000;
                 padding-top: 6%;
                 font-size: 55px;
             }
@@ -104,7 +106,7 @@ body{
             table{
                 width: 100%;
                 font-size: 30px;
-                color: #e6e8f2;
+                color: #000;
 
                 tr{
                     td{
@@ -125,7 +127,7 @@ body{
 
                 th{
                     width: 25%;
-                    color: white;
+                    color: 000;
                     font-weight: 700;
                     font-size: 25px;
                 }
@@ -200,8 +202,11 @@ body{
     }
 }
 
+
+
 @import "login";
 @import "nav";
 @import "dashboard";
 @import "logs";
-@import "employees"
+@import "employees";
+@import "pos";

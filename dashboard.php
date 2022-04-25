@@ -77,6 +77,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./Chart.min.js"></script>
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="./obj/canteen.png">
     <title>Dashboard</title>
 
     <script>

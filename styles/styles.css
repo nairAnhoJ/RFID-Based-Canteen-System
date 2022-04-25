@@ -5,14 +5,14 @@
 }
 
 body {
-  background-color: #192037;
+  background-color: #37d6b6;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
 body #head {
-  color: #e6e8f2;
+  color: #000000;
   text-align: center;
   font-size: 10vh;
   padding: 0.5%;
@@ -29,6 +29,8 @@ body form span #tapInput {
   font-size: 3vh;
   margin-left: 2.5vw;
   margin-bottom: 1.5vh;
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
 body form span .dte {
@@ -36,7 +38,7 @@ body form span .dte {
   float: right;
   margin-right: 2vw;
   font-size: 3.5vh;
-  color: #e6e8f2;
+  color: #000000;
 }
 
 body form #inputSubmit {
@@ -62,10 +64,11 @@ body .grid-container {
 }
 
 body .grid-container .grid-item {
-  background-color: #344272;
+  background-color: #3CECC9;
   border-radius: 20px;
   height: 100%;
   overflow: hidden;
+  border: 2px solid black;
 }
 
 body .grid-container .item1 {
@@ -80,7 +83,7 @@ body .grid-container .item1 {
 }
 
 body .grid-container .item1 h1 {
-  color: #e6e8f2;
+  color: #000;
   padding-top: 6%;
   font-size: 55px;
 }
@@ -117,7 +120,7 @@ body .grid-container .item2 #rTrans {
 body .grid-container .item2 table {
   width: 100%;
   font-size: 30px;
-  color: #e6e8f2;
+  color: #000;
 }
 
 body .grid-container .item2 table tr td {
@@ -141,7 +144,7 @@ body .grid-container .item3 .empTable {
 
 body .grid-container .item3 .empTable th {
   width: 25%;
-  color: white;
+  color: 000;
   font-weight: 700;
   font-size: 25px;
 }
@@ -2467,6 +2470,167 @@ body .grid-container .item3 .chart .data {
   }
   ::-webkit-scrollbar-track {
     margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
+  body #head {
+    font-size: 5rem;
+  }
+  body form span .dte {
+    font-size: 2rem;
+  }
+  body .grid-container {
+    min-height: 75vh;
+    height: 75vh;
+    -ms-grid-rows: 28% 20% 18% 18% 10%;
+        grid-template-rows: 28% 20% 18% 18% 10%;
+  }
+  body .grid-container .item1 h2 {
+    font-size: 70px;
+  }
+  body .grid-container .item2 #rTrans {
+    font-size: 35px;
+  }
+  body .grid-container .item2 table tr td {
+    text-align: center;
+    padding: 23px 0;
+  }
+  body .grid-container .item3 .empTable {
+    width: 95%;
+    margin: 20px auto 0 auto;
+  }
+  body .grid-container .item3 .empTable th {
+    width: 25%;
+    color: 000;
+    font-weight: 700;
+    font-size: 25px;
+  }
+  body .grid-container .item3 .chart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0;
+    margin-top: 60px;
+    padding: 0;
+    height: 79%;
+  }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1440px) {
+  body #head {
+    font-size: 4rem;
+  }
+  body form span .dte {
+    font-size: 2rem;
+  }
+  body .grid-container {
+    min-height: 75vh;
+    height: 75vh;
+    -ms-grid-rows: 28% 20% 18% 18% 10%;
+        grid-template-rows: 28% 20% 18% 18% 10%;
+  }
+  body .grid-container .item1 h2 {
+    font-size: 70px;
+  }
+  body .grid-container .item2 #rTrans {
+    font-size: 30px;
+  }
+  body .grid-container .item2 table {
+    font-size: 25px;
+  }
+  body .grid-container .item2 table tr td {
+    padding: 20px 0;
+  }
+  body .grid-container .item3 .empTable {
+    width: 95%;
+  }
+  body .grid-container .item3 .empTable th {
+    font-size: 20px;
+  }
+  body .grid-container .item3 .chart {
+    height: 80%;
+  }
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1366px) {
+  body #head {
+    font-size: 55px;
+  }
+  body form span .dte {
+    font-size: 2rem;
+  }
+  body .grid-container {
+    min-height: 75vh;
+    height: 75vh;
+    -ms-grid-rows: 28% 20% 18% 18% 10%;
+        grid-template-rows: 28% 20% 18% 18% 10%;
+  }
+  body .grid-container .item1 h1 {
+    font-size: 45px;
+  }
+  body .grid-container .item1 h2 {
+    font-size: 55px;
+  }
+  body .grid-container .item2 #rTrans {
+    font-size: 30px;
+  }
+  body .grid-container .item2 table {
+    font-size: 25px;
+  }
+  body .grid-container .item2 table tr td {
+    padding: 20px 0;
+  }
+  body .grid-container .item3 .empTable {
+    width: 95%;
+  }
+  body .grid-container .item3 .empTable th {
+    font-size: 20px;
+  }
+  body .grid-container .item3 .chart {
+    height: 70%;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  body #head {
+    font-size: 50px;
+  }
+  body form span .dte {
+    font-size: 30px;
+  }
+  body .grid-container {
+    min-height: 75vh;
+    height: 75vh;
+    -ms-grid-rows: 23% 20% 18% 18% 15%;
+        grid-template-rows: 23% 20% 18% 18% 15%;
+  }
+  body .grid-container .item1 h1 {
+    font-size: 35px;
+  }
+  body .grid-container .item1 h2 {
+    font-size: 50px;
+  }
+  body .grid-container .item2 #rTrans {
+    font-size: 30px;
+  }
+  body .grid-container .item2 table {
+    font-size: 20px;
+  }
+  body .grid-container .item2 table tr td {
+    padding: 12px 0;
+  }
+  body .grid-container .item3 .empTable {
+    width: 95%;
+  }
+  body .grid-container .item3 .empTable th {
+    font-size: 20px;
+  }
+  body .grid-container .item3 .chart {
+    height: 73%;
   }
 }
 /*# sourceMappingURL=styles.css.map */

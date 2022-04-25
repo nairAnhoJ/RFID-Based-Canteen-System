@@ -25,10 +25,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/dist/charts.css">
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="./obj/canteen.png">
     <title>Canteen POS</title>
 </head>
 <body onload="onloadFunction()">
-    <h1 id="head">CANTEEN POS</h1>
+    <h1 id="head">CANTEEN</h1>
 
     <form method="POST">
         <span>
@@ -63,7 +64,7 @@
                             while($tran_row = mysqli_fetch_assoc($result_tran)){
                                 ?>
                                     <h1 id="tapName"><?php echo $tran_row['emp_name'] ?></h1>
-                                    <h2 class="anim">DUPLICATED!</h1>
+                                    <h2 class="anim">!</h1>
                                 <?php 
                             }
                         }else{
@@ -229,7 +230,7 @@
                         <tr>
                             <th scope="row"> Graph1 </th>
                             <td style="--size:<?php echo $gloryPer;?>;">
-                                <span class="data" style="color:white;"><?php echo $gloryVal; ?>%</span>
+                                <span class="data"><?php echo $gloryVal; ?>%</span>
                             </td>
                         </tr>
                         
@@ -243,7 +244,7 @@
                         <tr>
                             <th scope="row"> Graph3 </th>
                             <td style="--size:<?php echo $nippiPer;?>;">
-                                <span class="data" style="color:white;"><?php echo $nippiVal; ?>%</span>
+                                <span class="data"><?php echo $nippiVal; ?>%</span>
                             </td>
                         </tr> 
                         
@@ -267,29 +268,53 @@
 
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0');
             var yyyy = today.getFullYear();
-            var h = today.getHours();
-            var m = h >= 12 ? 'PM' : 'AM';
-            var hh = (today.getHours() + 11) % 12 + 1;
-            var min = today.getMinutes();
-            var sec = today.getSeconds();
+            var month;
 
-            if(min<10){
-                min = '0' + min;
+            switch (new Date().getMonth()){
+                case 0:
+                    month = "January";
+                    break;
+                case 1:
+                    month = "February";
+                    break;
+                case 2:
+                    month = "March";
+                    break;
+                case 3:
+                    month = "April";
+                    break;
+                case 4:
+                    month = "May";
+                    break;
+                case 5:
+                    month = "June";
+                    break;
+                case 6:
+                    month = "July";
+                    break;
+                case 7:
+                    month = "August";
+                    break;
+                case 8:
+                    month = "September";
+                    break;
+                case 9:
+                    month = "October";
+                    break;
+                case 10:
+                    month = "November";
+                    break;
+                case 11:
+                    month = "December";
+                    break;
+                default:
+                    month = "Error";
             }
 
-            if(sec<10){
-                sec = '0' + sec;
-            }
-
-            today = dd + '-' + mm + '-' + yyyy + '   ' + hh + ':' + min + ':' + sec + ' ' + m;
-            var curTime = hh + ':' + min + ':' + sec + ' ' + m;
-            var curDate = dd + '-' + mm + '-' + yyyy;
+            today = month + ' ' + dd + ", " + yyyy;
 
             document.getElementById("dateNow").innerHTML = today;
-
-            setInterval("onloadFunction()", 1000);
         };
 
         function myFunction(event) {

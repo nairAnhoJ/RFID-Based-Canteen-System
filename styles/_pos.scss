@@ -1,0 +1,266 @@
+@media only screen and (min-width: 1441px) and (max-width: 1600px){
+    body{
+        #head{
+            font-size: 5rem;
+        }
+
+        form{
+            span{
+                .dte{
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .grid-container{
+            min-height: 75vh;
+            height: 75vh;
+            grid-template-rows: 28% 20% 18% 18% 10%;
+
+            .item1 {
+    
+                h2{
+                    font-size: 70px;
+                }
+            }
+
+            .item2 {
+
+                #rTrans{
+                    font-size: 35px;
+                }
+    
+                table{
+                    tr{
+                        td{
+                            text-align: center;
+                            padding: 23px 0;
+                        }
+                    }
+                }
+            }
+
+            .item3 {
+    
+                .empTable{
+                    width: 95%;
+                    margin: 20px auto 0 auto;
+    
+                    th{
+                        width: 25%;
+                        color: 000;
+                        font-weight: 700;
+                        font-size: 25px;
+                    }
+                }
+    
+                .chart{
+                    display: flex;
+                    justify-content: center;
+                    margin: 0;
+                    margin-top: 60px;
+                    padding: 0;
+                    height: 79%;
+    
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1440px){
+    body{
+        #head{
+            font-size: 4rem;
+        }
+
+        form{
+            span{
+                .dte{
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .grid-container{
+            min-height: 75vh;
+            height: 75vh;
+            grid-template-rows: 28% 20% 18% 18% 10%;
+
+            .item1 {
+    
+                h2{
+                    font-size: 70px;
+                }
+            }
+
+            .item2 {
+
+                #rTrans{
+                    font-size: 30px;
+                }
+    
+                table{
+                    font-size: 25px;
+                    
+                    tr{
+                        td{
+                            padding: 20px 0;
+                        }
+                    }
+                }
+            }
+
+            .item3 {
+    
+                .empTable{
+                    width: 95%;
+    
+                    th{
+                        font-size: 20px;
+                    }
+                }
+    
+                .chart{
+                    height: 80%;
+    
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1366px){
+    body{
+        #head{
+            font-size: 55px;
+        }
+
+        form{
+            span{
+                .dte{
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .grid-container{
+            min-height: 75vh;
+            height: 75vh;
+            grid-template-rows: 28% 20% 18% 18% 10%;
+
+            .item1 {
+
+                h1{
+                    font-size: 45px;
+                }
+    
+                h2{
+                    font-size: 55px;
+                }
+            }
+
+            .item2 {
+
+                #rTrans{
+                    font-size: 30px;
+                }
+    
+                table{
+                    font-size: 25px;
+                    
+                    tr{
+                        td{
+                            padding: 20px 0;
+                        }
+                    }
+                }
+            }
+
+            .item3 {
+    
+                .empTable{
+                    width: 95%;
+    
+                    th{
+                        font-size: 20px;
+                    }
+                }
+    
+                .chart{
+                    height: 70%;
+    
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px){
+    body{
+        #head{
+            font-size: 50px;
+        }
+
+        form{
+            span{
+                .dte{
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .grid-container{
+            min-height: 75vh;
+            height: 75vh;
+            grid-template-rows: 23% 20% 18% 18% 15%;
+
+            .item1 {
+
+                h1{
+                    font-size: 35px;
+                }
+    
+                h2{
+                    font-size: 50px;
+                }
+            }
+
+            .item2 {
+
+                #rTrans{
+                    font-size: 30px;
+                }
+    
+                table{
+                    font-size: 20px;
+                    
+                    tr{
+                        td{
+                            padding: 12px 0;
+                        }
+                    }
+                }
+            }
+
+            .item3 {
+    
+                .empTable{
+                    width: 95%;
+    
+                    th{
+                        font-size: 20px;
+                    }
+                }
+    
+                .chart{
+                    height: 73%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1024px) {
+
+}
