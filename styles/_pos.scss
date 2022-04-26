@@ -262,5 +262,68 @@
 }
 
 @media only screen and (max-device-width: 1024px) {
+    body{
+        #head{
+            font-size: 45px;
+        }
 
+        form{
+            span{
+                .dte{
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .grid-container{
+            min-height: 75vh;
+            height: 75vh;
+            grid-template-columns: 34% 34% 29%;
+            grid-template-rows: 23% 20% 18% 18% 15%;
+
+            .item1 {
+
+                h1{
+                    font-size: 35px;
+                }
+    
+                h2{
+                    font-size: 50px;
+                }
+            }
+
+            .item2 {
+
+                #rTrans{
+                    font-size: 20px;
+                    padding-bottom: 30px;
+                }
+    
+                table{
+                    font-size: 16px;
+                    
+                    tr{
+                        td{
+                            padding: 13px 0;
+                        }
+                    }
+                }
+            }
+
+            .item3 {
+    
+                .empTable{
+                    width: 95%;
+    
+                    th{
+                        font-size: 20px;
+                    }
+                }
+    
+                .chart{
+                    height: 69%;
+                }
+            }
+        }
+    }
 }

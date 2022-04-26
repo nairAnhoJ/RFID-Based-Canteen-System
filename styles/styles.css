@@ -2633,4 +2633,46 @@ body .grid-container .item3 .chart .data {
     height: 73%;
   }
 }
+
+@media only screen and (max-device-width: 1024px) {
+  body #head {
+    font-size: 45px;
+  }
+  body form span .dte {
+    font-size: 30px;
+  }
+  body .grid-container {
+    min-height: 75vh;
+    height: 75vh;
+    -ms-grid-columns: 34% 34% 29%;
+        grid-template-columns: 34% 34% 29%;
+    -ms-grid-rows: 23% 20% 18% 18% 15%;
+        grid-template-rows: 23% 20% 18% 18% 15%;
+  }
+  body .grid-container .item1 h1 {
+    font-size: 35px;
+  }
+  body .grid-container .item1 h2 {
+    font-size: 50px;
+  }
+  body .grid-container .item2 #rTrans {
+    font-size: 20px;
+    padding-bottom: 30px;
+  }
+  body .grid-container .item2 table {
+    font-size: 16px;
+  }
+  body .grid-container .item2 table tr td {
+    padding: 13px 0;
+  }
+  body .grid-container .item3 .empTable {
+    width: 95%;
+  }
+  body .grid-container .item3 .empTable th {
+    font-size: 20px;
+  }
+  body .grid-container .item3 .chart {
+    height: 69%;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
