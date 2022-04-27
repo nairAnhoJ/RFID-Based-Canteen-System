@@ -454,7 +454,7 @@ body .grid-container .item3 .chart .data {
   top: 0;
   left: 0;
   background-color: #36d3b3;
-  width: 60px;
+  width: 300px;
   height: 100vh;
   overflow: hidden;
   padding: 10px 10px;
@@ -503,6 +503,30 @@ body .grid-container .item3 .chart .data {
   width: 100%;
   line-height: 50px;
   margin-bottom: 10px;
+}
+
+#sideBar .contentContainer ul li .dDown {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  height: 60px;
+  width: auto;
+  background-color: aqua;
+}
+
+#sideBar .contentContainer ul li .dDown .repImg {
+  padding: 10px 10px;
+  height: 40px;
+  min-width: 40px;
+  line-height: 50px;
+  border-radius: 12px;
+}
+
+#sideBar .contentContainer ul li .dDown .dropbtn {
+  font-size: 20px;
 }
 
 #sideBar .contentContainer ul li a {
@@ -2674,5 +2698,215 @@ body .grid-container .item3 .chart .data {
   body .grid-container .item3 .chart {
     height: 69%;
   }
+}
+
+#wRepBody {
+  margin-left: 80px;
+  background-color: #f7f7f7;
+  overflow: hidden;
+  height: 100vh;
+  width: calc(100% - 80px);
+}
+
+#wRepBody h1 {
+  font-size: 50px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+#wRepBody #wRepContainer {
+  position: relative;
+  top: 40%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  height: 500px;
+}
+
+#wRepBody #wRepContainer #logbookSales {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 600px;
+  height: 60px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #logbookSales:hover {
+  width: 606px;
+  height: 62px;
+  top: -2px;
+  font-size: 22px;
+}
+
+#wRepBody #wRepContainer #logbookSales:active {
+  width: 600px;
+  height: 62px;
+  top: 2px;
+  font-size: 21px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #totalSalesReport {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 600px;
+  height: 60px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #totalSalesReport:hover {
+  width: 606px;
+  height: 62px;
+  top: 98px;
+  font-size: 22px;
+}
+
+#wRepBody #wRepContainer #totalSalesReport:active {
+  width: 600px;
+  height: 62px;
+  top: 102px;
+  font-size: 21px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #summaryReport {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 600px;
+  height: 60px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #summaryReport:hover {
+  width: 606px;
+  height: 62px;
+  top: 192px;
+  font-size: 22px;
+}
+
+#wRepBody #wRepContainer #summaryReport:active {
+  width: 600px;
+  height: 62px;
+  top: 202px;
+  font-size: 21px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #requestForPayment {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 600px;
+  height: 60px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#wRepBody #wRepContainer #requestForPayment:hover {
+  width: 606px;
+  height: 62px;
+  top: 298px;
+  font-size: 22px;
+}
+
+#wRepBody #wRepContainer #requestForPayment:active {
+  width: 600px;
+  height: 62px;
+  top: 302px;
+  font-size: 21px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
 /*# sourceMappingURL=styles.css.map */

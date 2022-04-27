@@ -31,21 +31,6 @@
         $_SESSION['modalStat'] = "0";
     }
 
-    // if($_SESSION['modalStat'] == "0"){
-        // $_SESSION['modalStat'] = "0";}
-    // }else if($_SESSION['modalStat'] == "1"){
-    //     $_SESSION['modalStat'] = "1";
-    // }else if($_SESSION['modalStat'] == "2"){
-    //     $_SESSION['modalStat'] = "2";
-    // }else if($_SESSION['modalStat'] == "3"){
-    //     $_SESSION['modalStat'] = "3";
-    // }else if($_SESSION['modalStat'] == "4"){
-    //     $_SESSION['modalStat'] = "4";
-    // }else if($_SESSION['modalStat'] = "5"){
-    //     $_SESSION['modalStat'] = "5";
-    // }
-
-
 ?>
 
 

@@ -27,6 +27,25 @@
                     <span class="nav-name">Transaction Logs</span>
                 </a>
             </li>
+            <li>
+                <div class="dDown">
+                    <img class="repImg" src="./obj/log.png">
+                    <button class="dropbtn">Weekly Report</button>
+                    <img class="arrow" src="./obj/caret-down.png">
+                    <div class="dDownContent">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+
+
+                <!-- <a href="./weekRep.php" id="wRep">
+                    <img src="./obj/report.png">
+                    <span class="nav-name">Weekly Report <img id="arrow" src="./obj/caret-down.png"></span>
+                    
+                </a> -->
+            </li>
         </ul>
     </div>
 

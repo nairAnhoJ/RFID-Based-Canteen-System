@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     background-color: #36d3b3;
-    width: 60px;
+    width: 300px;
     height: 100vh;
     overflow: hidden;
     padding: 10px 10px;
@@ -48,6 +48,27 @@
                 width: 100%;
                 line-height: 50px;
                 margin-bottom: 10px;
+
+                .dDown{
+                    align-items: center;
+                    transition: all 0.4s ease;
+                    border-radius: 12px;
+                    height: 60px;
+                    width: auto;
+                    background-color: aqua;
+
+                    .repImg{
+                        padding: 10px 10px;
+                        height: 40px;
+                        min-width: 40px;
+                        line-height: 50px;
+                        border-radius: 12px;
+                    }
+
+                    .dropbtn{
+                        font-size: 20px;
+                    }
+                }
 
                 a{
                     display: flex;

@@ -142,21 +142,21 @@
             db.classList.remove("active");
             tran.classList.add("active");
             group.classList.remove("active");
-        }
+            }
 
-        var option = {
-            "filename":"canteen-logs.csv"
-        }
+            var option = {
+                "filename":"canteen-logs.csv"
+            }
 
-        function downloadExcel(){
-            myWindow = window.open("./DownloadExcel.html");
-            $("#expTable").first().table2csv(option);
-            setTimeout(close, 300);
-        }
+            function downloadExcel(){
+                myWindow = window.open("./DownloadExcel.html");
+                $("#expTable").first().table2csv(option);
+                setTimeout(close, 300);
+            }
 
-        function close(){
-            myWindow.close();
-        }
+            function close(){
+                myWindow.close();
+            }
 
         </script>
     </body>
