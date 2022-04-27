@@ -14,17 +14,44 @@
     <!-- Include Navigation Side Bar -->
     <?php require_once 'nav.php';?>
 
-    
     <h1>LOGBOOK SALES</h1>
-    
-    
+
+    <div class="lbkCon">
+        <div class="lbkToolBar">
+            <input type="text" class="lbkSearch">
+            <button class="lbkAdd" onclick="lbkAdd()">Add</button>
+        </div>
+
+        <div class="lbkTableCon">
+            <table class="lbkTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Employer</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     
     <script>
         function navFuntion(){
-            var wRep = document.getElementById("wRep");
+            var wRep = document.getElementById("wkRep");
             wRep.classList.add("active");
+
+            var wRep = document.getElementById("o1");
+            wRep.classList.add("activeReport");
         }
 
+        function lbkAdd(){
+        }
+        
     </script>
 </body>
 </html>

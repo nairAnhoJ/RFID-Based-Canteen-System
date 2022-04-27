@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     background-color: #36d3b3;
-    width: 300px;
+    width: 60px;
     height: 100vh;
     overflow: hidden;
     padding: 10px 10px;
@@ -14,7 +14,6 @@
     &:hover{
         width: 300px;
     }
-
 
     .topTitle{
         display: flex;
@@ -48,25 +47,73 @@
                 width: 100%;
                 line-height: 50px;
                 margin-bottom: 10px;
+                cursor: pointer;
 
                 .dDown{
+                    display: flex;
                     align-items: center;
                     transition: all 0.4s ease;
                     border-radius: 12px;
                     height: 60px;
                     width: auto;
-                    background-color: aqua;
+
+                    &:hover{
+                        background-color: #3cecc9;
+                        
+                        .dDownContent{
+                            display: block;
+                        }
+                    }
 
                     .repImg{
+                        display: block;
                         padding: 10px 10px;
                         height: 40px;
                         min-width: 40px;
-                        line-height: 50px;
                         border-radius: 12px;
                     }
 
-                    .dropbtn{
+                    .dropBtn{
+                        display: block;
+                        position: relative;
+                        height: 60px;
+                        line-height: 60px;
                         font-size: 20px;
+                        margin-left: 10px;
+                        min-width: 135px;
+                    }
+
+                    .arrow{
+                        height: 15px;
+                        width: 15px;
+                        padding: 15px 15px 15px 10px;
+                    }
+
+                    .dDownContent {
+                        display: none;
+                        position: absolute;
+                        top: 60px;
+                        left: 40px;
+                        font-size: 18px;
+                        line-height: 60px;
+                        width: 260px;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        z-index: 1;
+                        border-radius: 10px;
+
+                        .activeReport{
+                            background-color: #3cecc9;
+                        }
+                    }
+                      
+                    .dDownContent a{
+                    float: none;
+                    color: black;
+                    padding: 0px 40px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: left;
+                    border-radius: 10px;
                     }
                 }
 
@@ -162,8 +209,4 @@
             }
         }
     }
-}
-
-@media only screen and (max-width: 1366px) {
-
 }

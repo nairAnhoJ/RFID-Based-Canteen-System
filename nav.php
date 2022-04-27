@@ -28,14 +28,16 @@
                 </a>
             </li>
             <li>
-                <div class="dDown">
-                    <img class="repImg" src="./obj/log.png">
-                    <button class="dropbtn">Weekly Report</button>
+                <div class="dDown" id="wkRep">
+                    <img class="repImg" src="./obj/report.png">
+                    <span class="dropBtn">Weekly Report</span>
+                    <!-- <button class="dropbtn">Weekly Report</button> -->
                     <img class="arrow" src="./obj/caret-down.png">
                     <div class="dDownContent">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a id="o1" href="./logbookSales.php">Logbook Sales</a>
+                        <a id="o2" href="./totalSalesReport.php">Total Sales Report</a>
+                        <a id="o3" href="./sumReport.php">Summary Report</a>
+                        <a id="o4" href="./reqForPayment.php">Request For Payment</a>
                     </div>
                 </div>
 
