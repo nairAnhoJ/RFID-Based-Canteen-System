@@ -1772,7 +1772,7 @@ body .grid-container .item3 .chart .data {
   color: #fff;
 }
 
-#emp-body .emp-container .empTable-container .table-container table thead th {
+#emp-body .emp-container .empTable-container .table-container table thead tr th {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -1792,7 +1792,7 @@ body .grid-container .item3 .chart .data {
   background-color: #e9e5e5;
 }
 
-#emp-body .emp-container .empTable-container .table-container table tbody tr:nth-of-type(even) {
+#emp-body .emp-container .empTable-container .table-container table tbody tr:nth-of-type(odd) {
   background-color: #f3f3f3;
 }
 
@@ -2757,5 +2757,282 @@ body .grid-container .item3 .chart .data {
   overflow: hidden;
   height: 100vh;
   width: calc(100% - 80px);
+}
+
+#logbookBody h1 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 35px;
+}
+
+#logbookBody .lbkCon {
+  padding: 0 100px;
+}
+
+#logbookBody .lbkCon .lbkToolBar {
+  margin-bottom: 15px;
+}
+
+#logbookBody .lbkCon .lbkToolBar .lbkSearch {
+  margin-left: 50px;
+  padding-left: 16px;
+  height: 36px;
+  width: 300px;
+  border-radius: 16px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+#logbookBody .lbkCon .lbkToolBar .lbkAdd {
+  float: right;
+  margin-right: 50px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 250px;
+  height: 40px;
+  letter-spacing: 10px;
+  display: inline;
+  font-family: Arial, "Shawarma Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #37a69b;
+  padding-top: 6px;
+  padding-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #37a69b;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3db0a6), to(#3111));
+  background-image: linear-gradient(top, #3db0a6, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#logbookBody .lbkCon .lbkToolBar .lbkAdd:hover {
+  width: 256px;
+  height: 42px;
+  top: -2px;
+  left: 3px;
+  font-size: 19px;
+}
+
+#logbookBody .lbkCon .lbkToolBar .lbkAdd:active {
+  width: 250px;
+  height: 40px;
+  top: 2px;
+  left: 0;
+  font-size: 19px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#logbookBody .lbkCon .contentCon {
+  width: 100%;
+  z-index: 50;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon {
+  width: 100%;
+  height: calc(100vh - 180px);
+  border: 2px solid #dddddd;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid #009879;
+  border-radius: 12px;
+  font-size: 20px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable thead tr {
+  color: #fff;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable thead tr th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+  font-size: 25px;
+  z-index: 50;
+  background-color: #009879;
+  padding: 12px 15px;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr {
+  border-bottom: 2px solid #dddddd;
+  font-weight: 100;
+  text-align: center;
+  background-color: #e9e5e5;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr td {
+  padding: 12px 15px;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction {
+  position: relative;
+  width: 400px;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkEdit {
+  position: absolute;
+  width: 110px;
+  height: 23px;
+  left: 70px;
+  top: 5px;
+  letter-spacing: 5px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #188FF7;
+  padding-top: 9px;
+  padding-left: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #188FF7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1b8ff5), to(#3111));
+  background-image: linear-gradient(top, #1b8ff5, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #1765aa, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #1765aa, 0px 10px 5px #999;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkEdit:hover {
+  width: 112px;
+  height: 25px;
+  top: 3px;
+  left: 69px;
+  font-size: 15px;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkEdit:active {
+  width: 110px;
+  height: 23px;
+  top: 7px;
+  left: 70px;
+  font-size: 14px;
+  -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkDelete {
+  position: absolute;
+  width: 110px;
+  height: 23px;
+  right: 70px;
+  top: 5px;
+  letter-spacing: 5px;
+  display: inline;
+  font-family: Arial, "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 1px 1px 0px #E15963;
+  padding-top: 9px;
+  padding-left: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #E15963;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e0565f), to(#3111));
+  background-image: linear-gradient(top, #e0565f, #3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #ec2a2a, 0px 5px 0px 0px #ac444b, 0px 10px 5px #999;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkDelete:hover {
+  width: 112px;
+  height: 25px;
+  top: 3px;
+  right: 69px;
+  font-size: 15px;
+}
+
+#logbookBody .lbkCon .contentCon .lbkTableCon .lbkTable tbody tr .lgbkAction .lgbkDelete:active {
+  width: 110px;
+  height: 23px;
+  top: 7px;
+  right: 70px;
+  font-size: 14px;
+  -webkit-box-shadow: inset 0px 1px 0px #ec2a2a, 0px 2px 0px 0px #ac444b, 0px 10px 5px #999;
+          box-shadow: inset 0px 1px 0px #ec2a2a, 0px 2px 0px 0px #ac444b, 0px 10px 5px #999;
+}
+
+#logbookBody .lgbkBG {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 98;
+}
+
+#logbookBody .lgbkBG .lgbkModal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background-color: #e4e4e4;
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+#logbookBody .lgbkBG .lgbkModal .lgbkForm {
+  background-color: #188FF7;
+  height: calc(100% - 50px);
+  margin-top: 25px;
+  padding: 0 30px;
+}
+
+#logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkFormTitle {
+  margin: 0;
+}
+
+#logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkFormTable {
+  width: 100%;
+  background-color: #ac444b;
+}
+
+#logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkModalBtn {
+  position: relative;
+  width: 100%;
+  background-color: blueviolet;
 }
 /*# sourceMappingURL=styles.css.map */
