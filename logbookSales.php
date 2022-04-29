@@ -3,6 +3,10 @@
 
     include("./connection.php");
 
+    if(!isset($_SESSION['connected'])){
+        header('location: login.php');
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +20,8 @@
     <title>Logbook Sales</title>
 
     <script src="./sweetalert.min.js"></script>
+    <script src="./jquery.min.js"></script>
+    <!-- <script src="./jquery.tagsinput.min.js"></script> -->
 </head>
 
 <body id="logbookBody" onload="navFuntion()">
@@ -32,7 +38,15 @@
             $lgbkName = strtoupper($_POST['lgbkInputName']);
             $lgbkEmp = strtoupper($_POST['lgbkOption']);
 
-            
+            $queryLgbkSales = "SELECT * from logbooksales INNER JOIN `tbl_trans_logs` WHERE lgbk_date = '$lgbkDate' AND lgbk_name = 'lgbkName' LIMIT 1";
+            $resultLgbkSales = mysqli_query($con, $queryLgbkSales);
+            if(mysqli_num_rows($resultLgbkSales) > 0){
+                ?> <script>//swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
+            }else{
+                $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null,'$lgbkDate','$lgbkName','$lgbkEmp";
+                mysqli_query($con, $insLgbkEmp);
+                ?> <script>//swal ( "Success" ,  "Employee successfully added!" ,  "success" );</script> <?php
+            }
 
             header('location: logbookSales.php');
         }
@@ -89,6 +103,7 @@
         </div>
     </div>
 
+
     <div class="lgbkBG" id="lgbkBG" style="visibility:<?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] == '0'){ echo 'hidden;'; }else{ echo 'visible;'; } ?>;">
         <div class="lgbkModal">
             <form method="POST" class="lgbkForm">
@@ -100,7 +115,21 @@
                     </tr>
                     <tr>
                         <td>Full Name</td>
-                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" onkeyup="lgbkUp()"></td>
+                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" onkeyup="lgbkUpName()">
+                            <ul class="suggList" id="suggList">
+                                <?php
+                                    $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
+                                    $resultEmp = mysqli_query($con, $queryEmp);
+                                    if(mysqli_num_rows($resultEmp) > 0){
+                                        while($emp_row = mysqli_fetch_assoc($resultEmp)){
+                                            ?>
+                                            <li><a href="#" data-value="<?php echo $emp_row['emp_name']; ?>"><?php echo $emp_row['emp_name']; ?></a></li>
+                                            <?php
+                                        }
+                                    }
+                                ?>
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
                         <td>Employer</td>
@@ -142,6 +171,8 @@
         var empSel = document.getElementById("lgbkOption");
         var SbmtAdd = document.getElementById("lgbkAdd");
         var SbmtEdit = document.getElementById("lgbkEdit");
+        var suggList = document.getElementById('suggList');
+        var x = 0;
 
         function lbkAdd(){
             document.getElementById("lgbkFormTitle").innerHTML = "ADD"
@@ -155,6 +186,70 @@
             var currentDate = date.toISOString().substring(0,10);
             document.getElementById('lgbkInputDate').value = currentDate;
         }
+
+        
+
+        function lgbkUpName(){
+            var input, filter, ul, li, a, i, txtValue;
+            x=0;
+            input = document.getElementById("lgbkInputName");
+            filter = input.value.toUpperCase();
+            ul = suggList;
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    x++;
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+
+            if(x == 0 || input.value == ""){
+                suggList.style.visibility = "hidden";
+            }else if(x == 1){
+                suggList.style.visibility = "visible";
+                suggList.style.height = "30px";
+            }else if(x == 2){
+                suggList.style.visibility = "visible";
+                suggList.style.height = "61px";
+            }else{
+                suggList.style.visibility = "visible";
+                suggList.style.height = "92px";
+            }
+
+            if(nameVal.value === "" || empSel.selectedIndex === 0){
+                SbmtAdd.disabled = true;
+                SbmtEdit.disabled = true;
+            }else{
+                if(document.getElementById("lgbkFormTitle").innerHTML == "ADD"){
+                    SbmtAdd.disabled = false;
+                }else if(document.getElementById("lgbkFormTitle").innerHTML == "EDIT"){
+                    SbmtEdit.disabled = false;
+                }
+            }
+        }
+
+        $("a").click(function(e) {
+            e.preventDefault();
+            var i = $(this).data("value");
+            document.getElementById('lgbkInputName').value = i;
+            suggList.style.visibility = "hidden";
+        });
+
+        $(document).click(function(e) {
+            if ($(e.target).is("div") && $(e.target).has("ul > li")){
+                $('#suggList').show();
+            }else{
+                $('#suggList').hide();
+            }
+            
+            if ($(e.target).is(':focus')){
+                $('#suggList').show();
+            }
+        })
 
         function lgbkUp(){
             if(nameVal.value === "" || empSel.selectedIndex === 0){
@@ -185,7 +280,6 @@
 
         function lgbkCloseM0dal(){
             document.getElementById("lgbkCancel").click();
-            console.log("test");
         }
         
     </script>
