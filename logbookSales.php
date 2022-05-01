@@ -7,6 +7,8 @@
         header('location: login.php');
     }
 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +28,18 @@
 
 <body id="logbookBody" onload="navFuntion()">
 
+
+
     <?php
+        if(!isset($_SESSION['SuccessError'])){
+        }else if($_SESSION['SuccessError'] = "success"){
+            ?> <script language="javascript">swal ( "Success" ,  "Employee successfully added!" ,  "success" );</script> <?php
+            $_SESSION['SuccessError'] = null;
+        }else if($_SESSION['SuccessError'] = "error"){
+            ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
+            $_SESSION['SuccessError'] = null;
+        }
+
         if(isset($_POST['lgbkCancel'])){
             unset($_SESSION['selEmp']);
             $_SESSION['selEmp'] = "0";
@@ -34,18 +47,18 @@
         }
 
         if(isset($_POST['lgbkAdd'])){
-            $lgbkDate = $_POST['lgbkInputDate'];
-            $lgbkName = strtoupper($_POST['lgbkInputName']);
-            $lgbkEmp = strtoupper($_POST['lgbkOption']);
+            $lgbkDate = $_REQUEST['lgbkInputDate'];
+            $lgbkName = strtoupper($_REQUEST['lgbkInputName']);
+            $lgbkEmp = strtoupper($_REQUEST['lgbkOption']);
 
-            $queryLgbkSales = "SELECT * from logbooksales INNER JOIN `tbl_trans_logs` WHERE lgbk_date = '$lgbkDate' AND lgbk_name = 'lgbkName' LIMIT 1";
+            $queryLgbkSales = "SELECT * from logbooksales INNER JOIN `tbl_trans_logs` WHERE lgbk_date = '$lgbkDate' AND lgbk_name = '$lgbkName' LIMIT 1";
             $resultLgbkSales = mysqli_query($con, $queryLgbkSales);
             if(mysqli_num_rows($resultLgbkSales) > 0){
-                ?> <script>//swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
+                $_SESSION['SuccessError'] = "error";
             }else{
-                $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null,'$lgbkDate','$lgbkName','$lgbkEmp";
+                $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null, '$lgbkDate', '$lgbkName', '$lgbkEmp')";
                 mysqli_query($con, $insLgbkEmp);
-                ?> <script>//swal ( "Success" ,  "Employee successfully added!" ,  "success" );</script> <?php
+                $_SESSION['SuccessError'] = "sucess";
             }
 
             header('location: logbookSales.php');
@@ -115,7 +128,7 @@
                     </tr>
                     <tr>
                         <td>Full Name</td>
-                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" onkeyup="lgbkUpName()">
+                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" autofocus onkeyup="lgbkUpName()">
                             <ul class="suggList" id="suggList">
                                 <?php
                                     $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
@@ -123,7 +136,7 @@
                                     if(mysqli_num_rows($resultEmp) > 0){
                                         while($emp_row = mysqli_fetch_assoc($resultEmp)){
                                             ?>
-                                            <li><a href="#" data-value="<?php echo $emp_row['emp_name']; ?>"><?php echo $emp_row['emp_name']; ?></a></li>
+                                            <li><a href="#" class="suggA" data-name="<?php echo $emp_row['emp_name']; ?>" data-emp="<?php echo $emp_row['employer']; ?>"><?php echo $emp_row['emp_name']; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -182,12 +195,26 @@
             document.getElementById("lgbkBG").style.visibility = "visible";
             document.getElementById("lgbkInputName").focus();
             
-            var date = new Date();
-            var currentDate = date.toISOString().substring(0,10);
-            document.getElementById('lgbkInputDate').value = currentDate;
-        }
+            
+            // GET YESTERDAY DATE
+            const today = new Date();
+            const yesterday = new Date(today);
+            yesterday.setDate(yesterday.getDate() - 1);
+            var yesDate = yesterday.toDateString();
+            
+            var d = new Date(yesDate),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+            if (month.length < 2) {
+                month = '0' + month;
+            }else if (day.length < 2) {
+                day = '0' + day;
+            }
 
-        
+            var nYesDate = [year, month, day].join('-');
+            document.getElementById('lgbkInputDate').value = nYesDate;
+        }
 
         function lgbkUpName(){
             var input, filter, ul, li, a, i, txtValue;
@@ -211,12 +238,15 @@
                 suggList.style.visibility = "hidden";
             }else if(x == 1){
                 suggList.style.visibility = "visible";
+                $('#suggList').show();
                 suggList.style.height = "30px";
             }else if(x == 2){
                 suggList.style.visibility = "visible";
+                $('#suggList').show();
                 suggList.style.height = "61px";
             }else{
                 suggList.style.visibility = "visible";
+                $('#suggList').show();
                 suggList.style.height = "92px";
             }
 
@@ -232,15 +262,8 @@
             }
         }
 
-        $("a").click(function(e) {
-            e.preventDefault();
-            var i = $(this).data("value");
-            document.getElementById('lgbkInputName').value = i;
-            suggList.style.visibility = "hidden";
-        });
-
         $(document).click(function(e) {
-            if ($(e.target).is("div") && $(e.target).has("ul > li")){
+            if ($(e.target).is("ul") && $(e.target).has("li")){
                 $('#suggList').show();
             }else{
                 $('#suggList').hide();
@@ -249,7 +272,26 @@
             if ($(e.target).is(':focus')){
                 $('#suggList').show();
             }
-        })
+        });
+
+        $(".suggA").click(function(e) {
+            e.preventDefault();
+            var Ename = $(this).data("name");
+            var Eemp = $(this).data("emp");
+            document.getElementById('lgbkInputName').value = Ename;
+            if(Eemp == "GLORY"){
+                empSel.selectedIndex = 1;
+            }else if(Eemp == "MAXIM"){
+                empSel.selectedIndex = 2;
+            }else if(Eemp == "NIPPI"){
+                empSel.selectedIndex = 3;
+            }else if(Eemp == "POWERLANE"){
+                empSel.selectedIndex = 4;
+            }else if(Eemp == "SERVICE PROVIDER"){
+                empSel.selectedIndex = 5;
+            }
+            suggList.style.visibility = "hidden";
+        });
 
         function lgbkUp(){
             if(nameVal.value === "" || empSel.selectedIndex === 0){

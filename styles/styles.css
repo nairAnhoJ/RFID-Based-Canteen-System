@@ -3066,6 +3066,7 @@ body .grid-container .item3 .chart .data {
   font-size: 20px;
   border-radius: 5px;
   padding-left: 10px;
+  background-color: white;
 }
 
 #logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkFormTable tr td:nth-child(2) .suggList {
