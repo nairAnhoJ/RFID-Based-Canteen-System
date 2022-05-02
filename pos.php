@@ -64,7 +64,7 @@
                             while($tran_row = mysqli_fetch_assoc($result_tran)){
                                 ?>
                                     <h1 id="tapName"><?php echo $tran_row['emp_name'] ?></h1>
-                                    <h2 class="anim">!</h1>
+                                    <h3 class="anim">Insufficient Balance!</h3>
                                 <?php 
                             }
                         }else{
@@ -75,11 +75,12 @@
                             
                             ?>
                                 <h1 class="tapName"><?php echo $empName?></h1>
+                                <h3 class="anim2">Thank you!</h3>
                             <?php
                         }
                     }else{
                         ?>
-                            <h2 class="anim nreg">CARD NOT REGISTERED!</h1>
+                            <h2 class="anim nreg">THE CARD IS NOT REGISTERED!</h1>
                         <?php
                     }
                 }
@@ -221,8 +222,6 @@
                         }else{
                             $plVal = substr(($plPer*100), 0, 2);
                         }
-
-
 
                     ?>
     

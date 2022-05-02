@@ -85,8 +85,19 @@ body{
                 padding-top: 30px;
             }
 
+            h3{
+                color: #e63232;
+                padding-top: 5%;
+                font-size: 65px;
+                padding-top: 30px;
+            }
+
             .anim{
                 animation: fcolor infinite 1300ms;
+            }
+
+            .anim2{
+                animation: fcolor2 infinite 1300ms;
             }
         }
         
@@ -192,13 +203,25 @@ body{
 
 @keyframes fcolor{
     0%{
-        color:#e23131;
+        color:#ff6161;
     }
     50%{
         color:#ff0000;
     }
     100%{
-        color: #e23131;
+        color: #ff6161;
+    }
+}
+
+@keyframes fcolor2{
+    0%{
+        color:#5db85e;
+    }
+    50%{
+        color:#3f7540;
+    }
+    100%{
+        color: #5db85e;
     }
 }
 

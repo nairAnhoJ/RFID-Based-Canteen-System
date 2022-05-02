@@ -95,9 +95,21 @@ body .grid-container .item1 h2 {
   padding-top: 30px;
 }
 
+body .grid-container .item1 h3 {
+  color: #e63232;
+  padding-top: 5%;
+  font-size: 65px;
+  padding-top: 30px;
+}
+
 body .grid-container .item1 .anim {
   -webkit-animation: fcolor infinite 1300ms;
           animation: fcolor infinite 1300ms;
+}
+
+body .grid-container .item1 .anim2 {
+  -webkit-animation: fcolor2 infinite 1300ms;
+          animation: fcolor2 infinite 1300ms;
 }
 
 body .grid-container .item2 {
@@ -212,25 +224,49 @@ body .grid-container .item3 .chart .data {
 
 @-webkit-keyframes fcolor {
   0% {
-    color: #e23131;
+    color: #ff6161;
   }
   50% {
     color: #ff0000;
   }
   100% {
-    color: #e23131;
+    color: #ff6161;
   }
 }
 
 @keyframes fcolor {
   0% {
-    color: #e23131;
+    color: #ff6161;
   }
   50% {
     color: #ff0000;
   }
   100% {
-    color: #e23131;
+    color: #ff6161;
+  }
+}
+
+@-webkit-keyframes fcolor2 {
+  0% {
+    color: #5db85e;
+  }
+  50% {
+    color: #3f7540;
+  }
+  100% {
+    color: #5db85e;
+  }
+}
+
+@keyframes fcolor2 {
+  0% {
+    color: #5db85e;
+  }
+  50% {
+    color: #3f7540;
+  }
+  100% {
+    color: #5db85e;
   }
 }
 
@@ -1788,6 +1824,7 @@ body .grid-container .item3 .chart .data {
 
 #emp-body .emp-container .empTable-container .table-container table tbody tr {
   border-bottom: 2px solid #dddddd;
+  font-size: 20px;
   font-weight: 100;
   text-align: center;
   background-color: #e9e5e5;

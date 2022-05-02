@@ -177,7 +177,9 @@
 
                             $_SESSION['modalStat'] = "0";
 
-                            // unset($_SESSION["modalStat"]);
+                            unset($_GET['edit']);
+
+                            unset($_SESSION["modalStat"]);
 
                             $_SESSION['sUpdate'] = true;
 
@@ -190,10 +192,10 @@
                     $ins_Emp = "UPDATE `emp_list` SET `emp_idNum`='$crudIdNum',`emp_name`='$crudName',`emp_cardNum`='$crudCard',`employer`='$crudEmp' WHERE emp_id = '$crudId'";
                     mysqli_query($con, $ins_Emp);
 
-                    
-                    // unset($_SESSION["modalStat"]);
-
                     $_SESSION['modalStat'] = "0";
+
+                    unset($_GET['edit']);
+
                     $_SESSION['sUpdate'] = true;
 
                     header("location: employees.php");
@@ -301,7 +303,7 @@
                                     <td><?php echo $emp_row['employer']; ?></td>
                                     <td><?php echo $emp_row['emp_cardNum']; ?></td>
                                     <td class="actionTab">
-                                        <a href="./employees.php?edit=<?php echo $emp_row['emp_id'] ?>" class="btnEdit">Edit</a>
+                                        <a href="./employees.php?edit=<?php echo $emp_row['emp_id'] ?>" class="btnEdit" onclick="changeFocus()">Edit</a>
                                         <a href="./employees.php?delete=<?php echo $emp_row['emp_id'] ?>" class="btnDelete">Delete</a>
                                     </td>
                                 </tr>
@@ -355,9 +357,9 @@
                         </select>
                     </div>
                     <div class="modal-btn">
-                        <input type="submit" name="sbmtCreate" id="sbmtCreate" value="Create" disabled>
-                        <input type="submit" name="sbmtEdit" id="sbmtEdit" value="Edit" disabled>
-                        <input type="submit" name="sbmtCancel" id="sbmtCancel" value="Cancel">
+                        <input type="submit" tabindex="-1" name="sbmtCreate" id="sbmtCreate" value="Create" disabled>
+                        <input type="submit" tabindex="-1" name="sbmtEdit" id="sbmtEdit" value="Edit" disabled>
+                        <input type="submit" tabindex="-1" name="sbmtCancel" id="sbmtCancel" value="Cancel">
                         <input type="button" name="btnSave" id="btnSave" value="Save" onclick="saveBtn()">
                         <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">
                     </div>
@@ -504,7 +506,10 @@
             }
         }
 
-        
+        function changeFocus(){
+            console.log('change');
+            document.getElementById('txtid').focus;
+        }
     </script>
 </body>
 </html>

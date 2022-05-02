@@ -31,11 +31,12 @@
 
 
     <?php
+
         if(!isset($_SESSION['SuccessError'])){
-        }else if($_SESSION['SuccessError'] = "success"){
-            ?> <script language="javascript">swal ( "Success" ,  "Employee successfully added!" ,  "success" );</script> <?php
+        }else if($_SESSION['SuccessError'] == "success"){
+            ?> <script language="javascript"> swal ( "Success" ,  "Employee successfully added!" ,  "success" ).then((value) => { $('#lgbkInputName').focus(); }); </script> <?php
             $_SESSION['SuccessError'] = null;
-        }else if($_SESSION['SuccessError'] = "error"){
+        }else if($_SESSION['SuccessError'] == "error"){
             ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
             $_SESSION['SuccessError'] = null;
         }
@@ -51,19 +52,30 @@
             $lgbkName = strtoupper($_REQUEST['lgbkInputName']);
             $lgbkEmp = strtoupper($_REQUEST['lgbkOption']);
 
-            $queryLgbkSales = "SELECT * from logbooksales INNER JOIN `tbl_trans_logs` WHERE lgbk_date = '$lgbkDate' AND lgbk_name = '$lgbkName' LIMIT 1";
+            $queryLgbkSales = "SELECT lgbk_date, lgbk_name FROM `logbooksales` WHERE lgbk_date = '$lgbkDate' AND lgbk_name = '$lgbkName' UNION SELECT tran_date, emp_name FROM `tbl_trans_logs` WHERE tran_date = '$lgbkDate' AND emp_name = '$lgbkName'";
+
             $resultLgbkSales = mysqli_query($con, $queryLgbkSales);
             if(mysqli_num_rows($resultLgbkSales) > 0){
                 $_SESSION['SuccessError'] = "error";
             }else{
                 $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null, '$lgbkDate', '$lgbkName', '$lgbkEmp')";
                 mysqli_query($con, $insLgbkEmp);
-                $_SESSION['SuccessError'] = "sucess";
+                $_SESSION['recentDate'] = $lgbkDate;
+                $_SESSION['SuccessError'] = "success";
+                $_SESSION['selEmp'] = "1";
             }
 
             header('location: logbookSales.php');
         }
 
+        if(isset($_GET['delete'])){
+            $lgbkDel = $_GET['delete'];
+            $_SESSION['lgbkDelID'] = $lgbkDel;
+            echo $_SESSION['lgbkDelID'];
+
+
+
+        }
     ?>
 
     <!-- Include Navigation Side Bar -->
@@ -90,32 +102,30 @@
                     </thead>
 
                     <tbody>
-
-                        <tr>
-                            <td>2022/04/28</td>
-                            <td>Test Name</td>
-                            <td>Test Employer</td>
-                            <td class="lgbkAction">
-                                <a href="#" class="lgbkEdit">Edit</a>
-                                <a href="#" class="lgbkDelete">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2022/04/28</td>
-                            <td>Test Name2</td>
-                            <td>Test Employer2</td>
-                            <td class="lgbkAction">
-                                <a href="#" class="lgbkEdit">Edit</a>
-                                <a href="#" class="lgbkDelete">Delete</a>
-                            </td>
-                        </tr>
+                        <?php 
+                            $queryLgbk = "SELECT * FROM `logbooksales` ORDER BY `lgbk_date` DESC, `lgbk_employer` ASC";
+                            $resultLgbk = mysqli_query($con, $queryLgbk);
+                            if(mysqli_num_rows($resultLgbk) > 0){
+                                while($lgbkRow = mysqli_fetch_assoc($resultLgbk)){
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $lgbkRow['lgbk_date']; ?></td>
+                                            <td><?php echo $lgbkRow['lgbk_name']; ?></td>
+                                            <td><?php echo $lgbkRow['lgbk_employer']; ?></td>
+                                            <td class="lgbkAction">
+                                                <a href="./logbookSales.php?edit=<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkEdit">Edit</a>
+                                                <a href="./logbookSales.php?delete=<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkDelete">Delete</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 
     <div class="lgbkBG" id="lgbkBG" style="visibility:<?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] == '0'){ echo 'hidden;'; }else{ echo 'visible;'; } ?>;">
         <div class="lgbkModal">
@@ -124,7 +134,7 @@
                 <table class="lgbkFormTable">
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate"></td>
+                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if($_SESSION['selEmp'] == "1"){ echo $_SESSION['recentDate']; }else{ null; } ?>"></td>
                     </tr>
                     <tr>
                         <td>Full Name</td>
@@ -158,9 +168,9 @@
                     </tr>
                 </table>
                 <div class="lgbkModalBtn">
-                    <input type="submit" name="lgbkAdd" id="lgbkAdd" value="Add" disabled>
-                    <input type="submit" name="lgbkEdit" id="lgbkEdit" value="Edit" disabled>
-                    <input type="submit" name="lgbkCancel" id="lgbkCancel" value="Cancel">
+                    <input type="submit" tabindex="-1" name="lgbkAdd" id="lgbkAdd" value="Add" disabled>
+                    <input type="submit" tabindex="-1" name="lgbkEdit" id="lgbkEdit" value="Edit" disabled>
+                    <input type="submit" tabindex="-1" name="lgbkCancel" id="lgbkCancel" value="Cancel">
                     <input type="button" name="lgbkSaveBtn" class="lgbkSaveBtn" id="lgbkSaveBtn" value="Save" onclick="lgbkSav3Btn()">
                     <input type="button" name="lgbkCloseModal" class="lgbkCloseModal" id="lgbkCloseModal" value="Cancel" onclick="lgbkCloseM0dal()">
                 </div>
@@ -176,7 +186,7 @@
             var wRep = document.getElementById("o1");
             wRep.classList.add("activeReport");
 
-
+            
         }
 
         var dateVal = document.getElementById("lgbkInputDate");
@@ -208,7 +218,8 @@
                 year = d.getFullYear();
             if (month.length < 2) {
                 month = '0' + month;
-            }else if (day.length < 2) {
+            }
+            if (day.length < 2) {
                 day = '0' + day;
             }
 
@@ -291,6 +302,12 @@
                 empSel.selectedIndex = 5;
             }
             suggList.style.visibility = "hidden";
+
+            if(document.getElementById("lgbkFormTitle").innerHTML == "ADD"){
+                SbmtAdd.disabled = false;
+            }else if(document.getElementById("lgbkFormTitle").innerHTML == "EDIT"){
+                SbmtEdit.disabled = false;
+            }
         });
 
         function lgbkUp(){
@@ -323,6 +340,12 @@
         function lgbkCloseM0dal(){
             document.getElementById("lgbkCancel").click();
         }
+
+        $('.lgbkDelete').click(function (e) {
+            e.preventDefault();
+
+            // var DelID = $
+        });
         
     </script>
 </body>
