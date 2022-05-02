@@ -6,9 +6,6 @@
     if(!isset($_SESSION['connected'])){
         header('location: login.php');
     }
-
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -23,27 +20,17 @@
 
     <script src="./sweetalert.min.js"></script>
     <script src="./jquery.min.js"></script>
-    <!-- <script src="./jquery.tagsinput.min.js"></script> -->
 </head>
 
 <body id="logbookBody" onload="navFuntion()">
 
-
-
     <?php
-
-        if(!isset($_SESSION['SuccessError'])){
-        }else if($_SESSION['SuccessError'] == "success"){
-            ?> <script language="javascript"> swal ( "Success" ,  "Employee successfully added!" ,  "success" ).then((value) => { $('#lgbkInputName').focus(); }); </script> <?php
-            $_SESSION['SuccessError'] = null;
-        }else if($_SESSION['SuccessError'] == "error"){
-            ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
-            $_SESSION['SuccessError'] = null;
-        }
 
         if(isset($_POST['lgbkCancel'])){
             unset($_SESSION['selEmp']);
+            unset($_GET['lgbkEdit']);
             $_SESSION['selEmp'] = "0";
+            $_SESSION['lgbkEditTitle'] = 0;
             header('location: logbookSales.php');
         }
 
@@ -56,25 +43,111 @@
 
             $resultLgbkSales = mysqli_query($con, $queryLgbkSales);
             if(mysqli_num_rows($resultLgbkSales) > 0){
-                $_SESSION['SuccessError'] = "error";
+                if($lgbkEmp == "GLORY"){
+                    $_SESSION['selEmp'] = 1;
+                }else if($lgbkEmp == "MAXIM"){
+                    $_SESSION['selEmp'] = 2;
+                }else if($lgbkEmp == "NIPPI"){
+                    $_SESSION['selEmp'] = 3;
+                }else if($lgbkEmp == "POWERLANE"){
+                    $_SESSION['selEmp'] = 4;
+                }else if($lgbkEmp == "SERVICE PROVIDER"){
+                    $_SESSION['selEmp'] = 5;
+                }else{
+                    $_SESSION['selEmp'] = 0;
+                }
+                ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
             }else{
                 $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null, '$lgbkDate', '$lgbkName', '$lgbkEmp')";
                 mysqli_query($con, $insLgbkEmp);
-                $_SESSION['recentDate'] = $lgbkDate;
-                $_SESSION['SuccessError'] = "success";
-                $_SESSION['selEmp'] = "1";
-            }
 
-            header('location: logbookSales.php');
+                $_SESSION['recentDate'] = $lgbkDate;
+
+                if($lgbkEmp == "GLORY"){
+                    $_SESSION['selEmp'] = 1;
+                }else if($lgbkEmp == "MAXIM"){
+                    $_SESSION['selEmp'] = 2;
+                }else if($lgbkEmp == "NIPPI"){
+                    $_SESSION['selEmp'] = 3;
+                }else if($lgbkEmp == "POWERLANE"){
+                    $_SESSION['selEmp'] = 4;
+                }else if($lgbkEmp == "SERVICE PROVIDER"){
+                    $_SESSION['selEmp'] = 5;
+                }else{
+                    $_SESSION['selEmp'] = 0;
+                }
+                ?> <script language="javascript"> swal ( "Success" ,  "Employee successfully added!" ,  "success" ).then((value) => { $('#lgbkInputName').focus(); window.location = "./logbookSales.php"; }); </script> <?php
+            }
         }
 
-        if(isset($_GET['delete'])){
-            $lgbkDel = $_GET['delete'];
+        $lgbkEditDate;
+
+        if(isset($_GET['lgbkEdit'])){
+            $lgbkEditID = $_GET['lgbkEdit'];
+            $_SESSION['lgbkEditID'] = $lgbkEditID;
+
+            $queryLgbkEdit = "SELECT * FROM `logbooksales` WHERE logbook_ID = '$lgbkEditID' LIMIT 1";
+            $resultLgbkEdit = mysqli_query($con, $queryLgbkEdit);
+
+            while($rowLgbkEdit = mysqli_fetch_assoc($resultLgbkEdit)){
+                $lgbkEditDate = $rowLgbkEdit['lgbk_date'];
+                $lgbkEditName = strtoupper($rowLgbkEdit['lgbk_name']);
+                $lgbkEditEmp = strtoupper($rowLgbkEdit['lgbk_employer']);
+
+                if($lgbkEditEmp == "GLORY"){
+                    $_SESSION['selEmp'] = 1;
+                }else if($lgbkEditEmp == "MAXIM"){
+                    $_SESSION['selEmp'] = 2;
+                }else if($lgbkEditEmp == "NIPPI"){
+                    $_SESSION['selEmp'] = 3;
+                }else if($lgbkEditEmp == "POWERLANE"){
+                    $_SESSION['selEmp'] = 4;
+                }else if($lgbkEditEmp == "SERVICE PROVIDER"){
+                    $_SESSION['selEmp'] = 5;
+                }else{
+                    $_SESSION['selEmp'] = 0;
+                }
+
+                $_SESSION['lgbkEditTitle'] = 1;
+            }
+        }
+
+        if(isset($_POST['lgbkEditCon'])){
+            $lgbkEditDate = $_POST['lgbkInputDate'];
+            $lgbkEditName = strtoupper($_REQUEST['lgbkInputName']);
+            $lgbkEditEmp = strtoupper($_REQUEST['lgbkOption']);
+
+            $queryLgbkEdit = "SELECT * FROM `logbooksales` WHERE logbook_ID = '$lgbkEditID' LIMIT 1";
+            $resultLgbkEdit = mysqli_query($con, $queryLgbkEdit);
+            while($rowLgbkEdit = mysqli_fetch_assoc($resultLgbkEdit)){
+                $lgbkEditID = $rowLgbkEdit['logbook_ID'];
+                if(($lgbkEditDate == $rowLgbkEdit['lgbk_date']) && ($lgbkEditName == $rowLgbkEdit['lgbk_name']) && ($lgbkEditEmp == $rowLgbkEdit['lgbk_employer'])){
+                    ?> <script language="javascript">swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
+                }else{
+
+                    mysqli_query($con, "UPDATE `logbooksales` SET `logbook_ID`= '$lgbkEditID',`lgbk_date`='$lgbkEditDate',`lgbk_name`='$lgbkEditName',`lgbk_employer`='$lgbkEditEmp' WHERE logbook_ID = '$lgbkEditID'");
+
+                    unset($_GET['lgbkEdit']);
+                    $_SESSION['selEmp'] = "0";
+                    $_SESSION['lgbkEditTitle'] = 0;
+
+                    ?>
+                        <script language="javascript">
+                        swal ( "Success" ,  "Employee successfully updated!" ,  "success" ).then((value) => {
+                            window.location = "./logbookSales.php";
+                        }); 
+                        </script>
+                    <?php
+                }
+            }
+        }
+
+        if(isset($_GET['delIdConf'])){
+            $lgbkDel = $_GET['delIdConf'];
             $_SESSION['lgbkDelID'] = $lgbkDel;
-            echo $_SESSION['lgbkDelID'];
 
-
-
+            mysqli_query($con, "DELETE FROM `logbooksales` WHERE logbook_ID = '$lgbkDel'");
+            header("location: logbookSales.php");
         }
     ?>
 
@@ -113,8 +186,8 @@
                                             <td><?php echo $lgbkRow['lgbk_name']; ?></td>
                                             <td><?php echo $lgbkRow['lgbk_employer']; ?></td>
                                             <td class="lgbkAction">
-                                                <a href="./logbookSales.php?edit=<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkEdit">Edit</a>
-                                                <a href="./logbookSales.php?delete=<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkDelete">Delete</a>
+                                                <a href="./logbookSales.php?lgbkEdit=<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkEdit">Edit</a>
+                                                <a href="#" data-name="<?php echo $lgbkRow['lgbk_name']; ?>" data-id="<?php echo $lgbkRow['logbook_ID'] ?>" class="lgbkDelete">Delete</a>
                                             </td>
                                         </tr>
                                     <?php
@@ -130,15 +203,15 @@
     <div class="lgbkBG" id="lgbkBG" style="visibility:<?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] == '0'){ echo 'hidden;'; }else{ echo 'visible;'; } ?>;">
         <div class="lgbkModal">
             <form method="POST" class="lgbkForm">
-                <h1 class="lgbkFormTitle" id="lgbkFormTitle">ADD</h1>
+                <h1 class="lgbkFormTitle" id="lgbkFormTitle"><?php if($_SESSION['lgbkEditTitle'] == "1"){ echo "EDIT"; }else{ echo "ADD"; } ?></h1>
                 <table class="lgbkFormTable">
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if($_SESSION['selEmp'] == "1"){ echo $_SESSION['recentDate']; }else{ null; } ?>"></td>
+                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if($_SESSION['selEmp'] != "0"){ echo $_SESSION['recentDate']; }else if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditDate; }else{ null; } ?>"></td>
                     </tr>
                     <tr>
                         <td>Full Name</td>
-                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" autofocus onkeyup="lgbkUpName()">
+                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" autofocus onkeyup="lgbkUpName()" value="<?php if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditName; } ?>">
                             <ul class="suggList" id="suggList">
                                 <?php
                                     $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
@@ -158,18 +231,18 @@
                         <td>Employer</td>
                         <td>
                             <select id="lgbkOption" name="lgbkOption" change onchange="lgbkUp()">
-                            <option value="" disabled hidden selected>Select your option</option>
-                            <option value="glory">GLORY</option>
-                            <option value="maxim">MAXIM</option>
-                            <option value="nippi">NIPPI</option>
-                            <option value="powerlane">POWERLANE</option>
-                            <option value="service provider">SERVICE PROVIDER</option>
+                            <option value="" disabled hidden <?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] == '0'){ echo 'selected'; }?>>Select your option</option>
+                            <option value="glory" <?php if($_SESSION['selEmp'] == '1'){ echo 'selected'; }?>>GLORY</option>
+                            <option value="maxim" <?php if($_SESSION['selEmp'] == '2'){ echo 'selected'; }?>>MAXIM</option>
+                            <option value="nippi" <?php if($_SESSION['selEmp'] == '3'){ echo 'selected'; }?>>NIPPI</option>
+                            <option value="powerlane" <?php if($_SESSION['selEmp'] == '4'){ echo 'selected'; }?>>POWERLANE</option>
+                            <option value="service provider" <?php if($_SESSION['selEmp'] == '5'){ echo 'selected'; }?>>SERVICE PROVIDER</option>
                         </td>
                     </tr>
                 </table>
                 <div class="lgbkModalBtn">
                     <input type="submit" tabindex="-1" name="lgbkAdd" id="lgbkAdd" value="Add" disabled>
-                    <input type="submit" tabindex="-1" name="lgbkEdit" id="lgbkEdit" value="Edit" disabled>
+                    <input type="submit" tabindex="-1" name="lgbkEditCon" id="lgbkEdit" value="Edit" <?php if($_SESSION['lgbkEditTitle'] == "0"){ echo "disabled"; } ?>>
                     <input type="submit" tabindex="-1" name="lgbkCancel" id="lgbkCancel" value="Cancel">
                     <input type="button" name="lgbkSaveBtn" class="lgbkSaveBtn" id="lgbkSaveBtn" value="Save" onclick="lgbkSav3Btn()">
                     <input type="button" name="lgbkCloseModal" class="lgbkCloseModal" id="lgbkCloseModal" value="Cancel" onclick="lgbkCloseM0dal()">
@@ -185,8 +258,6 @@
 
             var wRep = document.getElementById("o1");
             wRep.classList.add("activeReport");
-
-            
         }
 
         var dateVal = document.getElementById("lgbkInputDate");
@@ -204,7 +275,6 @@
             empSel.selectedIndex = 0;
             document.getElementById("lgbkBG").style.visibility = "visible";
             document.getElementById("lgbkInputName").focus();
-            
             
             // GET YESTERDAY DATE
             const today = new Date();
@@ -341,12 +411,30 @@
             document.getElementById("lgbkCancel").click();
         }
 
-        $('.lgbkDelete').click(function (e) {
-            e.preventDefault();
+        $(".lgbkDelete").click(function(e) {
+            console.log("TEST");
+            var delDataName = $(this).data("name");
+            var delDataID = $(this).data("id");
+            console.log(delDataName);
+            console.log(delDataID);
 
-            // var DelID = $
+            swal({
+                title: "Are you sure you want to delete this record?",
+                text: "NAME: " + delDataName,
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if(willDelete) {
+                    swal("User details was sucessfully Deleted!", {
+                        icon: "success",
+                    }).then(function() {
+                        window.location = "./logbookSales.php?delIdConf=" + delDataID;
+                    });
+                }
+            })
         });
-        
     </script>
 </body>
 </html>

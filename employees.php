@@ -358,7 +358,7 @@
                     </div>
                     <div class="modal-btn">
                         <input type="submit" tabindex="-1" name="sbmtCreate" id="sbmtCreate" value="Create" disabled>
-                        <input type="submit" tabindex="-1" name="sbmtEdit" id="sbmtEdit" value="Edit" disabled>
+                        <input type="submit" tabindex="-1" name="sbmtEdit" id="sbmtEdit" value="Edit" <?php if($editTitle == "0"){ echo "disabled"; } ?>>
                         <input type="submit" tabindex="-1" name="sbmtCancel" id="sbmtCancel" value="Cancel">
                         <input type="button" name="btnSave" id="btnSave" value="Save" onclick="saveBtn()">
                         <input type="button" name="btnCancel" id="btnCancel" value="Cancel" onclick="closeModal()">

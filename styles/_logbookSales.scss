@@ -358,6 +358,10 @@
                     position: relative;
                     width: 100%;
                     top: 20px;
+
+                    #lgbkAdd, #lgbkEdit{
+                        opacity: 0;
+                    }
                     
                     .lgbkSaveBtn{
                         position: absolute;

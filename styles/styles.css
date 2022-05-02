@@ -3157,6 +3157,10 @@ body .grid-container .item3 .chart .data {
   top: 20px;
 }
 
+#logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkModalBtn #lgbkAdd, #logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkModalBtn #lgbkEdit {
+  opacity: 0;
+}
+
 #logbookBody .lgbkBG .lgbkModal .lgbkForm .lgbkModalBtn .lgbkSaveBtn {
   position: absolute;
   left: 55px;
