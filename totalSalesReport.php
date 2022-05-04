@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include("./connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +13,55 @@
     <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
     <link rel="icon" href="./obj/canteen.png">
     <title>Total Sales Report</title>
+
+    <script src="./jquery.min.js"></script>
 </head>
 
 <body id="totalSalesBody" onload="navFuntion()">
 
+    <?php
+
+        if(isset($_POST['sbmtPrint'])){
+            $fromDate = $_POST['totalFrom'];
+            $toDate = $_POST['totalTo'];
+            $arrayDate = array();
+            $dateCount = 0;
+
+            for($x = $fromDate; $x < date_create($toDate)->modify("+1 days")->format("Y-m-d"); $x = date_create($x)->modify("+1 days")->format("Y-m-d")){
+                $dateCount++;
+                array_push($arrayDate, $x);
+            }
+
+            $_SESSION['period'] = $arrayDate;
+            $_SESSION['dateCount'] = $dateCount;
+
+            ?>
+                <script type="text/javascript">
+                    window.open('./TSReportPDF.php', '_blank');
+                </script>
+            <?php
+
+        }
+    ?>
+
     <!-- Include Navigation Side Bar -->
-    <?php require_once 'nav.php';?>
+    <?php require_once 'nav.php'; ?>
 
     
     <h1>TOTAL SALES REPORT</h1>
 
     <div class="totalSalesContainer">
-        <form action="POST">
+        <form method="POST">
             <div class="totalSalesControl">
                 <span class="fromCon">
-                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo date("Y-m-d"); ?>">
+                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo $_SESSION['lastMon']; ?>">
                 </span>
                 <span class="toCon">
-                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo date("Y-m-d"); ?>">
+                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo $_SESSION['lastSun']; ?>">
                 </span>
             </div>
             <input type="button" value="PRINT" class="btnPrint">
+            <input type="submit" name="sbmtPrint" id="sbmtPrint" target="_blank" style="opacity: 0">
         </form>
     </div>
     
@@ -65,7 +99,9 @@
             }
         }
 
-
+        $(".btnPrint").click(function(e) {
+            $('#sbmtPrint').click();
+        });
 
     </script>
 </body>

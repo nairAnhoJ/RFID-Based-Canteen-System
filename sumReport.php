@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include("./connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +27,10 @@
         <form action="POST">
             <div class="totalSalesControl">
                 <span class="fromCon">
-                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo date("Y-m-d"); ?>">
+                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo $_SESSION['lastMon']; ?>">
                 </span>
                 <span class="toCon">
-                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo date("Y-m-d"); ?>">
+                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo $_SESSION['lastSun']; ?>">
                 </span>
             </div>
             <input type="button" value="PRINT" class="btnPrint">

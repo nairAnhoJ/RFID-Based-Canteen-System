@@ -3554,4 +3554,29 @@ body .grid-container .item3 .chart .data {
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
           box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
 }
+
+#TSReportBody {
+  background-color: white;
+  overflow-y: auto;
+  font-family: sans-serif;
+}
+
+#TSReportBody .TSRContainer {
+  padding: 0 7vw;
+}
+
+#TSReportBody .TSRContainer .TSRHeader {
+  margin-top: 33px;
+  text-align: center;
+}
+
+#TSReportBody .TSRContainer .TSRTable {
+  margin-top: 50px;
+  width: 86vw;
+  text-align: center;
+}
+
+#TSReportBody .TSRContainer .TSRTable thead tr td {
+  width: 25%;
+}
 /*# sourceMappingURL=styles.css.map */

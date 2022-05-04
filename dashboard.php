@@ -392,6 +392,7 @@
 
         // Get Date of Mondays for the last 8 Weeks
         $lastMon = date_create($monDate)->modify("-7 days")->format("Y-m-d");
+        $_SESSION['lastMon'] = $lastMon;
         $last2Mon = date_create($monDate)->modify("-14 days")->format("Y-m-d");
         $last3Mon = date_create($monDate)->modify("-21 days")->format("Y-m-d");
         $last4Mon = date_create($monDate)->modify("-28 days")->format("Y-m-d");
@@ -402,6 +403,7 @@
 
         // Get Date of Sundays for the last 8 Weeks
         $lastSun = date_create($monDate)->modify("-1 days")->format("Y-m-d");
+        $_SESSION['lastSun'] = $lastSun;
         $last2Sun = date_create($monDate)->modify("-8 days")->format("Y-m-d");
         $last3Sun = date_create($monDate)->modify("-15 days")->format("Y-m-d");
         $last4Sun = date_create($monDate)->modify("-22 days")->format("Y-m-d");

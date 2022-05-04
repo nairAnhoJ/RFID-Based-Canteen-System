@@ -1,0 +1,28 @@
+#TSReportBody{
+    background-color: white;
+    overflow-y: auto;
+    font-family: sans-serif;
+
+    .TSRContainer{
+        padding: 0 7vw;
+
+        .TSRHeader{
+            margin-top: 33px;
+            text-align: center;
+        }
+
+        .TSRTable{
+            margin-top: 50px;
+            width: 86vw;
+            text-align: center;
+
+            thead{
+                tr{
+                    td{
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+}
