@@ -82,6 +82,7 @@
             width: 100%;
             z-index: 50;
             .lbkTableCon{
+                position: relative;
                 width: 100%;
                 height: calc(100vh - 180px);
                 border: 2px solid #dddddd;
@@ -89,12 +90,20 @@
                 border-bottom: 4px solid #009879;
                 border-radius: 12px;
                 font-size: 20px;
-                overflow: auto;
                 overflow-x: hidden;
+                
+                .noRecord{
+                    position: absolute;
+                    top: 50px;
+                    left: 50%;
+                    transform: translate(-50%,0);
+                    font-size: 50px;
+                }
 
                 .lbkTable{
                     width: 100%;
                     border-collapse: collapse;
+                    overflow-x: hidden;
 
                     thead{
                         tr{
@@ -113,6 +122,7 @@
                     }
 
                     tbody{
+
 
                         tr{
                             border-bottom: 2px solid #dddddd;
@@ -310,7 +320,7 @@
                                     min-width: 300px;
                                     max-width: 300px;
                                     height: 92px;
-                                    overflow: hidden;
+                                    // overflow: hidden;
                                     border: 1px solid black;
                                     border-top: none;
                                     z-index: 99;
@@ -318,6 +328,12 @@
                                     border-bottom-right-radius: 10px;
                                     text-decoration: none;
                                     visibility: hidden;
+                                    overflow-x: hidden;
+                                    overflow-y: scroll;
+
+                                    &::-webkit-scrollbar {
+                                        display: none;
+                                    }
 
                                     li{
                                         display: block;

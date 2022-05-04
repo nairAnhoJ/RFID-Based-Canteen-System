@@ -59,7 +59,7 @@
                     // $newfDate = date("d-m-Y", strtotime($dateFrom));
                     // $newtDate = date("d-m-Y", strtotime($dateTo));
 
-                    $queryTable = "SELECT * FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$dateFrom' AND '$dateTo' ORDER BY tran_date, employer ASC";
+                    $queryTable = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$dateFrom' AND '$dateTo' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_date BETWEEN '$dateFrom' AND '$dateTo' ORDER BY tran_date, employer ASC";
                     $resultTable = mysqli_query($con, $queryTable);
                     if(mysqli_num_rows($resultTable) > 0){
                         ?>

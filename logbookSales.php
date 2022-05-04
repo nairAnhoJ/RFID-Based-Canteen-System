@@ -6,6 +6,13 @@
     if(!isset($_SESSION['connected'])){
         header('location: login.php');
     }
+
+    if(!isset($_SESSION['selEmp'])){
+        $_SESSION['selEmp'] = 0;
+    }
+    if(!isset($_SESSION['lgbkEditTitle'])){
+        $_SESSION['lgbkEditTitle'] = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +50,8 @@
 
             $resultLgbkSales = mysqli_query($con, $queryLgbkSales);
             if(mysqli_num_rows($resultLgbkSales) > 0){
+                
+                $_SESSION['recentDate'] = $lgbkDate;
                 if($lgbkEmp == "GLORY"){
                     $_SESSION['selEmp'] = 1;
                 }else if($lgbkEmp == "MAXIM"){
@@ -56,7 +65,7 @@
                 }else{
                     $_SESSION['selEmp'] = 0;
                 }
-                ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" );</script> <?php
+                ?> <script>swal ( "Oops" ,  "Employee is already in logs!" ,  "error" ).then((value) => { $('#lgbkInputName').focus(); });</script> <?php
             }else{
                 $insLgbkEmp = "INSERT INTO `logbooksales`(`logbook_ID`, `lgbk_date`, `lgbk_name`, `lgbk_employer`) VALUES (null, '$lgbkDate', '$lgbkName', '$lgbkEmp')";
                 mysqli_query($con, $insLgbkEmp);
@@ -76,7 +85,7 @@
                 }else{
                     $_SESSION['selEmp'] = 0;
                 }
-                ?> <script language="javascript"> swal ( "Success" ,  "Employee successfully added!" ,  "success" ).then((value) => { $('#lgbkInputName').focus(); window.location = "./logbookSales.php"; }); </script> <?php
+                ?> <script language="javascript"> swal ( "Success" ,  "Employee successfully added!" ,  "success" ).then((value) => { $('#lgbkInputName').focus(); }); </script> <?php
             }
         }
 
@@ -192,6 +201,10 @@
                                         </tr>
                                     <?php
                                 }
+                            }else{
+                                ?>
+                                    <h1 class="noRecord">NO RECORD FOUND!</h1>
+                                <?php
                             }
                         ?>
                     </tbody>
@@ -207,11 +220,11 @@
                 <table class="lgbkFormTable">
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if($_SESSION['selEmp'] != "0"){ echo $_SESSION['recentDate']; }else if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditDate; }else{ null; } ?>"></td>
+                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] != "0"){ echo $_SESSION['recentDate']; }else if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditDate; }else{ null; } ?>"></td>
                     </tr>
                     <tr>
                         <td>Full Name</td>
-                        <td><input type="text" name="lgbkInputName"  id="lgbkInputName" autocomplete="off" autofocus onkeyup="lgbkUpName()" value="<?php if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditName; } ?>">
+                        <td><input type="text" name="lgbkInputName" class="lgbkInputName"  id="lgbkInputName" autocomplete="off" autofocus onkeyup="lgbkUpName()" value="<?php if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditName; } ?>">
                             <ul class="suggList" id="suggList">
                                 <?php
                                     $queryEmp = "SELECT * FROM `emp_list` ORDER BY `employer` ASC";
@@ -219,7 +232,7 @@
                                     if(mysqli_num_rows($resultEmp) > 0){
                                         while($emp_row = mysqli_fetch_assoc($resultEmp)){
                                             ?>
-                                            <li><a href="#" class="suggA" data-name="<?php echo $emp_row['emp_name']; ?>" data-emp="<?php echo $emp_row['employer']; ?>"><?php echo $emp_row['emp_name']; ?></a></li>
+                                            <li class="suggEach"><a href="#" class="suggA" data-name="<?php echo $emp_row['emp_name']; ?>" data-emp="<?php echo $emp_row['employer']; ?>"><?php echo $emp_row['emp_name']; ?></a></li>
                                             <?php
                                         }
                                     }
@@ -378,6 +391,10 @@
             }else if(document.getElementById("lgbkFormTitle").innerHTML == "EDIT"){
                 SbmtEdit.disabled = false;
             }
+            
+            document.getElementById("lgbkAdd").click();
+            document.getElementById("lgbkInputDate").focus();
+
         });
 
         function lgbkUp(){

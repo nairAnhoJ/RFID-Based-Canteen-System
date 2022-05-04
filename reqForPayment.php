@@ -9,13 +9,27 @@
     <title>Request For Payment</title>
 </head>
 
-<body id="logbookBody" onload="navFuntion()">
+<body id="reqForPaymentBody" onload="navFuntion()">
 
     <!-- Include Navigation Side Bar -->
     <?php require_once 'nav.php';?>
 
     
     <h1>LOGBOOK SALES</h1>
+
+    <div class="totalSalesContainer">
+        <form action="POST">
+            <div class="totalSalesControl">
+                <span class="fromCon">
+                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo date("Y-m-d"); ?>">
+                </span>
+                <span class="toCon">
+                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo date("Y-m-d"); ?>">
+                </span>
+            </div>
+            <input type="button" value="PRINT" class="btnPrint">
+        </form>
+    </div>
     
     
     

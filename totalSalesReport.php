@@ -9,7 +9,7 @@
     <title>Total Sales Report</title>
 </head>
 
-<body id="wRepBody" onload="navFuntion()">
+<body id="totalSalesBody" onload="navFuntion()">
 
     <!-- Include Navigation Side Bar -->
     <?php require_once 'nav.php';?>
@@ -17,8 +17,18 @@
     
     <h1>TOTAL SALES REPORT</h1>
 
-    <div id="totalSalesCon">
-        
+    <div class="totalSalesContainer">
+        <form action="POST">
+            <div class="totalSalesControl">
+                <span class="fromCon">
+                    From: <input type="date" name="totalFrom" id="dateFrom" onchange="btnClickF()" value="<?php echo date("Y-m-d"); ?>">
+                </span>
+                <span class="toCon">
+                    To: <input type="date" name="totalTo" id="dateTo" onchange="btnClickT()" value="<?php echo date("Y-m-d"); ?>">
+                </span>
+            </div>
+            <input type="button" value="PRINT" class="btnPrint">
+        </form>
     </div>
     
     <script>
@@ -28,6 +38,34 @@
             var wRep = document.getElementById("o2");
             wRep.classList.add("activeReport");
         }
+
+        function btnClickF() {
+
+            var fdate = document.getElementById("dateFrom").value;
+            var tdate = document.getElementById("dateTo").value;
+
+            var ftime = new Date(fdate).getTime();
+            var ttime = new Date(tdate).getTime();
+
+            if(ftime > ttime){
+                document.getElementById("dateFrom").value = tdate;
+            }
+        }
+
+        function btnClickT() {
+
+            var fdate = document.getElementById("dateFrom").value;
+            var tdate = document.getElementById("dateTo").value;
+
+            var ftime = new Date(fdate).getTime();
+            var ttime = new Date(tdate).getTime();
+
+            if(ttime < ftime){
+                document.getElementById("dateTo").value = fdate;
+            }
+        }
+
+
 
     </script>
 </body>
