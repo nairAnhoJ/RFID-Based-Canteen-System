@@ -24,7 +24,7 @@ $html = '<!DOCTYPE html>
         $date = date_create($perDate);
 
         $html .= '<div style="page-break-after: always;">
-                    <header style="text-align: center; font-size: 11px;">
+                    <header style="text-align: center; font-size: 12px;">
                         <h3 style="margin: 0; padding: 0;">GLORY PHILIPPINES INC.</h3>
                         <h3 style="margin: 0; padding: 0;">Total Sales Report</h3>
                         <h3 style="margin: 0; padding: 0;">For the Period '.date_format($date,"F d, Y").'</h3>
@@ -32,10 +32,10 @@ $html = '<!DOCTYPE html>
                     <table style="margin-top: 20px; width: 100%; text-align: center; border-collapse: collapse;">
                         <thead>
                             <tr>
-                                <td style="width: 25%; font-weight: bold; font-size: 10px">Date</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 10px">Customer</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 10px">Classification</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 10px">Credited Amount</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">Date</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">Customer</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">Classification</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">Credited Amount</td>
                             </tr>
                         </thead>
                         <tbody>';
@@ -48,18 +48,18 @@ $html = '<!DOCTYPE html>
             $gloryTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 10px">'.$gloryRow['tran_date'].'</td>
-                            <td style="font-size: 10px">'.$gloryRow['emp_name'].'</td>
-                            <td style="font-size: 10px">GLORY (PHILS.) INC.</td>
-                            <td style="font-size: 10px">25</td>
+                            <td style="font-size: 11px">'.$gloryRow['tran_date'].'</td>
+                            <td style="font-size: 11px">'.$gloryRow['emp_name'].'</td>
+                            <td style="font-size: 11px">GLORY (PHILS.) INC.</td>
+                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
             $html .= '  <tr style="background-color: #e3e6e8">
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px; font-weight: bold;">TOTAL</td>
-                            <td style="font-size: 10px;">'.$gloryTotalSales.'</td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px; font-weight: bold;">TOTAL</td>
+                            <td style="font-size: 11px;">'.$gloryTotalSales.'</td>
                         </tr>';
 
         $queryMaxim = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE employer = 'MAXIM' AND tran_date = '$perDate' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_employer = 'MAXIM' AND lgbk_date = '$perDate'";
@@ -70,18 +70,18 @@ $html = '<!DOCTYPE html>
             $maximTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 10px">'.$maximRow['tran_date'].'</td>
-                            <td style="font-size: 10px">'.$maximRow['emp_name'].'</td>
-                            <td style="font-size: 10px">'.$maximRow['employer'].'</td>
-                            <td style="font-size: 10px">25</td>
+                            <td style="font-size: 11px">'.$maximRow['tran_date'].'</td>
+                            <td style="font-size: 11px">'.$maximRow['emp_name'].'</td>
+                            <td style="font-size: 11px">'.$maximRow['employer'].'</td>
+                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
             $html .= '  <tr style="background-color: #e3e6e8">
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px; font-weight: bold;">TOTAL</td>
-                            <td style="font-size: 10px">'.$maximTotalSales.'</td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px; font-weight: bold;">TOTAL</td>
+                            <td style="font-size: 11px">'.$maximTotalSales.'</td>
                         </tr>';
 
         $queryNippi = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE employer = 'NIPPI' AND tran_date = '$perDate' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_employer = 'NIPPI' AND lgbk_date = '$perDate'";
@@ -92,18 +92,18 @@ $html = '<!DOCTYPE html>
             $nippiTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 10px">'.$nippiRow['tran_date'].'</td>
-                            <td style="font-size: 10px">'.$nippiRow['emp_name'].'</td>
-                            <td style="font-size: 10px">'.$nippiRow['employer'].'</td>
-                            <td style="font-size: 10px">25</td>
+                            <td style="font-size: 11px">'.$nippiRow['tran_date'].'</td>
+                            <td style="font-size: 11px">'.$nippiRow['emp_name'].'</td>
+                            <td style="font-size: 11px">'.$nippiRow['employer'].'</td>
+                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
             $html .= '  <tr style="background-color: #e3e6e8">
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px; font-weight: bold;">TOTAL</td>
-                            <td style="font-size: 10px">'.$nippiTotalSales.'</td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px; font-weight: bold;">TOTAL</td>
+                            <td style="font-size: 11px">'.$nippiTotalSales.'</td>
                         </tr>';
 
         $queryPL = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE employer = 'POWERLANE' AND tran_date = '$perDate' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_employer = 'POWERLANE' AND lgbk_date = '$perDate'";
@@ -114,18 +114,18 @@ $html = '<!DOCTYPE html>
             $plTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 10px">'.$plRow['tran_date'].'</td>
-                            <td style="font-size: 10px">'.$plRow['emp_name'].'</td>
-                            <td style="font-size: 10px">'.$plRow['employer'].'</td>
-                            <td style="font-size: 10px">25</td>
+                            <td style="font-size: 11px">'.$plRow['tran_date'].'</td>
+                            <td style="font-size: 11px">'.$plRow['emp_name'].'</td>
+                            <td style="font-size: 11px">'.$plRow['employer'].'</td>
+                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
             $html .= '  <tr style="background-color: #e3e6e8">
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px; font-weight: bold;">TOTAL</td>
-                            <td style="font-size: 10px">'.$plTotalSales.'</td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px; font-weight: bold;">TOTAL</td>
+                            <td style="font-size: 11px">'.$plTotalSales.'</td>
                         </tr>';
 
         $querySP = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE employer = 'SERVICE PROVIDER' AND tran_date = '$perDate' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_employer = 'SERVICE PROVIDER' AND lgbk_date = '$perDate'";
@@ -136,33 +136,33 @@ $html = '<!DOCTYPE html>
             $spTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 10px">'.$spRow['tran_date'].'</td>
-                            <td style="font-size: 10px">'.$spRow['emp_name'].'</td>
-                            <td style="font-size: 10px">'.$spRow['employer'].'</td>
-                            <td style="font-size: 10px">25</td>
+                            <td style="font-size: 11px">'.$spRow['tran_date'].'</td>
+                            <td style="font-size: 11px">'.$spRow['emp_name'].'</td>
+                            <td style="font-size: 11px">'.$spRow['employer'].'</td>
+                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
             $html .= '  <tr style="background-color: #e3e6e8">
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px"></td>
-                            <td style="font-size: 10px; font-weight: bold;">TOTAL</td>
-                            <td style="font-size: 10px">'.$spTotalSales.'</td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px"></td>
+                            <td style="font-size: 11px; font-weight: bold;">TOTAL</td>
+                            <td style="font-size: 11px">'.$spTotalSales.'</td>
                         </tr>';    
 
 
 
         $html .= '<tr>
-                    <td style="font-size: 10px"></td>
-                    <td style="font-size: 10px"></td>
-                    <td style="font-size: 10px">TOTAL CREDIT AMOUNT</td>
-                    <td style="font-size: 10px">'.($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales).'</td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px">TOTAL CREDIT AMOUNT</td>
+                    <td style="font-size: 11px">'.($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales).'</td>
                 </tr>
                 <tr>
-                    <td style="font-size: 10px"></td>
-                    <td style="font-size: 10px"></td>
-                    <td style="font-size: 10px">TOTAL CUSTOMERS</td>
-                    <td style="font-size: 10px">'.(($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales)/25).'</td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px">TOTAL CUSTOMERS</td>
+                    <td style="font-size: 11px">'.(($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales)/25).'</td>
                 </tr>
             </tbody>
         </table>
