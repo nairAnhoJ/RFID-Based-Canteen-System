@@ -714,6 +714,211 @@ body .grid-container .item3 .chart .data {
   min-width: 300px;
 }
 
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  #sideBar {
+    z-index: 95;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #36d3b3;
+    width: 60px;
+    height: 100vh;
+    overflow: hidden;
+    padding: 10px 10px;
+    -webkit-box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  #sideBar:hover {
+    width: 300px;
+  }
+  #sideBar .topTitle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 70px;
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #sideBar .topTitle .imgUser {
+    margin: 0 10px 0 5px;
+    height: 50px;
+    width: 50px;
+  }
+  #sideBar .topTitle .topText {
+    margin-left: 10px;
+    font-size: 1.7em;
+    font-weight: 700;
+    letter-spacing: 8px;
+  }
+  #sideBar .contentContainer ul {
+    margin-top: 30px;
+  }
+  #sideBar .contentContainer ul li {
+    position: relative;
+    list-style: none;
+    height: 60px;
+    width: 100%;
+    line-height: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  #sideBar .contentContainer ul li .dDown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    height: 60px;
+    width: auto;
+  }
+  #sideBar .contentContainer ul li .dDown:hover {
+    background-color: #3cecc9;
+  }
+  #sideBar .contentContainer ul li .dDown:hover .dDownContent {
+    display: block;
+  }
+  #sideBar .contentContainer ul li .dDown .repImg {
+    display: block;
+    padding: 10px 10px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
+  }
+  #sideBar .contentContainer ul li .dDown .dropBtn {
+    display: block;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    margin-left: 10px;
+    min-width: 135px;
+  }
+  #sideBar .contentContainer ul li .dDown .arrow {
+    height: 15px;
+    width: 15px;
+    padding: 15px 15px 15px 10px;
+  }
+  #sideBar .contentContainer ul li .dDown .dDownContent {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    font-size: 18px;
+    line-height: 60px;
+    width: 260px;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #36dab9;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  #sideBar .contentContainer ul li .dDown .dDownContent .activeReport {
+    background-color: #3cecc9;
+  }
+  #sideBar .contentContainer ul li .dDown .dDownContent a {
+    float: none;
+    color: black;
+    padding: 0px 40px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-radius: 10px;
+  }
+  #sideBar .contentContainer ul li a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-decoration: none;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    height: 60px;
+    width: auto;
+  }
+  #sideBar .contentContainer ul li a:hover {
+    background-color: #3cecc9;
+  }
+  #sideBar .contentContainer ul li a img {
+    padding: 0 10px;
+    height: 40px;
+    min-width: 40px;
+    line-height: 50px;
+    border-radius: 12px;
+  }
+  #sideBar .contentContainer ul li a .nav-name {
+    font-size: 20px;
+    color: black;
+    margin-left: 10px;
+    min-width: 300px;
+  }
+  #sideBar .contentContainer ul li .active {
+    background-color: #3cecc9;
+  }
+  #sideBar .logOut {
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    width: 300px;
+    padding: 0 10px;
+  }
+  #sideBar .logOut .btn-logOut {
+    position: relative;
+    list-style: none;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+  }
+  #sideBar .logOut .btn-logOut li {
+    position: relative;
+    list-style: none;
+    height: 60px;
+    width: 100%;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+  #sideBar .logOut .btn-logOut a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-decoration: none;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    height: 60px;
+    width: auto;
+  }
+  #sideBar .logOut .btn-logOut a:hover {
+    background-color: #32bba0;
+  }
+  #sideBar .logOut .btn-logOut a img {
+    padding: 0 10px;
+    height: 40px;
+    min-width: 40px;
+    line-height: 50px;
+    border-radius: 12px;
+  }
+  #sideBar .logOut .btn-logOut a .lbl-logOut {
+    font-size: 20px;
+    color: black;
+    margin-left: 10px;
+    min-width: 300px;
+  }
+}
+
 #db-body {
   margin: 0;
   padding: 0;
@@ -1653,7 +1858,7 @@ body .grid-container .item3 .chart .data {
     margin-top: 5px;
   }
   #export-body .export-container .exportTable {
-    height: 85%;
+    height: 80%;
     font-size: 15px;
   }
   #export-body .export-container #exportBtn {
@@ -2454,6 +2659,9 @@ body .grid-container .item3 .chart .data {
   #emp-body .emp-container .empTable-container .table-container {
     font-size: 15px;
   }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr, #emp-body .emp-container .empTable-container .table-container table thead tr {
+    font-size: 15px;
+  }
   #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
     width: 100px;
   }
@@ -2465,6 +2673,9 @@ body .grid-container .item3 .chart .data {
   }
   #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
     width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr, #emp-body .emp-container .empTable-container .table-container table tbody tr {
+    font-size: 15px;
   }
   #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
     left: 35px;
@@ -2479,7 +2690,7 @@ body .grid-container .item3 .chart .data {
     padding-top: 5px;
   }
   #emp-body .emp-container #dark-bg .empModal {
-    height: 55vh;
+    height: 65vh;
     width: 40vw;
   }
   ::-webkit-scrollbar-track {

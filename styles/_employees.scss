@@ -815,6 +815,7 @@
                     #empTable, table{
                         thead{
                             tr{
+                                font-size: 15px;
                                 th{
                                     &:nth-child(1){
                                         width: 100px;
@@ -835,6 +836,7 @@
                         tbody{
 
                             tr{
+                                font-size: 15px;
 
                                 .actionTab{
                                     .btnEdit{
@@ -860,7 +862,7 @@
             #dark-bg{
                 
                 .empModal{
-                    height: 55vh;
+                    height: 65vh;
                     width: 40vw;
                 }
             }
@@ -872,7 +874,7 @@
     }
 }
 
-@media only screen and (min-width: 1025px) and (max-width: 1280px){
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
     #emp-body{
 
         .emp-container{

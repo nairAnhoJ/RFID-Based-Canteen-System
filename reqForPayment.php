@@ -48,7 +48,7 @@
     <?php require_once 'nav.php';?>
 
     
-    <h1>LOGBOOK SALES</h1>
+    <h1>REQUEST FOR PAYMENT</h1>
 
     <div class="totalSalesContainer">
         <form method="POST">

@@ -211,3 +211,219 @@
         }
     }
 }
+
+@media only screen and (min-width: 1025px) and (max-width: 1366px){
+    #sideBar{
+        z-index: 95;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #36d3b3;
+        width: 60px;
+        height: 100vh;
+        overflow: hidden;
+        padding: 10px 10px;
+        box-shadow: 3px 0px 5px rgba(0,0,0,0.5);
+        transition: all 0.4s ease;
+
+        &:hover{
+            width: 300px;
+        }
+
+        .topTitle{
+            display: flex;
+            height: 70px;
+            width: 100%;
+            align-items: center;
+
+            .imgUser{
+                margin: 0 10px 0 5px;
+                height: 50px;
+                width: 50px;
+            }
+
+            .topText{
+                margin-left: 10px;
+                font-size: 1.7em;
+                font-weight: 700;
+                letter-spacing: 8px;
+            }
+        }
+
+        .contentContainer{
+
+            ul{
+                margin-top: 30px;
+
+                li{
+                    position: relative;
+                    list-style: none;
+                    height: 60px;
+                    width: 100%;
+                    line-height: 50px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+
+                    .dDown{
+                        display: flex;
+                        align-items: center;
+                        transition: all 0.4s ease;
+                        border-radius: 12px;
+                        height: 60px;
+                        width: auto;
+
+                        &:hover{
+                            background-color: #3cecc9;
+                            
+                            .dDownContent{
+                                display: block;
+                            }
+                        }
+
+                        .repImg{
+                            display: block;
+                            padding: 10px 10px;
+                            height: 40px;
+                            min-width: 40px;
+                            border-radius: 12px;
+                        }
+
+                        .dropBtn{
+                            display: block;
+                            position: relative;
+                            height: 60px;
+                            line-height: 60px;
+                            font-size: 20px;
+                            margin-left: 10px;
+                            min-width: 135px;
+                        }
+
+                        .arrow{
+                            height: 15px;
+                            width: 15px;
+                            padding: 15px 15px 15px 10px;
+                        }
+
+                        .dDownContent {
+                            display: none;
+                            position: absolute;
+                            top: 60px;
+                            left: 40px;
+                            font-size: 18px;
+                            line-height: 60px;
+                            width: 260px;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            background-color: #36dab9;
+                            z-index: 1;
+                            border-radius: 10px;
+
+                            .activeReport{
+                                background-color: #3cecc9;
+                            }
+                        }
+                        
+                        .dDownContent a{
+                        float: none;
+                        color: black;
+                        padding: 0px 40px;
+                        text-decoration: none;
+                        display: block;
+                        text-align: left;
+                        border-radius: 10px;
+                        }
+                    }
+
+                    a{
+                        display: flex;
+                        align-items: center;
+                        text-decoration: none;
+                        transition: all 0.4s ease;
+                        border-radius: 12px;
+                        height: 60px;
+                        width: auto;
+
+                        &:hover{
+                            background-color: #3cecc9;
+                        }
+
+                        img{
+                            padding: 0 10px;
+                            height: 40px;
+                            min-width: 40px;
+                            line-height: 50px;
+                            border-radius: 12px;
+                        }
+
+                        .nav-name{
+                            font-size: 20px;
+                            color: black;
+                            margin-left: 10px;
+                            min-width: 300px;
+                        }
+                    }
+
+                    .active{
+                        background-color: #3cecc9;
+                    }
+                }
+            }
+        }
+
+        .logOut{
+            position: absolute;
+            bottom: 30px;
+            left: 0px;
+            width: 300px;
+            padding: 0 10px;
+
+            .btn-logOut{
+                position: relative;
+                list-style: none;
+                height: 60px;
+                width: 100%;
+                line-height: 60px;
+
+
+                li{
+                    position: relative;
+                    list-style: none;
+                    height: 60px;
+                    width: 100%;
+                    line-height: 50px;
+                    margin-bottom: 10px;
+                }
+
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    transition: all 0.4s ease;
+                    border-radius: 12px;
+                    height: 60px;
+                    width: auto;
+
+
+                    &:hover{
+                        background-color: #32bba0;
+                    }
+
+                    img{
+                        padding: 0 10px;
+                        height: 40px;
+                        min-width: 40px;
+                        line-height: 50px;
+                        border-radius: 12px;
+                    }
+
+                    .lbl-logOut{
+                        font-size: 20px;
+                        color: black;
+                        margin-left: 10px;
+                        min-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
