@@ -67,16 +67,16 @@ $html = '   <!DOCTYPE html>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Request For Payment</title>
             </head>
-            <body style=" font-family: sans-serif;">
+            <body style=" font-family: Arial, sans-serif;">
                 <div>
-                    <span style="font-size: 14px; padding-left: 170px; display: inline;">RAGIM FOOD & CATERING SERVICES</span><span style="font-size: 14px; padding-right: 30px; display: inline; float: right;">'.date_format($dateToday,"F d, Y").'</span>
-                    <p style="font-size: 14px; padding-left: 170px;">ADMINISTRATION</p>
+                    <span style="font-size: 14px; padding-left: 177px; display: inline;">RAGIM FOOD & CATERING SERVICES</span><span style="font-size: 14px; padding-right: 30px; display: inline; float: right;">'.date_format($dateToday,"d-M-Y").'</span>
+                    <p style="font-size: 14px; padding-left: 238px; margin-top: 28px;">ADMINISTRATION</p>
                 </div>
-                <table style="margin-top: 20px; width: 100%; text-align: center; border-collapse: collapse;">
+                <table style="margin-top: 45px; width: 100%; text-align: center; border-collapse: collapse;">
                     <tr style="font-size: 12px;">
-                        <td style="width: 45%; font-size: 12px;">Payment for Canteen meal subsidy</td>
-                        <td rowspan="2">Date</td>
-                        <td rowspan="2">Total Manpower</td>
+                        <td style="width: 37%; font-size: 12px;">Payment for Canteen meal subsidy</td>
+                        <td rowspan="2" style="width: 20%;">Date</td>
+                        <td rowspan="2" style="width: 20%;">Total Manpower</td>
                         <td></td>
                     </tr>
                     <tr style="font-size: 12px;">
@@ -85,12 +85,12 @@ $html = '   <!DOCTYPE html>
                     </tr>
                     <tr style="font-size: 12px;">
                         <td>'.date_format($fromDate,"F d, Y").' - '.date_format($toDate,"F d, Y").'</td>
-                        <td>'.date_format($fromDate,"F d, Y").'</td>
+                        <td>'.date_format($fromDate,"d-M-Y").'</td>
                         <td>'.$countfday.'</td>
-                        <td>'.($countfday*25).'</td>
+                        <td style="text-align: right;">'.number_format(($countfday*25), 2, '.', ',').'</td>
                     </tr>';
 
-                $num = 0;
+                $num = ($countfday*25);
                 for($d = 1; $d < $dcount; $d++){
                     $fdate = $_SESSION['period'][$d];
                     $cdate = date_create($fdate);
@@ -103,9 +103,9 @@ $html = '   <!DOCTYPE html>
 
 $html .= '          <tr style="font-size: 12px;">
                         <td></td>
-                        <td>'.date_format($cdate,"F d, Y").'</td>
+                        <td>'.date_format($cdate,"d-M-Y").'</td>
                         <td>'.$countfday.'</td>
-                        <td>'.($countfday*25).'</td>
+                        <td style="text-align: right;">'.number_format(($countfday*25), 2, '.', ',').'</td>
                     </tr>
 
 ';                    
@@ -113,13 +113,21 @@ $html .= '          <tr style="font-size: 12px;">
                 }
 
 $html .= '          <tr style="line-height: 30px;">
-                        <td colspan="3">***************Nothing Follows***************</td>
+                        <td colspan="3" style="font-size: 14px;">***************Nothing Follows***************</td>
                         <td></td>
                     </tr>
-                    <tr style="line-height: 50px;">
+
+                    <tr style="line-height: 110px; font-size: 14px;">
                         <td colspan="3">'.numberTowords($num).' Pesos Only</td>
-                        <td>'.$num.'</td>
-                    </tr>      
+                        <td style="text-align: right;">'.number_format($num, 2, '.', ',').'</td>
+                    </tr>
+                    
+                    <tr style="line-height: 40px; font-size: 14px; text-align: left;">
+                        <td style="padding-left: 40px">Felmhar/Nathan</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>        
                 </table>
             </body>
         </html>';
