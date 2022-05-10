@@ -471,3 +471,41 @@
         }
     }
 }
+
+@media only screen and (min-width: 1281px) and (max-width: 1366px){
+    #logbookBody{
+
+        h1{
+            font-size: 28px;
+        }
+
+        .lbkCon{
+
+            .contentCon{
+
+                .lbkTableCon{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1280px) {
+    #logbookBody{
+
+        h1{
+            font-size: 25px;
+        }
+
+        .lbkCon{
+
+            .contentCon{
+
+                .lbkTableCon{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

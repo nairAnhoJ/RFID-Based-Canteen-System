@@ -68,13 +68,13 @@ $html = '   <!DOCTYPE html>
                 <title>Request For Payment</title>
             </head>
             <body style=" font-family: Arial, sans-serif;">
-                <div>
-                    <span style="font-size: 14px; padding-left: 177px; display: inline;">RAGIM FOOD & CATERING SERVICES</span><span style="font-size: 14px; padding-right: 30px; display: inline; float: right;">'.date_format($dateToday,"d-M-Y").'</span>
-                    <p style="font-size: 14px; padding-left: 238px; margin-top: 28px;">ADMINISTRATION</p>
+                <div style="margin-top: 60px;">
+                    <span style="font-size: 14px; padding-left: 150px; display: inline;">RAGIM FOOD & CATERING SERVICES</span><span style="font-size: 14px; padding-right: 20px; display: inline; float: right;">'.date_format($dateToday,"d-M-Y").'</span>
+                    <p style="font-size: 14px; padding-left: 230px; margin-top: 28px;">ADMINISTRATION</p>
                 </div>
-                <table style="margin-top: 45px; width: 100%; text-align: center; border-collapse: collapse;">
+                <table style="margin-top: 65px; width: 100%; text-align: center; border-collapse: collapse;">
                     <tr style="font-size: 12px;">
-                        <td style="width: 37%; font-size: 12px;">Payment for Canteen meal subsidy</td>
+                        <td style="width: 30%; font-size: 12px;">Payment for Canteen meal subsidy</td>
                         <td rowspan="2" style="width: 20%;">Date</td>
                         <td rowspan="2" style="width: 20%;">Total Manpower</td>
                         <td></td>
@@ -87,7 +87,7 @@ $html = '   <!DOCTYPE html>
                         <td>'.date_format($fromDate,"F d, Y").' - '.date_format($toDate,"F d, Y").'</td>
                         <td>'.date_format($fromDate,"d-M-Y").'</td>
                         <td>'.$countfday.'</td>
-                        <td style="text-align: right;">'.number_format(($countfday*25), 2, '.', ',').'</td>
+                        <td style="text-align: right; padding-right: 20px;">'.number_format(($countfday*25), 2, '.', ',').'</td>
                     </tr>';
 
                 $num = ($countfday*25);
@@ -105,7 +105,7 @@ $html .= '          <tr style="font-size: 12px;">
                         <td></td>
                         <td>'.date_format($cdate,"d-M-Y").'</td>
                         <td>'.$countfday.'</td>
-                        <td style="text-align: right;">'.number_format(($countfday*25), 2, '.', ',').'</td>
+                        <td style="text-align: right; padding-right: 20px;">'.number_format(($countfday*25), 2, '.', ',').'</td>
                     </tr>
 
 ';                    
@@ -116,14 +116,16 @@ $html .= '          <tr style="line-height: 30px;">
                         <td colspan="3" style="font-size: 14px;">***************Nothing Follows***************</td>
                         <td></td>
                     </tr>
+                </table>
 
-                    <tr style="line-height: 110px; font-size: 14px;">
+                <table style="width: 100%; text-align: center; border-collapse: collapse; position: absolute; top: 430px;">
+                    <tr style="font-size: 14px;">
                         <td colspan="3">'.numberTowords($num).' Pesos Only</td>
-                        <td style="text-align: right;">'.number_format($num, 2, '.', ',').'</td>
+                        <td style="text-align: right; padding-right: 20px;">'.number_format($num, 2, '.', ',').'</td>
                     </tr>
                     
-                    <tr style="line-height: 40px; font-size: 14px; text-align: left;">
-                        <td style="padding-left: 40px">Felmhar/Nathan</td>
+                    <tr style="line-height: 60px; font-size: 14px; text-align: left;">
+                        <td style="padding-left: 0px">Felmhar/Nathan</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -134,7 +136,7 @@ $html .= '          <tr style="line-height: 30px;">
 
 $dompdf = new Dompdf();
 $dompdf->loadHtml($html);
-$dompdf->setPaper('letter', 'portrait');
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 $dompdf->stream('total-sales-report.pdf', ['Attachment' => 0]);
 ?>

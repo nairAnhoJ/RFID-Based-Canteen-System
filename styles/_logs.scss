@@ -171,7 +171,6 @@
                     }
                 }
             }
-
         }
 
         // ==================================== EXPORT BUTTON ====================================
@@ -284,6 +283,32 @@
     background-color: #009879;
 }
 
+@media only screen and (min-width: 1601px) and (max-width: 1680px){
+    #export-body{
+
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
+        .export-container{
+            
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 89%;
+                font-size: 15px;
+            }
+
+            #exportBtn{
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 1536px) and (max-width: 1600px){
     #export-body{
 
@@ -310,7 +335,7 @@
     }
 }
 
-@media only screen and (min-width: 1367px) and (max-width: 1440px){
+@media only screen and (min-width: 1401px) and (max-width: 1440px){
     #export-body{
 
         .exportTitle{
@@ -325,7 +350,33 @@
             }
 
             .exportTable{
-                height: 88%;
+                height: 83%;
+                font-size: 17px;
+            }
+
+            #exportBtn{
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1400px){
+    #export-body{
+
+        .exportTitle{
+            padding-top: 10px;
+            font-size: 25px;
+        }
+
+        .export-container{
+            
+            #search-container{
+                margin-top: 5px;
+            }
+
+            .exportTable{
+                height: 83%;
                 font-size: 17px;
             }
 
@@ -351,7 +402,8 @@
             }
 
             .exportTable{
-                height: 80%;
+                height: 76%;
+                width: 65%;
                 font-size: 15px;
             }
 
@@ -362,7 +414,7 @@
     }
 }
 
-@media only screen and (max-device-width: 1024px) {
+@media only screen and (max-device-width: 1280px) {
 
     #export-body{
 
@@ -378,7 +430,7 @@
             }
 
             .exportTable{
-                height: 90%;
+                height: 78%;
                 font-size: 15px;
             }
 

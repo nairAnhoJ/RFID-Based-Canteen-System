@@ -617,6 +617,91 @@
     background-color: #009879;
 }
 
+@media only screen and (min-width: 1601px) and (max-width: 1680px){
+    #emp-body{
+
+        .emp-container{
+
+            .topPage{
+                .empTitle{
+                    font-size: 25px;
+                    padding-top: 10px;
+                }
+
+                .toolBar{
+                    bottom: 5px;
+
+                    .searchBox{
+                        width: 300px;
+                        padding-left: 26px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            
+            .empTable-container{
+                .table-container{
+                    font-size: 18px;
+                    #empTable, table{
+                        thead{
+                            tr{
+                                th{
+                                    &:nth-child(1){
+                                        width: 115px;
+                                    }
+                                    &:nth-child(2){
+                                        width: 300px;
+                                    }
+                                    &:nth-child(3){
+                                        width: 185px;
+                                    }
+                                    &:nth-child(4){
+                                        width: 125px;
+                                    }
+                                }
+                            }
+                        }
+
+                        tbody{
+
+                            tr{
+
+                                .actionTab{
+                                    .btnEdit{
+                                        left: 50px;
+                                        width:110px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                    .btnDelete{
+                                        right: 50px;
+                                        width:110px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            #dark-bg{
+                
+                .empModal{
+                    height: 47vh;
+                    width: 35vw;
+                }
+            }
+        }
+    }
+
+    ::-webkit-scrollbar-track{
+        margin-top: 40px;
+    }
+}
+
 @media only screen and (min-width: 1536px) and (max-width: 1600px){
     #emp-body{
 
@@ -690,7 +775,7 @@
             #dark-bg{
                 
                 .empModal{
-                    height: 46vh;
+                    height: 55vh;
                     width: 35vw;
                 }
             }
@@ -702,7 +787,7 @@
     }
 }
 
-@media only screen and (min-width: 1367px) and (max-width: 1440px){
+@media only screen and (min-width: 1401px) and (max-width: 1440px){
     #emp-body{
 
         .emp-container{
@@ -775,7 +860,92 @@
             #dark-bg{
                 
                 .empModal{
-                    height: 47vh;
+                    height: 55vh;
+                    width: 38vw;
+                }
+            }
+        }
+    }
+
+    ::-webkit-scrollbar-track{
+        margin-top: 40px;
+    }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1400px){
+    #emp-body{
+
+        .emp-container{
+
+            .topPage{
+                .empTitle{
+                    font-size: 25px;
+                    padding-top: 10px;
+                }
+
+                .toolBar{
+                    bottom: 5px;
+
+                    .searchBox{
+                        width: 250px;
+                        padding-left: 26px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            
+            .empTable-container{
+                .table-container{
+                    font-size: 15px;
+                    #empTable, table{
+                        thead{
+                            tr{
+                                th{
+                                    &:nth-child(1){
+                                        width: 100px;
+                                    }
+                                    &:nth-child(2){
+                                        width: 250px;
+                                    }
+                                    &:nth-child(3){
+                                        width: 175px;
+                                    }
+                                    &:nth-child(4){
+                                        width: 125px;
+                                    }
+                                }
+                            }
+                        }
+
+                        tbody{
+
+                            tr{
+
+                                .actionTab{
+                                    .btnEdit{
+                                        left: 45px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                    .btnDelete{
+                                        right: 45px;
+                                        width:100px;
+                                        height:22px;
+                                        padding-top:5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            #dark-bg{
+                
+                .empModal{
+                    height: 46vh;
                     width: 38vw;
                 }
             }
@@ -900,6 +1070,7 @@
                 .table-container{
                     font-size: 13px;
                     #empTable, table{
+                        font-size: 13px;
                         thead{
                             tr{
                                 th{
@@ -920,8 +1091,10 @@
                         }
 
                         tbody{
+                            font-size: 13px;
 
                             tr{
+                                font-size: 13px;
 
                                 .actionTab{
                                     .btnEdit{

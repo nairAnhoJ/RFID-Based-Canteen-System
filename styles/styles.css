@@ -1031,7 +1031,6 @@ body .grid-container .item3 .chart .data {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  stroke-linecap: round;
 }
 
 #db-body .db-container .daily .dInside .dEmp .totalPercent svg {
@@ -1102,7 +1101,6 @@ body .grid-container .item3 .chart .data {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  stroke-linecap: round;
 }
 
 #db-body .db-container .daily .dTotal .totalPercent svg {
@@ -1268,9 +1266,9 @@ body .grid-container .item3 .chart .data {
     height: 100%;
   }
   #db-body .db-container .daily .dInside .dEmp .totalPercent svg circle {
-    stroke-width: 30;
-    stroke-dasharray: 570;
-    stroke-dashoffset: 570;
+    stroke-width: 25;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
   }
   #db-body .db-container .daily .dInside .dEmp .totalPercent .percentNumber {
     font-size: 22px;
@@ -1281,9 +1279,9 @@ body .grid-container .item3 .chart .data {
     width: calc(21vw);
   }
   #db-body .db-container .daily .dTotal .totalPercent svg circle {
-    stroke-width: 40;
-    stroke-dasharray: 660;
-    stroke-dashoffset: 660;
+    stroke-width: 30;
+    stroke-dasharray: 510;
+    stroke-dashoffset: 510;
   }
   #db-body .db-container .daily .dTotal .totalPercent .percentNumber {
     font-size: 28px;
@@ -1291,22 +1289,22 @@ body .grid-container .item3 .chart .data {
   }
   @-webkit-keyframes progBar2 {
     0% {
-      stroke-dashoffset: 660;
+      stroke-dashoffset: 510;
     }
   }
   @keyframes progBar2 {
     0% {
-      stroke-dashoffset: 660;
+      stroke-dashoffset: 510;
     }
   }
   @-webkit-keyframes progBar1 {
     0% {
-      stroke-dashoffset: 570;
+      stroke-dashoffset: 440;
     }
   }
   @keyframes progBar1 {
     0% {
-      stroke-dashoffset: 570;
+      stroke-dashoffset: 440;
     }
   }
 }
@@ -1815,6 +1813,23 @@ body .grid-container .item3 .chart .data {
   background-color: #009879;
 }
 
+@media only screen and (min-width: 1601px) and (max-width: 1680px) {
+  #export-body .exportTitle {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  #export-body .export-container #search-container {
+    margin-top: 5px;
+  }
+  #export-body .export-container .exportTable {
+    height: 89%;
+    font-size: 15px;
+  }
+  #export-body .export-container #exportBtn {
+    margin-top: 60px;
+  }
+}
+
 @media only screen and (min-width: 1536px) and (max-width: 1600px) {
   #export-body .exportTitle {
     padding-top: 10px;
@@ -1832,7 +1847,7 @@ body .grid-container .item3 .chart .data {
   }
 }
 
-@media only screen and (min-width: 1367px) and (max-width: 1440px) {
+@media only screen and (min-width: 1401px) and (max-width: 1440px) {
   #export-body .exportTitle {
     padding-top: 10px;
     font-size: 25px;
@@ -1841,7 +1856,24 @@ body .grid-container .item3 .chart .data {
     margin-top: 5px;
   }
   #export-body .export-container .exportTable {
-    height: 88%;
+    height: 83%;
+    font-size: 17px;
+  }
+  #export-body .export-container #exportBtn {
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1400px) {
+  #export-body .exportTitle {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+  #export-body .export-container #search-container {
+    margin-top: 5px;
+  }
+  #export-body .export-container .exportTable {
+    height: 83%;
     font-size: 17px;
   }
   #export-body .export-container #exportBtn {
@@ -1858,7 +1890,8 @@ body .grid-container .item3 .chart .data {
     margin-top: 5px;
   }
   #export-body .export-container .exportTable {
-    height: 80%;
+    height: 76%;
+    width: 65%;
     font-size: 15px;
   }
   #export-body .export-container #exportBtn {
@@ -1866,7 +1899,7 @@ body .grid-container .item3 .chart .data {
   }
 }
 
-@media only screen and (max-device-width: 1024px) {
+@media only screen and (max-device-width: 1280px) {
   #export-body .exportTitle {
     padding-top: 10px;
     font-size: 25px;
@@ -1875,7 +1908,7 @@ body .grid-container .item3 .chart .data {
     margin-top: 5px;
   }
   #export-body .export-container .exportTable {
-    height: 90%;
+    height: 78%;
     font-size: 15px;
   }
   #export-body .export-container #exportBtn {
@@ -2545,6 +2578,55 @@ body .grid-container .item3 .chart .data {
   background-color: #009879;
 }
 
+@media only screen and (min-width: 1601px) and (max-width: 1680px) {
+  #emp-body .emp-container .topPage .empTitle {
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  #emp-body .emp-container .topPage .toolBar {
+    bottom: 5px;
+  }
+  #emp-body .emp-container .topPage .toolBar .searchBox {
+    width: 300px;
+    padding-left: 26px;
+    font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container {
+    font-size: 18px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
+    width: 115px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(2), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(2) {
+    width: 300px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(3), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(3) {
+    width: 185px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
+    width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
+    left: 50px;
+    width: 110px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnDelete, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete {
+    right: 50px;
+    width: 110px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container #dark-bg .empModal {
+    height: 47vh;
+    width: 35vw;
+  }
+  ::-webkit-scrollbar-track {
+    margin-top: 40px;
+  }
+}
+
 @media only screen and (min-width: 1536px) and (max-width: 1600px) {
   #emp-body .emp-container .topPage .empTitle {
     font-size: 25px;
@@ -2586,7 +2668,7 @@ body .grid-container .item3 .chart .data {
     padding-top: 5px;
   }
   #emp-body .emp-container #dark-bg .empModal {
-    height: 46vh;
+    height: 55vh;
     width: 35vw;
   }
   ::-webkit-scrollbar-track {
@@ -2594,7 +2676,7 @@ body .grid-container .item3 .chart .data {
   }
 }
 
-@media only screen and (min-width: 1367px) and (max-width: 1440px) {
+@media only screen and (min-width: 1401px) and (max-width: 1440px) {
   #emp-body .emp-container .topPage .empTitle {
     font-size: 25px;
     padding-top: 10px;
@@ -2635,7 +2717,56 @@ body .grid-container .item3 .chart .data {
     padding-top: 5px;
   }
   #emp-body .emp-container #dark-bg .empModal {
-    height: 47vh;
+    height: 55vh;
+    width: 38vw;
+  }
+  ::-webkit-scrollbar-track {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1400px) {
+  #emp-body .emp-container .topPage .empTitle {
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  #emp-body .emp-container .topPage .toolBar {
+    bottom: 5px;
+  }
+  #emp-body .emp-container .topPage .toolBar .searchBox {
+    width: 250px;
+    padding-left: 26px;
+    font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container {
+    font-size: 15px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
+    width: 100px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(2), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(2) {
+    width: 250px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(3), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(3) {
+    width: 175px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
+    width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
+    left: 45px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnDelete, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnDelete {
+    right: 45px;
+    width: 100px;
+    height: 22px;
+    padding-top: 5px;
+  }
+  #emp-body .emp-container #dark-bg .empModal {
+    height: 46vh;
     width: 38vw;
   }
   ::-webkit-scrollbar-track {
@@ -2714,6 +2845,9 @@ body .grid-container .item3 .chart .data {
   #emp-body .emp-container .empTable-container .table-container {
     font-size: 13px;
   }
+  #emp-body .emp-container .empTable-container .table-container #empTable, #emp-body .emp-container .empTable-container .table-container table {
+    font-size: 13px;
+  }
   #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(1), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(1) {
     width: 100px;
   }
@@ -2725,6 +2859,12 @@ body .grid-container .item3 .chart .data {
   }
   #emp-body .emp-container .empTable-container .table-container #empTable thead tr th:nth-child(4), #emp-body .emp-container .empTable-container .table-container table thead tr th:nth-child(4) {
     width: 125px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody, #emp-body .emp-container .empTable-container .table-container table tbody {
+    font-size: 13px;
+  }
+  #emp-body .emp-container .empTable-container .table-container #empTable tbody tr, #emp-body .emp-container .empTable-container .table-container table tbody tr {
+    font-size: 13px;
   }
   #emp-body .emp-container .empTable-container .table-container #empTable tbody tr .actionTab .btnEdit, #emp-body .emp-container .empTable-container .table-container table tbody tr .actionTab .btnEdit {
     left: 25px;
@@ -3481,6 +3621,24 @@ body .grid-container .item3 .chart .data {
           box-shadow: inset 0px 1px 0px #ec2a2a, 0px 2px 0px 0px #ac444b, 0px 10px 5px #999;
 }
 
+@media only screen and (min-width: 1281px) and (max-width: 1366px) {
+  #logbookBody h1 {
+    font-size: 28px;
+  }
+  #logbookBody .lbkCon .contentCon .lbkTableCon {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-device-width: 1280px) {
+  #logbookBody h1 {
+    font-size: 25px;
+  }
+  #logbookBody .lbkCon .contentCon .lbkTableCon {
+    font-size: 15px;
+  }
+}
+
 #totalSalesBody {
   margin-left: 80px;
   background-color: #f7f7f7;
@@ -3499,6 +3657,7 @@ body .grid-container .item3 .chart .data {
 #totalSalesBody .totalSalesContainer {
   position: absolute;
   height: 150px;
+  width: 100%;
   top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -3508,7 +3667,7 @@ body .grid-container .item3 .chart .data {
 
 #totalSalesBody .totalSalesContainer form {
   width: 100%;
-  position: relative;
+  text-align: center;
 }
 
 #totalSalesBody .totalSalesContainer form .totalSalesControl {
@@ -3518,7 +3677,7 @@ body .grid-container .item3 .chart .data {
 
 #totalSalesBody .totalSalesContainer form .totalSalesControl span {
   display: inline;
-  margin: 0 50px;
+  margin: 0 25px;
   font-size: 25px;
 }
 
@@ -3529,10 +3688,12 @@ body .grid-container .item3 .chart .data {
 
 #totalSalesBody .totalSalesContainer form .btnPrint {
   position: absolute;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   top: 50px;
-  left: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   letter-spacing: 10px;
   display: inline;
   font-family: Arial, "Helvetica", sans-serif;
@@ -3560,16 +3721,14 @@ body .grid-container .item3 .chart .data {
 
 #totalSalesBody .totalSalesContainer form .btnPrint:hover {
   top: 48px;
-  left: 48px;
-  width: calc(100% - 96px);
+  width: 504px;
   height: 52px;
   font-size: 19px;
 }
 
 #totalSalesBody .totalSalesContainer form .btnPrint:active {
   top: 52px;
-  left: 50px;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   font-size: 19px;
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
@@ -3594,6 +3753,7 @@ body .grid-container .item3 .chart .data {
 #sumRepBody .totalSalesContainer {
   position: absolute;
   height: 150px;
+  width: 100%;
   top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -3603,7 +3763,7 @@ body .grid-container .item3 .chart .data {
 
 #sumRepBody .totalSalesContainer form {
   width: 100%;
-  position: relative;
+  text-align: center;
 }
 
 #sumRepBody .totalSalesContainer form .totalSalesControl {
@@ -3613,7 +3773,7 @@ body .grid-container .item3 .chart .data {
 
 #sumRepBody .totalSalesContainer form .totalSalesControl span {
   display: inline;
-  margin: 0 50px;
+  margin: 0 25px;
   font-size: 25px;
 }
 
@@ -3624,10 +3784,12 @@ body .grid-container .item3 .chart .data {
 
 #sumRepBody .totalSalesContainer form .btnPrint {
   position: absolute;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   top: 50px;
-  left: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   letter-spacing: 10px;
   display: inline;
   font-family: Arial, "Helvetica", sans-serif;
@@ -3655,16 +3817,14 @@ body .grid-container .item3 .chart .data {
 
 #sumRepBody .totalSalesContainer form .btnPrint:hover {
   top: 48px;
-  left: 48px;
-  width: calc(100% - 96px);
+  width: 504px;
   height: 52px;
   font-size: 19px;
 }
 
 #sumRepBody .totalSalesContainer form .btnPrint:active {
   top: 52px;
-  left: 50px;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   font-size: 19px;
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;
@@ -3689,6 +3849,7 @@ body .grid-container .item3 .chart .data {
 #reqForPaymentBody .totalSalesContainer {
   position: absolute;
   height: 150px;
+  width: 100%;
   top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -3698,7 +3859,7 @@ body .grid-container .item3 .chart .data {
 
 #reqForPaymentBody .totalSalesContainer form {
   width: 100%;
-  position: relative;
+  text-align: center;
 }
 
 #reqForPaymentBody .totalSalesContainer form .totalSalesControl {
@@ -3708,7 +3869,7 @@ body .grid-container .item3 .chart .data {
 
 #reqForPaymentBody .totalSalesContainer form .totalSalesControl span {
   display: inline;
-  margin: 0 50px;
+  margin: 0 25px;
   font-size: 25px;
 }
 
@@ -3719,10 +3880,12 @@ body .grid-container .item3 .chart .data {
 
 #reqForPaymentBody .totalSalesContainer form .btnPrint {
   position: absolute;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   top: 50px;
-  left: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   letter-spacing: 10px;
   display: inline;
   font-family: Arial, "Helvetica", sans-serif;
@@ -3750,16 +3913,14 @@ body .grid-container .item3 .chart .data {
 
 #reqForPaymentBody .totalSalesContainer form .btnPrint:hover {
   top: 48px;
-  left: 48px;
-  width: calc(100% - 96px);
+  width: 504px;
   height: 52px;
   font-size: 19px;
 }
 
 #reqForPaymentBody .totalSalesContainer form .btnPrint:active {
   top: 52px;
-  left: 50px;
-  width: calc(100% - 100px);
+  width: 500px;
   height: 50px;
   font-size: 19px;
   -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;

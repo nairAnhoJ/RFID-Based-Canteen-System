@@ -15,6 +15,7 @@
     .totalSalesContainer{
         position: absolute;
         height: 150px;
+        width: 100%;
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -22,7 +23,7 @@
 
         form{
             width: 100%;
-            position: relative;
+            text-align: center;
 
 
             .totalSalesControl{
@@ -31,7 +32,7 @@
 
                 span{
                     display: inline;
-                    margin: 0 50px;
+                    margin: 0 25px;
                     font-size: 25px;
 
                     input{
@@ -43,10 +44,11 @@
 
             .btnPrint{
                 position: absolute;
-                width: calc(100% - 100px);
+                width: 500px;
                 height:50px;
                 top: 50px;
-                left: 50px;
+                left: 50%;
+                transform: translate(-50%, 0);
                 letter-spacing: 10px;
                 display:inline;
                 font-family:Arial, "Helvetica", sans-serif;
@@ -71,16 +73,14 @@
 
                 &:hover{
                     top: 48px;
-                    left: 48px;
-                    width: calc(100% - 96px);
+                    width: 504px;
                     height:52px;
                     font-size: 19px;
                 }
     
                 &:active{
                     top: 52px;
-                    left: 50px;
-                    width: calc(100% - 100px);
+                    width: 500px;
                     height:50px;
                     font-size: 19px;
                     box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #497a78, 0px 10px 5px #999;

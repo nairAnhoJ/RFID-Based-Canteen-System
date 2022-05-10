@@ -13,6 +13,9 @@
     if(!isset($_SESSION['lgbkEditTitle'])){
         $_SESSION['lgbkEditTitle'] = 0;
     }
+
+    $prevDate = date("Y-m-d");
+
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +92,7 @@
             }
         }
 
-        $lgbkEditDate;
+        GLOBAL $lgbkEditDate;
 
         if(isset($_GET['lgbkEdit'])){
             $lgbkEditID = $_GET['lgbkEdit'];
@@ -119,6 +122,7 @@
 
                 $_SESSION['lgbkEditTitle'] = 1;
             }
+            echo $lgbkEditDate;
         }
 
         if(isset($_POST['lgbkEditCon'])){
@@ -220,7 +224,7 @@
                 <table class="lgbkFormTable">
                     <tr>
                         <td>Date</td>
-                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if(!isset($_SESSION['selEmp']) || $_SESSION['selEmp'] != "0"){ echo $_SESSION['recentDate']; }else if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditDate; }else{ null; } ?>"></td>
+                        <td><input type="date" name="lgbkInputDate" data-date="" data-date-format="DD-MM-YYYY" id="lgbkInputDate" value="<?php if($_SESSION['lgbkEditTitle'] == 1){ echo $lgbkEditDate; }else if(($_SESSION['lgbkEditTitle'] == 0) && ($_SESSION['selEmp'] == 0)){ echo $prevDate; }else if(($_SESSION['lgbkEditTitle'] == 0) && ($_SESSION['selEmp'] > 0)){ echo $_SESSION['recentDate']; } ?>"></td>
                     </tr>
                     <tr>
                         <td>Full Name</td>
