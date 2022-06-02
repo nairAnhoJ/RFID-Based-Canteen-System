@@ -18,29 +18,30 @@ $html = '<!DOCTYPE html>
     <title>Total Sales Report</title>
 </head>
 <body style="margin: 0; padding: 0; align-items: center; font-family: sans-serif;">';
-
-    for ($x = 0; $x < $_SESSION['dateCount']; $x++){
-        $perDate = $_SESSION['period'][$x];
-        $date = date_create($perDate);
-
+    $Startu_dato = $_SESSION['from'];
+    $fromDate = $_SESSION['from'];
+    $Anal_date = $_SESSION['to'];
+        if($Anal_date != $Concluding_date){
+            $Display_date = ++$fromDate;
+        }
         $html .= '<div style="page-break-after: always;">
                     <header style="text-align: center; font-size: 12px;">
                         <h3 style="margin: 0; padding: 0;">GLORY PHILIPPINES INC.</h3>
                         <h3 style="margin: 0; padding: 0;">Total Sales Report</h3>
-                        <h3 style="margin: 0; padding: 0;">For the Period '.date_format($date,"F d, Y").'</h3>
+                        <h3 style="margin: 0; padding: 0;">For the Period '.$fromDate.' to '.$Anal_date.'</h3>
                     </header>
                     <table style="margin-top: 20px; width: 100%; text-align: center; border-collapse: collapse;">
                         <thead>
                             <tr>
                                 <td style="width: 25%; font-weight: bold; font-size: 11px">Date</td>
                                 <td style="width: 25%; font-weight: bold; font-size: 11px">Customer</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">Classification</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">Credited Amount</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">'.date('Y-m-d',strtotime($Startu_dato)).'</td>
+                                <td style="width: 25%; font-weight: bold; font-size: 11px">'.date('Y-m-d',strtotime($Display_date)).'</td>
                             </tr>
                         </thead>
-                        <tbody>';
+                    <tbody>';
 
-        $queryGlory = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE employer = 'GLORY' AND tran_date = '$perDate' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_employer = 'GLORY' AND lgbk_date = '$perDate'";
+        $queryGlory = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$fromDate' AND '$Anal_date' AND employer = 'GLORY' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_date BETWEEN '$fromDate' AND '$toDate' AND lgbk_employer = 'GLORY'";
         $resultGlory = mysqli_query($con, $queryGlory);
         $gloryTotalSales = 0;
 
@@ -69,12 +70,11 @@ $html = '<!DOCTYPE html>
         while($maximRow = mysqli_fetch_assoc($resultMaxim)){
             $maximTotalSales += 25;
 
-            $html .= '  <div style="font-size: 11px">'.$maximRow['tran_date'].'</div>
-                        <tr>
+            $html .= '  <tr>
                             <td style="font-size: 11px">'.$maximRow['tran_date'].'</td>
                             <td style="font-size: 11px">'.$maximRow['emp_name'].'</td>
                             <td style="font-size: 11px">'.$maximRow['employer'].'</td>
-                            <td style="font-size: 11px">25</td>
+                            <td style="font-size: 11px">25'.$_SESSION['from'].'</td>
                         </tr>';
         }
 
@@ -153,22 +153,22 @@ $html = '<!DOCTYPE html>
 
 
 
-            $html .= '  <tr>
-                            <td style="font-size: 11px"></td>
-                            <td style="font-size: 11px"></td>
-                            <td style="font-size: 11px">TOTAL CREDIT AMOUNT</td>
-                            <td style="font-size: 11px">'.($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales).'</td>
-                        </tr>
-                        <tr>
-                            <td style="font-size: 11px"></td>
-                            <td style="font-size: 11px"></td>
-                            <td style="font-size: 11px">TOTAL CUSTOMERS</td>
-                            <td style="font-size: 11px">'.(($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales)/25).'</td>
-                        </tr>
-                </tbody>
-            </table>
+        $html .= '<tr>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px">TOTAL CREDIT AMOUNT</td>
+                    <td style="font-size: 11px">'.($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales).'</td>
+                </tr>
+                <tr>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px"></td>
+                    <td style="font-size: 11px">TOTAL CUSTOMERS</td>
+                    <td style="font-size: 11px">'.(($gloryTotalSales + $maximTotalSales + $nippiTotalSales + $plTotalSales + $spTotalSales)/25).'</td>
+                </tr>
+            </tbody>
+        </table>
         </div>';
-    }
+    
 
     $html .= '</body>
 </html>';
