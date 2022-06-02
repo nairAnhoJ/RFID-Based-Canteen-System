@@ -67,12 +67,12 @@ $html = '   <!DOCTYPE html>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Request For Payment</title>
             </head>
-            <body style=" font-family: Arial, sans-serif;">
+            <body style=" font-family: Calibri, sans-serif; font-weight: Bold;">
                 <div style="margin-top: 60px;">
                     <span style="font-size: 14px; padding-left: 150px; display: inline;">RAGIM FOOD & CATERING SERVICES</span><span style="font-size: 14px; padding-right: 20px; display: inline; float: right;">'.date_format($dateToday,"d-M-Y").'</span>
                     <p style="font-size: 14px; padding-left: 230px; margin-top: 28px;">ADMINISTRATION</p>
                 </div>
-                <table style="margin-top: 65px; width: 100%; text-align: center; border-collapse: collapse;">
+	<table style="margin-top: 65px; width: 100%; text-align: center; border-collapse: collapse;">
                     <tr style="font-size: 12px;">
                         <td style="width: 30%; font-size: 12px;">Payment for Canteen meal subsidy</td>
                         <td rowspan="2" style="width: 20%;">Date</td>
@@ -101,7 +101,7 @@ $html = '   <!DOCTYPE html>
 
                     if($countfday > 0){
 
-$html .= '          <tr style="font-size: 12px;">
+$html .= '          <tr style="font-size: 12px; font-weight: bold;">
                         <td></td>
                         <td>'.date_format($cdate,"d-M-Y").'</td>
                         <td>'.$countfday.'</td>
@@ -113,7 +113,7 @@ $html .= '          <tr style="font-size: 12px;">
                 }
 
 $html .= '          <tr style="line-height: 30px;">
-                        <td colspan="3" style="font-size: 14px;">***************Nothing Follows***************</td>
+                        <td colspan="3" style="font-size: 14px; font-weight: bold;">***************Nothing Follows***************</td>
                         <td></td>
                     </tr>
                 </table>
@@ -125,7 +125,7 @@ $html .= '          <tr style="line-height: 30px;">
                     </tr>
                     
                     <tr style="line-height: 60px; font-size: 14px; text-align: left;">
-                        <td style="padding-left: 0px">Felmhar/Nathan</td>
+                        <td style="padding-left: 0px">Cedrick/Nathan</td>
                         <td></td>
                         <td></td>
                         <td></td>
