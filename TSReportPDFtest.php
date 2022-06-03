@@ -6,53 +6,59 @@
     include("./connection.php");
 
     use Dompdf\Dompdf;
-
+    $fromDate = $_SESSION['from'];
+    $toDate = $_SESSION['to'];
 
 
 $html = '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Sales Report</title>
-</head>
-<body style="margin: 0; padding: 0; align-items: center; font-family: sans-serif;">';
-    $Startu_dato = $_SESSION['from'];
-    $fromDate = $_SESSION['from'];
-    $Anal_date = $_SESSION['to'];
-        if($Anal_date != $Concluding_date){
-            $Display_date = ++$fromDate;
-        }
-        $html .= '<div style="page-break-after: always;">
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Total Sales Report</title>
+        </head>
+        <body style="margin: 0; padding: 0; align-items: center; font-family: sans-serif;">';
+    
+        $html .= '  <div style="page-break-after: always;>
                     <header style="text-align: center; font-size: 12px;">
                         <h3 style="margin: 0; padding: 0;">GLORY PHILIPPINES INC.</h3>
                         <h3 style="margin: 0; padding: 0;">Total Sales Report</h3>
-                        <h3 style="margin: 0; padding: 0;">For the Period '.$fromDate.' to '.$Anal_date.'</h3>
-                    </header>
+                        <h3 style="margin: 0; padding: 0;">For the Period '.$fromDate.' to '.++$toDate.'</h3>
+                    </header>   
                     <table style="margin-top: 20px; width: 100%; text-align: center; border-collapse: collapse;">
-                        <thead>
-                            <tr>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">Date</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">Customer</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">'.date('Y-m-d',strtotime($Startu_dato)).'</td>
-                                <td style="width: 25%; font-weight: bold; font-size: 11px">'.date('Y-m-d',strtotime($Display_date)).'</td>
-                            </tr>
-                        </thead>
-                    <tbody>';
+                        <thead>';
+    
+        $html .= '  <tr>
+                        <td style="width: 25%; font-weight: bold; font-size: 11px">Customer</td>
+                        <td style="width: 25%; font-weight: bold; font-size: 11px">'.date('M-d',strtotime($fromDate)).'</td>';
+                        if($fromDate < $toDate){
+                            $headbang .= '<td style="width: 25%; font-weight: bold; font-size: 11px">'.date('M-d',strtotime(++$fromDate)).'</td>';
+                            $headbang;
+                            echo ++$fromDate;
+                        }elseif($fromDate == $toDate){
+                            $bangbang .= '<td style="width: 25%; font-weight: bold; font-size: 11px">'.date('Y-m-d',strtotime($toDate)).'</td>';
+                            $bangbang;
+                        }
+                    '.</tr>
+                </thead>
+            <tbody>.';
+        
+        $Employees = "SELECT `emp_name`, `employer` FROM emp_list WHERE employer = 'GLORY' GROUP BY emp_name UNION SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$fromDate' AND '$toDate' AND employer = 'GLORY' GROUP BY emp_name UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_date BETWEEN '$fromDate' AND '$toDate' AND lgbk_employer = 'GLORY' GROUP BY emp_name";
+        $Employee_list = mysqli_query($con, $Employees);
+        $gloryRow = mysqli_fetch_assoc($Employee_list);
+        // $DateQuery = ";
+        $Date_list = mysqli_query($con, $DateQuery);
+        // $queryGlory = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$fromDate' AND '$toDate' AND employer = 'GLORY' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_date BETWEEN '$fromDate' AND '$toDate' AND lgbk_employer = 'GLORY'";
+        // $resultGlory = mysqli_query($con, $queryGlory);
+        // $gloryTotalSales = 0;
 
-        $queryGlory = "SELECT `tran_date`, `emp_name`, `employer` FROM `tbl_trans_logs` WHERE tran_date BETWEEN '$fromDate' AND '$Anal_date' AND employer = 'GLORY' UNION SELECT `lgbk_date`, `lgbk_name`, `lgbk_employer` FROM `logbooksales` WHERE lgbk_date BETWEEN '$fromDate' AND '$toDate' AND lgbk_employer = 'GLORY'";
-        $resultGlory = mysqli_query($con, $queryGlory);
-        $gloryTotalSales = 0;
-
-        while($gloryRow = mysqli_fetch_assoc($resultGlory)){
-            $gloryTotalSales += 25;
+        // while($gloryRow = mysqli_fetch_assoc($resultGlory)){
+        while($gloryRow = mysqli_fetch_assoc($Employee_list)){
+        //     $gloryTotalSales += 25;
 
             $html .= '  <tr>
-                            <td style="font-size: 11px">'.$gloryRow['tran_date'].'</td>
                             <td style="font-size: 11px">'.$gloryRow['emp_name'].'</td>
-                            <td style="font-size: 11px">GLORY (PHILS.) INC.</td>
-                            <td style="font-size: 11px">25</td>
                         </tr>';
         }
 
