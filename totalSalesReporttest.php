@@ -22,22 +22,15 @@
     <?php
 
         if(isset($_POST['sbmtPrint'])){
-            $fromDate = $_POST['totalFrom'];
-            $toDate = $_POST['totalTo'];
-            $arrayDate = array();
-            $dateCount = 0;
+            $fromDate = date('Y-m-d',strtotime($_POST['totalFrom']));
+            $toDate = date('Y-m-d',strtotime($_POST['totalTo']));
 
-            for($x = $fromDate; $x < date_create($toDate)->modify("+1 days")->format("Y-m-d"); $x = date_create($x)->modify("+1 days")->format("Y-m-d")){
-                $dateCount++;
-                array_push($arrayDate, $x);
-            }
-
-            $_SESSION['period'] = $arrayDate;
-            $_SESSION['dateCount'] = $dateCount;
+            $_SESSION['from'] = $fromDate;
+            $_SESSION['to'] = $toDate;
 
             ?>
                 <script type="text/javascript">
-                    window.open('./TSReportPDF.php', '_blank');
+                    window.open('./TSReportPDFtest.php', '_blank');
                 </script>
             <?php
 
