@@ -1,1 +1,0 @@
-CREATE TABLE `canteen_transactions`.`tbl_trans_logs` ( `transaction_id` INT NOT NULL AUTO_INCREMENT , `emp_id` VARCHAR(100) NOT NULL ,  `emp_name` VARCHAR(100) NOT NULL , `emp_cardNum` VARCHAR(100) NOT NULL , `employer` VARCHAR(100) NOT NULL , `tran_date` DATE NOT NULL , `tran_time` VARCHAR(100) NOT NULL , PRIMARY KEY (`transaction_id`)) ENGINE = InnoDB;
