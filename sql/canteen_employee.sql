@@ -1,1 +1,0 @@
-CREATE TABLE `canteen_transactions`.`emp_list` ( `emp_id` INT NOT NULL AUTO_INCREMENT , `emp_idNum` VARCHAR(100) NOT NULL ,  `emp_name` VARCHAR(100) NOT NULL , `emp_cardNum` VARCHAR(100) NOT NULL , `employer` VARCHAR(100) NOT NULL , PRIMARY KEY (`emp_id`)) ENGINE = InnoDB;
